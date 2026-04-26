@@ -1,4 +1,5 @@
 ﻿using System;
+using MajSimai;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 #nullable enable
@@ -301,8 +302,8 @@ public class TouchDrop : NoteBase
         }
         if (GroupInfo is not null && judgeResult != JudgeType.Miss)
             GroupInfo.JudgeResult = judgeResult;
-        objectCounter.ReportResult(this, judgeResult, isBreak);
-        objectCounter.NextTouch(sensor.Type);
+        objectCounter.ReportResult(SimaiNoteType.Touch, judgeResult, isBreak);
+        noteManager.NextTouch(sensor.Type);
 
         if (isFirework && judgeResult != JudgeType.Miss)
         {

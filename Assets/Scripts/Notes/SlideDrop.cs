@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MajSimai;
 using UnityEngine;
 using static UnityEngine.Networking.UnityWebRequest;
 #nullable enable
@@ -714,7 +715,7 @@ public class SlideDrop : NoteLongBase, ICanShine
                 audioManager.PlayBreakSlideEndSound();
             }
             // 只有组内最后一个Slide完成 才会显示判定条并增加总数
-            objectCounter.ReportResult(this, judgeResult, isBreak);
+            objectCounter.ReportResult(SimaiNoteType.Slide, judgeResult, isBreak);
             if (isBreak && judgeResult == JudgeType.Perfect)
                 slideOK.GetComponent<Animator>().runtimeAnimatorController = skinManager.Shine_JudgeBreak;
             if (!EffectManager.showLevel) slideOK.GetComponent<SpriteRenderer>().sprite =

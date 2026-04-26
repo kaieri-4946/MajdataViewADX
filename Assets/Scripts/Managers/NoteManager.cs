@@ -18,6 +18,8 @@ public class NoteManager : MonoBehaviour
     
     public void AddNote(GameObject obj,int index) => noteOrder.Add(obj, index);
     public void AddTouch(GameObject obj,int index) => touchOrder.Add(obj, index);
+    public void NextNote(int pos) => noteIndex[pos]++;
+    public void NextTouch(SensorArea pos) => touchIndex[pos]++;
     
     public void Refresh()
     {

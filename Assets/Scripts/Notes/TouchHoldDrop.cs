@@ -1,4 +1,5 @@
 ﻿using System;
+using MajSimai;
 using UnityEngine;
 #nullable enable
 public class TouchHoldDrop : NoteLongBase
@@ -120,7 +121,7 @@ public class TouchHoldDrop : NoteLongBase
             if (isJudged)
             {
                 inputManager.UnbindSensor(Check, sensor);
-                objectCounter.NextTouch(GetSensor());
+                noteManager.NextTouch(GetSensor());
             }
         }
     }
@@ -178,7 +179,7 @@ public class TouchHoldDrop : NoteLongBase
             {
                 case AutoPlayMode.Enable:
                     if (!isJudged)
-                        objectCounter.NextTouch(GetSensor());
+                        noteManager.NextTouch(GetSensor());
 
                     if (isMine)
                         judgeResult = JudgeType.Miss;
@@ -197,7 +198,7 @@ public class TouchHoldDrop : NoteLongBase
                 case AutoPlayMode.Random:
                     if (!isJudged)
                     {
-                        objectCounter.NextTouch(GetSensor());
+                        noteManager.NextTouch(GetSensor());
                         if (isMine)
                         {
                             if (judgeResult > JudgeType.Perfect) //Fast
@@ -259,7 +260,7 @@ public class TouchHoldDrop : NoteLongBase
             judgeResult = JudgeType.Miss;
             inputManager.UnbindSensor(Check, sensor);
             isJudged = true;
-            objectCounter.NextTouch(GetSensor());
+            noteManager.NextTouch(GetSensor());
         }
     }
     // Update is called once per frame
@@ -362,9 +363,9 @@ public class TouchHoldDrop : NoteLongBase
         }
 
         print($"TouchHold: {MathF.Round(percent * 100, 2)}%\nTotal Len : {MathF.Round(realityHT * 1000, 2)}ms");
-        objectCounter.ReportResult(this, result, isBreak);
+        objectCounter.ReportResult(SimaiNoteType.TouchHold, result, isBreak);
         if (!isJudged)
-            objectCounter.NextTouch(GetSensor());
+            noteManager.NextTouch(GetSensor());
         if (isFirework && result != JudgeType.Miss)
         {
             fireworkEffect.SetTrigger("Fire");

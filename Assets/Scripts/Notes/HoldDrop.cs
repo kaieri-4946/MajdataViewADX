@@ -1,4 +1,5 @@
 ﻿using System;
+using MajSimai;
 using UnityEngine;
 #nullable enable
 public class HoldDrop : NoteLongBase
@@ -108,7 +109,7 @@ public class HoldDrop : NoteLongBase
             {
                 case AutoPlayMode.Enable:
                     if(!isJudged)
-                        objectCounter.NextNote(startPosition);
+                        noteManager.NextNote(startPosition);
 
                     if (isMine)
                         judgeResult = JudgeType.Miss;
@@ -127,7 +128,7 @@ public class HoldDrop : NoteLongBase
                 case AutoPlayMode.Random:
                     if (!isJudged)
                     {
-                        objectCounter.NextNote(startPosition);
+                        noteManager.NextNote(startPosition);
                         judgeResult = (JudgeType)UnityEngine.Random.Range(1, 14);
                         if (isMine)
                         {
@@ -179,7 +180,7 @@ public class HoldDrop : NoteLongBase
             judgeDiff = 150;
             judgeResult = JudgeType.Miss;
             isJudged = true;
-            objectCounter.NextNote(startPosition);
+            noteManager.NextNote(startPosition);
         }
     }
     void Check(object sender, InputEventArgs arg)
@@ -201,7 +202,7 @@ public class HoldDrop : NoteLongBase
             if (isJudged)
             {
                 inputManager.UnbindArea(Check, sensor);
-                objectCounter.NextNote(startPosition);
+                noteManager.NextNote(startPosition);
             }
         }
     }
@@ -412,9 +413,9 @@ public class HoldDrop : NoteLongBase
         PlaySFX();
         print($"Hold: {MathF.Round(percent * 100,2)}%\nTotal Len : {MathF.Round(realityHT * 1000,2)}ms");
 
-        objectCounter.ReportResult(this, result, isBreak);
+        objectCounter.ReportResult(SimaiNoteType.Hold, result, isBreak);
         if (!isJudged)
-            objectCounter.NextNote(startPosition);
+            noteManager.NextNote(startPosition);
 
         inputManager.SetSensorOff(sensor, guid);
         inputManager.UnbindArea(Check, sensor);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using MajSimai;
 using UnityEditor;
 using UnityEngine;
 using static UnityEngine.Networking.UnityWebRequest;
@@ -567,7 +568,7 @@ public class WifiDrop : NoteLongBase, ICanShine
         {
             audioManager.PlayBreakSlideEndSound();
         }
-        objectCounter.ReportResult(this, judgeResult, isBreak);
+        objectCounter.ReportResult(SimaiNoteType.Slide, judgeResult, isBreak);
         if (isBreak && judgeResult == JudgeType.Perfect)
             slideOK.GetComponent<Animator>().runtimeAnimatorController = skinManager.Shine_JudgeBreak;
         if (!EffectManager.showLevel) slideOK.GetComponent<SpriteRenderer>().sprite = 

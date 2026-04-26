@@ -1,4 +1,5 @@
 ﻿using System;
+using MajSimai;
 using UnityEngine;
 #nullable enable
 
@@ -233,8 +234,8 @@ public class TapBase : NoteBase
         effectManager.PlayEffect(startPosition, isBreak, judgeResult);
         effectManager.PlayFastLate(startPosition, judgeResult);
         audioManager.PlayTapSound(judgeResult, isEx, isBreak);
-        objectCounter.NextNote(startPosition);
-        objectCounter.ReportResult(this, judgeResult, isBreak);
+        noteManager.NextNote(startPosition);
+        objectCounter.ReportResult(SimaiNoteType.Tap, judgeResult, isBreak);
         inputManager.UnbindArea(Check, sensor);
     }
 }

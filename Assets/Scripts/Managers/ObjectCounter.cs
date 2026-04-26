@@ -30,6 +30,7 @@ public class ObjectCounter : MonoBehaviour
     public int slideSum;
     public int touchSum;
     public int breakSum;
+    
     private Text rate;
     private Text statusAchievement;
 
@@ -212,17 +213,11 @@ public class ObjectCounter : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        UpdateState();
-        UpdateOutput();
-    }
-
-    private void UpdateOutput()
-    {
         UpdateMainOutput();
-        UpdateJudgeResult();
-        if (FiSumScore() == 0) return;
+        //if (FiSumScore() == 0) return;
         UpdateSideOutput();
     }
+
     NoteScore GetNoteScoreSum()
     {
         Dictionary<JudgeType, int> collection = null;
@@ -371,26 +366,9 @@ public class ObjectCounter : MonoBehaviour
             LostExtraScoreClassic = lostExtraScoreClassic
         };
     }
-    void CalAccRate()
+    public void ReportResult(SimaiNoteType type, JudgeType result, bool isBreak = false)
     {
-        long totalScore = 0;
-        long totalExtraScore = 0;
-
-        var currentNoteScore = GetNoteScoreSum();
-
-        totalScore = (tapSum + touchSum) * 500 + holdSum * 1000 + slideSum * 1500 + breakSum * 2500;
-        totalExtraScore = breakSum * 100;
-
-        accRate[0] = ((currentNoteScore.TotalScore + currentNoteScore.TotalExtraScoreClassic) / (double)totalScore) * 100;
-        accRate[1] = ((totalScore + currentNoteScore.TotalExtraScoreClassic - currentNoteScore.LostScore) / (double)totalScore) * 100;
-        accRate[2] = ((totalScore - currentNoteScore.LostScore) / (double)totalScore) * 100 + ((totalExtraScore - currentNoteScore.LostExtraScore) / (double)totalExtraScore);
-        accRate[3] = ((totalScore - currentNoteScore.LostScore) / (double)totalScore) * 100 + (currentNoteScore.TotalExtraScore / (double)totalExtraScore);
-        accRate[4] = (currentNoteScore.TotalScore / (double)totalScore) * 100 + (currentNoteScore.TotalExtraScore / (double)totalExtraScore);
-    }
-    internal void ReportResult(NoteBase note, JudgeType result,bool isBreak = false)
-    {
-        var noteType = GetNoteType(note);
-        switch(noteType)
+        switch(type)
         {
             case SimaiNoteType.Tap:
                 if (isBreak)
@@ -485,86 +463,45 @@ public class ObjectCounter : MonoBehaviour
                 goodCount++;
                 break;
         }
-        CalAccRate();
     }
-    internal void NextNote(int pos) => notes.noteIndex[pos]++;
-    internal void NextTouch(SensorArea pos) => notes.touchIndex[pos]++;
-    SimaiNoteType GetNoteType(NoteBase note) => note switch
-    {
-        TapDrop => SimaiNoteType.Tap,
-        StarDrop => SimaiNoteType.Tap,
-        HoldDrop => SimaiNoteType.Hold,
-        SlideDrop => SimaiNoteType.Slide,
-        WifiDrop => SimaiNoteType.Slide,
-        TouchHoldDrop => SimaiNoteType.TouchHold,
-        TouchDrop => SimaiNoteType.Touch,
-        _ => throw new InvalidOperationException()
-    };
     private void UpdateMainOutput()
     {
-        //var comboValue = tapCount + holdCount + slideCount + touchCount + breakCount;
-        var scoreSSSValue = FiSumScore();
-        int[] scoreValues =
-        {
-            FiNowScore(), DeDxNowScore(), DeDxNowBreakScore()
-        };
-        float[] accValues =
-        {
-            scoreSSSValue > 0 ? (float)FiNowScore() / scoreSSSValue * 100 : 0,
-            scoreSSSValue > 0 ? (float)FiNowBreakScore() / scoreSSSValue * 100 : 0,
-            scoreSSSValue > 0 ? (float)DxNowScore() / DxSumScore() * 100 + BreakRate() : 0,
-            100f + BreakRate()
-        };
-
+        CalAccRate();
         switch (textMode)
         {
             case EditorComboIndicator.ScoreClassic: // Score (+) Classic
-                statusScore.text = string.Format("{0:#,##0}", scoreValues[0]);
+                statusScore.text = string.Format("{0:#,##0}", FiNowScore());
                 break;
             case EditorComboIndicator.AchievementClassic: // Achievement (+) Classic
                 UpdateAchievementColor(accRate[0]);
-                //statusAchievement.text = string.Format("{0,6:0.00}%", Math.Truncate(accValues[0] * 100) / 100);
                 statusAchievement.text = string.Format("{0,6:0.00}%", accRate[0]);
                 break;
             case EditorComboIndicator.AchievementDownClassic: // Achievement (-) Classic (from 100%)
                 UpdateAchievementColor(accRate[1]);
-                //statusAchievement.text = string.Format("{0,6:0.00}%", Math.Truncate(accValues[1] * 100) / 100);
                 statusAchievement.text = string.Format("{0,6:0.00}%", accRate[1]);
                 break;
             case EditorComboIndicator.AchievementDeluxe: // Achievement (+) Deluxe
                 UpdateAchievementColor(accRate[4]);
-                //statusAchievement.text = string.Format("{0,8:0.0000}%", Math.Truncate(accValues[2] * 10000) / 10000);
                 statusAchievement.text = string.Format("{0,8:0.0000}%", accRate[4]);
                 break;
             case EditorComboIndicator.AchievementDownDeluxe: // Achievement (-) Deluxe (from 100%)
                 UpdateAchievementColor(accRate[3]);
-                //statusAchievement.text = string.Format("{0,8:0.0000}%", Math.Truncate(accValues[3] * 10000) / 10000);
                 statusAchievement.text = string.Format("{0,8:0.0000}%", accRate[3]);
                 break;
             case EditorComboIndicator.ScoreDeluxe: // DX Score (+)
                 statusDXScore.text = DxExNowScore().ToString();
                 break;
             case EditorComboIndicator.CScoreDedeluxe: // Score (+) DeDX
-                statusScore.text = string.Format("{0:#,##0}", scoreValues[1]);
+                statusScore.text = string.Format("{0:#,##0}", DeDxNowScore());
                 break;
             case EditorComboIndicator.CScoreDownDedeluxe: // Score (-) DeDX (from 100% rate)
-                statusScore.text = string.Format("{0:#,##0}", scoreValues[2]);
+                statusScore.text = string.Format("{0:#,##0}", DeDxNowBreakScore());
                 break;
             case EditorComboIndicator.Combo:
             default:
                 statusCombo.text = combo > 0 ? combo.ToString() : "";
                 break;
         }
-    }
-    void UpdateJudgeResult()
-    {
-        var fast = totalJudgedCount.Where(x => x.Key > JudgeType.Perfect && x.Key != JudgeType.Miss)
-                                   .Select(x => x.Value)
-                                   .Sum();
-        var late = totalJudgedCount.Where(x => x.Key < JudgeType.Perfect && x.Key != JudgeType.Miss)
-                                   .Select(x => x.Value)
-                                   .Sum();
-        judgeResultCount.text = $"{cPerfectCount}\n{perfectCount}\n{greatCount}\n{goodCount}\n{missCount}\n\n{fast}\n{late}";
     }
 
     private void UpdateSideOutput()
@@ -594,25 +531,14 @@ public class ObjectCounter : MonoBehaviour
             Math.Truncate((float)FiNowScore() / FiSumScore() * 10000) / 100,
             Math.Truncate(((float)DxNowScore() / DxSumScore() * 100 + BreakRate()) * 10000) / 10000
         );
-    }
-
-    private void UpdateState()
-    {
-// Only define this when debugging (of this feature) is needed.
-// I don't bother compiling this as Debug.
-#if COMBO_CAN_SWAP_NOW
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            var validModes = Enum.GetValues(textMode.GetType());
-            int i = 0;
-            foreach(EditorComboIndicator compareMode in validModes) {
-                if (compareMode == textMode) {
-                    ComboSetActive((EditorComboIndicator)validModes.GetValue((i + 1) % (validModes.Length - 1)));
-                    break;
-                }
-                i += 1;
-            }
-        }
-#endif
+        
+        var fast = totalJudgedCount.Where(x => x.Key > JudgeType.Perfect && x.Key != JudgeType.Miss)
+            .Select(x => x.Value)
+            .Sum();
+        var late = totalJudgedCount.Where(x => x.Key < JudgeType.Perfect && x.Key != JudgeType.Miss)
+            .Select(x => x.Value)
+            .Sum();
+        judgeResultCount.text = $"{cPerfectCount}\n{perfectCount}\n{greatCount}\n{goodCount}\n{missCount}\n\n{fast}\n{late}";
     }
 
     private void UpdateAchievementColor(double achievementRate)
@@ -632,11 +558,6 @@ public class ObjectCounter : MonoBehaviour
                 celm.color = newColor;
     }
 
-    public void ComboSetActive(bool isActive)
-    {
-        ComboSetActive((EditorComboIndicator)(isActive ? 1 : 0));
-    }
-
     public void ComboSetActive(EditorComboIndicator newComboMode)
     {
         textMode = newComboMode;
@@ -654,8 +575,7 @@ public class ObjectCounter : MonoBehaviour
             isAccDeluxe || isPtsDeluxe ||
 
             // De-DXfied 
-            isPtsNormDeluxe ||
-            false
+            isPtsNormDeluxe
         );
 
         statusCombo.gameObject.SetActive(isActive && isDefault);
@@ -664,6 +584,23 @@ public class ObjectCounter : MonoBehaviour
         statusDXScore.gameObject.SetActive(isActive && isPtsDeluxe);
     }
 
+    private void CalAccRate()
+    {
+        long totalScore = 0;
+        long totalExtraScore = 0;
+
+        var currentNoteScore = GetNoteScoreSum();
+
+        totalScore = (tapSum + touchSum) * 500 + holdSum * 1000 + slideSum * 1500 + breakSum * 2500;
+        totalExtraScore = breakSum * 100;
+
+        accRate[0] = ((currentNoteScore.TotalScore + currentNoteScore.TotalExtraScoreClassic) / (double)totalScore) * 100;
+        accRate[1] = ((totalScore + currentNoteScore.TotalExtraScoreClassic - currentNoteScore.LostScore) / (double)totalScore) * 100;
+        accRate[2] = ((totalScore - currentNoteScore.LostScore) / (double)totalScore) * 100 + ((totalExtraScore - currentNoteScore.LostExtraScore) / (double)totalExtraScore);
+        accRate[3] = ((totalScore - currentNoteScore.LostScore) / (double)totalScore) * 100 + (currentNoteScore.TotalExtraScore / (double)totalExtraScore);
+        accRate[4] = (currentNoteScore.TotalScore / (double)totalScore) * 100 + (currentNoteScore.TotalExtraScore / (double)totalExtraScore);
+    }
+    
     private int FiSumScore()
     {
         return tapSum * 500 + holdSum * 1000 + slideSum * 1500 + touchSum * 500 + breakSum * 2500;
