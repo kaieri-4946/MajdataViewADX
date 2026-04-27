@@ -24,4 +24,9 @@ public class AllPerfectManager : MonoBehaviour
         if (Majdata<ObjectCounter>.Instance!.AllFinished && AllPerfect) 
             AllPerfect.SetActive(true);
     }
+
+    public void ResetState()
+    { 
+        AllPerfect.SetActive(false);
+    }
 }

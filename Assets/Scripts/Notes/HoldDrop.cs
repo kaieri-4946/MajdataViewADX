@@ -162,7 +162,7 @@ public class HoldDrop : NoteLongBase
                 return;
             if (remainingTime <= 0.2f) // 忽略尾部12帧
                 return;
-            if (!timeProvider.isStart || InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random) // 忽略暂停
+            if (!timeProvider.IsStart || InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random) // 忽略暂停
                 return;
             
             if (inputManager.CheckAreaStatus(sensor,SensorStatus.On))

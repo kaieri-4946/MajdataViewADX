@@ -87,4 +87,11 @@ public class Sensor : MonoBehaviour
         yield return new WaitForEndOfFrame(); //two frame press
         SetOff(guid);
     }
+
+    public void ForceReset()
+    {
+        tasks.Clear();
+        Status = SensorStatus.Off;
+        IsJudging = false;
+    }
 }

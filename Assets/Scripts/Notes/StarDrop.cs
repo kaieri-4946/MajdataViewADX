@@ -161,15 +161,14 @@ public class StarDrop : TapBase
             if (isEx) exSpriteRender.forceRenderingOff = false;
         }
 
-        if (timeProvider.isStart && !isFakeStar && rotateSpeed != 0)
+        if (timeProvider.IsStart && !isFakeStar && rotateSpeed != 0)
             transform.Rotate(0f, 0f, -180f * Time.deltaTime * songSpeed / rotateSpeed);
         else if (isFakeStarRotate)
             transform.Rotate(0f, 0f, 400f * Time.deltaTime);  
     }
     protected override void OnDestroy()
     {
-        if (PlayManager.IsReloading) return;
-        if(!isNoHead || isFakeStar)
+        if (!isNoHead || isFakeStar)
             base.OnDestroy();
     }
 }

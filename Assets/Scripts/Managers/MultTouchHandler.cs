@@ -4,7 +4,7 @@ using UnityEngine;
 #nullable enable
 public class MultTouchHandler : MonoBehaviour
 {
-    private readonly List<TouchDrop>[] touchSlots = new List<TouchDrop>[33]; // C,A1-8,B1-8,D1-8,E1-8
+    private readonly List<TouchDrop>[] touchSlots = new List<TouchDrop>[33]; // A1-8,B1-8,C,D1-8,E1-8
 
     private void Awake()
     {
@@ -16,44 +16,26 @@ public class MultTouchHandler : MonoBehaviour
         for (var i = 0; i < 33; i++) touchSlots[i] = new List<TouchDrop>();
     }
 
-    private int getAreaIndex(char area, int pos)
+    public void RegisterTouch(TouchDrop obj)
     {
-        if (area == 'C') return 0;
-        switch (area)
-        {
-            case 'A':
-                return 0 + pos;
-            case 'B':
-                return 8 + pos;
-            case 'D':
-                return 16 + pos;
-            case 'E':
-                return 24 + pos;
-        }
-
-        return 0;
-    }
-
-    public void clearSlots()
-    {
-        for (var i = 0; i < 33; i++) touchSlots[i].Clear();
-    }
-
-    public void registerTouch(TouchDrop obj)
-    {
-        var areaIndex = getAreaIndex(obj.areaPosition, obj.startPosition);
+        var areaIndex = (int)obj.sensor.Type;
         obj.setLayer(touchSlots[areaIndex].Count);
         touchSlots[areaIndex].Add(obj);
     }
 
-    public void cancelTouch(TouchDrop obj)
+    public void CancelTouch(TouchDrop obj)
     {
-        var areaIndex = getAreaIndex(obj.areaPosition, obj.startPosition);
+        var areaIndex = (int)obj.sensor.Type;
         var touchSlot = touchSlots[areaIndex];
 
         if (touchSlot.Count != 0)
             touchSlot.RemoveAt(0);
 
         foreach (var each in touchSlot) each.LayerDown();
+    }
+
+    public void ResetState()
+    {
+        for (var i = 0; i < 33; i++) touchSlots[i] = new List<TouchDrop>();
     }
 }

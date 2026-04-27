@@ -257,7 +257,7 @@ public class TouchDrop : NoteBase
             if (!isStarted)
             {
                 isStarted = true;
-                multTouchHandler.registerTouch(this);
+                multTouchHandler.RegisterTouch(this);
             }
 
             SetFanColor(new Color(1f, 1f, 1f, Mathf.Clamp((wholeDuration + timing) / displayDuration, 0f, 1f)));
@@ -267,7 +267,7 @@ public class TouchDrop : NoteBase
             if (!isStarted)
             {
                 isStarted = true;
-                multTouchHandler.registerTouch(this);
+                multTouchHandler.RegisterTouch(this);
             }
 
             SetFanColor(Color.white);
@@ -283,7 +283,7 @@ public class TouchDrop : NoteBase
     private void OnDestroy()
     {
         if (PlayManager.IsReloading) return;
-        multTouchHandler.cancelTouch(this);
+        multTouchHandler.CancelTouch(this);
         PlayJudgeEffect();
         if (judgeResult != JudgeType.Miss)
         {

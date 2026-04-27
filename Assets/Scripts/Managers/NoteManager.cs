@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 #nullable enable
@@ -79,5 +80,29 @@ public class NoteManager : MonoBehaviour
         var nowIndex = touchIndex[t];
 
         return index <= nowIndex;
+    }
+
+    public void ResetState()
+    {       
+        notes.Clear();
+        noteOrder.Clear();
+        touchOrder.Clear();
+        noteIndex.Clear();
+        touchIndex.Clear();
+
+        StartCoroutine(ClearNotes());
+
+        IEnumerator ClearNotes()
+        {
+            for (var i = 0; i < transform.childCount; i++)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+        
+            while (transform.childCount > 0)
+                yield return null;
+
+            PlayManager.IsReloading = false;
+        }
     }
 }

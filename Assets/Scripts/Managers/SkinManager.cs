@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class SkinManager : MonoBehaviour
 {
+    // Dont destroy on load
     public Sprite Tap;
     public Sprite Tap_Each;
     public Sprite Tap_Break;

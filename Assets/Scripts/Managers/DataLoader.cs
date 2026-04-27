@@ -1179,4 +1179,13 @@ public class DataLoader : MonoBehaviour
         if (index == 6) return "ORIGINAL";
         return "DEFAULT";
     }
+
+    public void ResetState()
+    {
+        loadedData = null;
+        noteIndex.Clear();
+        touchIndex.Clear();
+        slideLayer = -1;
+        noteSortOrder = 0;
+    }
 }

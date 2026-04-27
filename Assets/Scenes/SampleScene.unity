@@ -2314,7 +2314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &368622798
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10182,7 +10182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1372501461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12153,15 +12153,20 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'TAP: 0
+  m_Text: 'TAP: 0 / 0
 
-    HOD: 0
+    HOD: 0 / 0
 
-    SLD: 0
+    SLD: 0 / 0
 
-    TOH: 0
+    TOH: 0 / 0
 
-    BRK: 0'
+    BRK: 0
+    / 0
+
+    ALL: 0 / 0
+
+    MOD: Enable'
 --- !u!222 &1555395488
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12525,8 +12530,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f257b00a9ed6044bc97eda2c6b294f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRecord: 0
-  speed: 0
 --- !u!1 &1639636699
 GameObject:
   m_ObjectHideFlags: 0
@@ -15432,7 +15435,7 @@ GameObject:
   - component: {fileID: 2117728421}
   - component: {fileID: 2117728420}
   m_Layer: 5
-  m_Name: ErrText
+  m_Name: objErr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -225,7 +225,7 @@ public class TouchHoldDrop : NoteLongBase
 
         if (isJudged)
         {
-            if (!timeProvider.isStart) // 忽略暂停
+            if (!timeProvider.IsStart) // 忽略暂停
                 return;
             
             if (inputManager.CheckSensorStatus(sensor, SensorStatus.On))

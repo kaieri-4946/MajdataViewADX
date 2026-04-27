@@ -191,7 +191,7 @@ public class EffectManager : MonoBehaviour
 
 
         fastLateEffects[pos].SetActive(true);
-        bool isFast = (int)judge > 7;
+        var isFast = (int)judge > 7;
         if(isFast)
              fastLateEffects[pos].transform.GetChild(0).GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = skinManager.FastText;
         else
@@ -204,5 +204,9 @@ public class EffectManager : MonoBehaviour
         tapEffects[pos].SetActive(false);
         greatEffects[pos].SetActive(false);
         goodEffects[pos].SetActive(false);
+    }
+
+    public void ResetState()
+    {
     }
 }

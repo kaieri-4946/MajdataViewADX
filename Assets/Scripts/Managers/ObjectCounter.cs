@@ -41,8 +41,6 @@ public class ObjectCounter : MonoBehaviour
     private Text judgeResultCount;
 
     private EditorComboIndicator textMode = EditorComboIndicator.Combo;
-    
-    NoteManager notes;
 
     double[] accRate = new double[5]
     {
@@ -74,7 +72,6 @@ public class ObjectCounter : MonoBehaviour
     
     private void Start()
     {
-        notes = Majdata<NoteManager>.Instance!;
         judgeResultCount = GameObject.Find("JudgeResultCount").GetComponent<Text>();
         table = GameObject.Find("ObjectCount").GetComponent<Text>();
         rate = GameObject.Find("ObjectRate").GetComponent<Text>();
@@ -214,7 +211,7 @@ public class ObjectCounter : MonoBehaviour
     private void Update()
     {
         UpdateMainOutput();
-        //if (FiSumScore() == 0) return;
+        if (FiSumScore() == 0) return;
         UpdateSideOutput();
     }
 
@@ -229,7 +226,7 @@ public class ObjectCounter : MonoBehaviour
         long lostExtraScoreClassic = 0;
         int baseScore = 500;
 
-        foreach(var type in new SimaiNoteType[] { SimaiNoteType.Tap, SimaiNoteType.Slide, SimaiNoteType.Hold, SimaiNoteType.Touch })
+        foreach(var type in new[] { SimaiNoteType.Tap, SimaiNoteType.Slide, SimaiNoteType.Hold, SimaiNoteType.Touch })
         {
             switch (type)
             {
@@ -584,15 +581,55 @@ public class ObjectCounter : MonoBehaviour
         statusDXScore.gameObject.SetActive(isActive && isPtsDeluxe);
     }
 
+    public void ResetState()
+    {
+        tapCount = 0;
+        holdCount = 0;
+        slideCount = 0;
+        touchCount = 0;
+        breakCount = 0;
+
+        tapSum = 0;
+        holdSum = 0;
+        slideSum = 0;
+        touchSum = 0;
+        breakSum = 0;
+
+        cPerfectCount = 0;
+        perfectCount = 0;
+        greatCount = 0;
+        goodCount = 0;
+        missCount = 0;
+        
+        combo = 0;
+
+        ResetDictionary(judgedTapCount);
+        ResetDictionary(judgedHoldCount);
+        ResetDictionary(judgedTouchCount);
+        ResetDictionary(judgedTouchHoldCount);
+        ResetDictionary(judgedSlideCount);
+        ResetDictionary(judgedBreakCount);
+        ResetDictionary(totalJudgedCount);
+
+        statusCombo.gameObject.SetActive(false);
+        statusScore.gameObject.SetActive(false);
+        statusAchievement.gameObject.SetActive(false);
+        statusDXScore.gameObject.SetActive(false);
+        
+        void ResetDictionary(Dictionary<JudgeType, int> dict)
+        {
+            var keys = new List<JudgeType>(dict.Keys);
+            foreach (var key in keys)
+                dict[key] = 0;
+        }
+    }
+
     private void CalAccRate()
     {
-        long totalScore = 0;
-        long totalExtraScore = 0;
-
         var currentNoteScore = GetNoteScoreSum();
 
-        totalScore = (tapSum + touchSum) * 500 + holdSum * 1000 + slideSum * 1500 + breakSum * 2500;
-        totalExtraScore = breakSum * 100;
+        long totalScore = (tapSum + touchSum) * 500 + holdSum * 1000 + slideSum * 1500 + breakSum * 2500;
+        long totalExtraScore = breakSum * 100;
 
         accRate[0] = ((currentNoteScore.TotalScore + currentNoteScore.TotalExtraScoreClassic) / (double)totalScore) * 100;
         accRate[1] = ((totalScore + currentNoteScore.TotalExtraScoreClassic - currentNoteScore.LostScore) / (double)totalScore) * 100;

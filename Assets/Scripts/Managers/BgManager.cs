@@ -9,7 +9,7 @@ using UnityEngine.Video;
 
 public class BgManager : MonoBehaviour
 {
-    private TimeProvider provider;
+    private TimeProvider timeProvider;
 
     [SerializeField] 
     private Sprite defaultBg;
@@ -20,7 +20,6 @@ public class BgManager : MonoBehaviour
     private VideoPlayer videoPlayer;
 
     private float smoothRDelta;
-    private float playSpeed;
     private float originalScaleX;
     
     private static Sprite? Bg
@@ -47,7 +46,7 @@ public class BgManager : MonoBehaviour
 
     private void Start()
     {
-        provider = Majdata<TimeProvider>.Instance!;
+        timeProvider = Majdata<TimeProvider>.Instance!;
         
         originalScaleX = gameObject.transform.localScale.x;
         spriteRender = GetComponent<SpriteRenderer>();
@@ -59,9 +58,9 @@ public class BgManager : MonoBehaviour
 
     private void Update()
     {
-        var delta = (float)videoPlayer.clockTime - provider.AudioTime;
+        var delta = (float)videoPlayer.clockTime - timeProvider.AudioTime;
         smoothRDelta += (Time.unscaledDeltaTime - smoothRDelta) * 0.01f;
-        if (provider.AudioTime < 0) return;
+        if (timeProvider.AudioTime < 0) return;
         var realSpeed = Time.deltaTime / smoothRDelta;
 
         if (Time.captureFramerate != 0)
@@ -71,11 +70,11 @@ public class BgManager : MonoBehaviour
         }
 
         if (delta < -0.01f)
-            videoPlayer.playbackSpeed = playSpeed + 0.2f;
+            videoPlayer.playbackSpeed = timeProvider.CurrentSpeed + 0.2f;
         else if (delta > 0.01f)
-            videoPlayer.playbackSpeed = playSpeed - 0.2f;
+            videoPlayer.playbackSpeed = timeProvider.CurrentSpeed - 0.2f;
         else
-            videoPlayer.playbackSpeed = playSpeed;
+            videoPlayer.playbackSpeed = timeProvider.CurrentSpeed;
     }
 
     public void PlaySongDetail()
@@ -91,12 +90,6 @@ public class BgManager : MonoBehaviour
     public void ContinueVideo()
     {
         videoPlayer.Play();
-    }
-
-    public void SetSpeed(float speed)
-    {
-        videoPlayer.playbackSpeed = speed;
-        playSpeed = speed;
     }
     
     public void LoadBG(string path)
@@ -123,22 +116,33 @@ public class BgManager : MonoBehaviour
     {
         if (!hasVideo) return;
         
+        videoPlayer.targetMaterialRenderer = spriteRender;
         videoPlayer.url = VideoUrl;
-        StartCoroutine(waitFumenStart());
+        StartCoroutine(WaitFumenStart());
+        IEnumerator WaitFumenStart()
+        {
+            videoPlayer.Prepare();
+            while (timeProvider.AudioTime <= 0) yield return new WaitForEndOfFrame();
+            while (!videoPlayer.isPrepared) yield return new WaitForEndOfFrame();
+            videoPlayer.Play();
+            videoPlayer.time = timeProvider.AudioTime;
+
+            var scale = videoPlayer.height / (float)videoPlayer.width;
+            spriteRender.sprite =
+                Sprite.Create(new Texture2D(1080, 1080), new Rect(0, 0, 1080, 1080), new Vector2(0.5f, 0.5f));
+        
+            gameObject.transform.localScale = new Vector3(originalScaleX, originalScaleX * scale);
+        }
     }
 
-    private IEnumerator waitFumenStart()
+    public void ResetState()
     {
-        videoPlayer.Prepare();
-        while (provider.AudioTime <= 0) yield return new WaitForEndOfFrame();
-        while (!videoPlayer.isPrepared) yield return new WaitForEndOfFrame();
-        videoPlayer.Play();
-        videoPlayer.time = provider.AudioTime;
+        videoPlayer.Stop();
+        //videoPlayer.targetMaterialRenderer = null;
+        spriteRender.sprite = defaultBg;
+        smoothRDelta = 0f;
 
-        var scale = videoPlayer.height / (float)videoPlayer.width;
-        spriteRender.sprite =
-            Sprite.Create(new Texture2D(1080, 1080), new Rect(0, 0, 1080, 1080), new Vector2(0.5f, 0.5f));
-        
-        gameObject.transform.localScale = new Vector3(originalScaleX, originalScaleX * scale);
+        if (songDetail != null)
+            songDetail.SetActive(false);
     }
 }

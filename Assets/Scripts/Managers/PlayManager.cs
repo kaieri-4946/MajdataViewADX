@@ -8,7 +8,6 @@ using Cysharp.Threading.Tasks;
 using MajSimai;
 using Unity.Properties;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 #nullable enable
 
@@ -66,9 +65,9 @@ public class PlayManager : MonoBehaviour
         _state = CheckIsLoaded() ? ViewStatus.Loaded : ViewStatus.Idle;
     }
 
-    public bool CheckIsLoaded() => audioManager.IsTrackLoaded &&
-                                   bgManager.IsBgLoaded && 
-                                   bgManager.IsVideoLoaded;
+    private bool CheckIsLoaded() => audioManager.IsTrackLoaded &&
+                                    bgManager.IsBgLoaded &&
+                                    bgManager.IsVideoLoaded;
     
     public void Setting(MajViewSetting setting, MajVolumeSetting volumeSetting)
     {
@@ -148,7 +147,6 @@ public class PlayManager : MonoBehaviour
             InputManager.Mode = _setting.AutoMode;
             //bg
             bgCover.color = new Color(0f, 0f, 0f, _setting.BackgroundDim);
-            bgManager.SetSpeed(speed);
             bgManager.ShowBG();
             bgManager.ShowVideo();
             //sfx
@@ -218,7 +216,6 @@ public class PlayManager : MonoBehaviour
             
             timeProvider.Resume(speed);
             
-            bgManager.SetSpeed(speed);
             bgManager.ContinueVideo();
             
             audioManager.PlayTrack();
@@ -273,7 +270,9 @@ public class PlayManager : MonoBehaviour
             screenRecorder.StopRecording();
             
             IsReloading = true;
-            SceneManager.LoadScene(1);
+            ResetAllManagers();
+            // IsReloading = false;
+            // in NoteManager, wait for notes cleared
         }
         catch (Exception ex)
         {
@@ -281,5 +280,23 @@ public class PlayManager : MonoBehaviour
             _state = ViewStatus.Error;
             throw;
         }
+    }
+
+    private void ResetAllManagers()
+    {
+        Majdata<ScreenRecorder>.Instance!.ResetState();
+        Majdata<ObjectCounter>.Instance!.ResetState();
+        Majdata<NoteManager>.Instance!.ResetState();
+        Majdata<TimeProvider>.Instance!.ResetState();
+        Majdata<AudioManager>.Instance!.ResetState();
+        Majdata<ScreenRecorder>.Instance!.ResetState();
+        Majdata<BgManager>.Instance!.ResetState();
+        Majdata<EffectManager>.Instance!.ResetState();
+        Majdata<InputManager>.Instance!.ResetState();
+        Majdata<AllPerfectManager>.Instance!.ResetState();
+        Majdata<DataLoader>.Instance!.ResetState();
+
+        _state = CheckIsLoaded() ? ViewStatus.Loaded : ViewStatus.Idle;
+        bgCover.color = new Color(0f, 0f, 0f, 0f);
     }
 }

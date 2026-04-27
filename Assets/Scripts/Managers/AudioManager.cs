@@ -163,7 +163,7 @@ public class AudioManager : MonoBehaviour
     
     private void Update()
     {
-        if (timeProvider.isRecord) return;
+        if (timeProvider.IsRecord) return;
         
         UpdateAnswerSfx();
         
@@ -284,6 +284,18 @@ public class AudioManager : MonoBehaviour
     public void PauseTrack() => TrackSample?.Pause();
     
     public void StopTrack() => TrackSample?.Stop();
+
+    public void ResetState()
+    {
+        StopTrack();
+
+        answerTimingPoints.Clear();
+        for (var i = 0; i < noteSfxPlaybackRequests.Length; i++)
+            noteSfxPlaybackRequests[i] = false;
+
+        recordingBuffer = null;
+        isTouchHoldRiserPlaying = false;
+    }
     
     
     //Sfx control

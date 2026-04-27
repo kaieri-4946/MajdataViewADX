@@ -8,7 +8,9 @@ using UnityEngine.UI;
 
 public class ScreenRecorder : MonoBehaviour
 {
-    public GameObject APObj;
+    [SerializeField]
+    GameObject APObj;
+    
     ObjectCounter counter;
     TimeProvider timeProvider;
     BgManager bgManager;
@@ -16,7 +18,7 @@ public class ScreenRecorder : MonoBehaviour
 
     Text errText;
 
-    private bool isRecording;
+    public bool IsRecording { get; private set; }
 
     private void Awake()
     {
@@ -34,23 +36,27 @@ public class ScreenRecorder : MonoBehaviour
     
     private void Update()
     {
-        if(isRecording)
-        {
-            if (PlayManager.Summary.State is not ViewStatus.Playing)
-                return;
-            if(counter.AllFinished && APObj == null)
-                isRecording = false;
-        }
+        if(!IsRecording) return;
+        
+        if (PlayManager.Summary.State is not ViewStatus.Playing)
+            return;
+        if(counter.AllFinished && APObj == null)
+            IsRecording = false;
     }
 
-    public void StartRecording(string maidata_path, int fps)
+    public void StartRecording(string maidataPath, int fps)
     {
-        StartCoroutine(CaptureScreen(maidata_path, fps));
+        StartCoroutine(CaptureScreen(maidataPath, fps));
     }
 
     public void StopRecording()
     {
-        isRecording = false;
+        IsRecording = false;
+    }
+
+    public void ResetState()
+    {
+        StopRecording();
     }
 
     private IEnumerator CaptureScreen(string maidataPath, int fps)
@@ -102,7 +108,7 @@ public class ScreenRecorder : MonoBehaviour
         
         //start
         audioManager.PrepareRecordingBuffer();
-        isRecording = true;
+        IsRecording = true;
         
         var touchHoldStartTime = 0f;
         var isTouchHoldRising = false;
@@ -160,7 +166,7 @@ public class ScreenRecorder : MonoBehaviour
                     Destroy(frameTex);
                 } while (
                     pipeServer.IsConnected &&
-                    isRecording &&
+                    IsRecording &&
                     !outProcess!.HasExited
                 );
             }

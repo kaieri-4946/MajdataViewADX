@@ -215,4 +215,20 @@ public class InputManager : MonoBehaviour
             button.IsJudging = false;
         }
     }
+
+    public void ResetState()
+    {
+        triggerSensors.Clear();
+
+        foreach (var sensor in sensors)
+        {
+            sensor.ForceReset();
+        }
+
+        foreach (var button in buttons)
+        {
+            button.Status = SensorStatus.Off;
+            button.IsJudging = false;
+        }
+    }
 }
