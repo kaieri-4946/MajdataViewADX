@@ -59,11 +59,6 @@ public class AudioManager : MonoBehaviour
 
         Bass.PluginLoad("bassmix");
         
-        if (File.Exists(ResProvider.TrackSamplePath))
-        {
-            LoadTrack(ResProvider.TrackSamplePath);
-        }
-        
         //Note SFX
         foreach (var filename in new []
                  {
@@ -255,8 +250,6 @@ public class AudioManager : MonoBehaviour
     
     public void LoadTrack(string path)
     {
-        ResProvider.TrackSamplePath = path;
-        
         TrackSample?.Dispose();
         TrackSample = new AudioSample(path, AudioSampleMode.Stream)
         {
@@ -288,13 +281,13 @@ public class AudioManager : MonoBehaviour
     public void ResetState()
     {
         StopTrack();
+        StopTouchHoldSound();
 
         answerTimingPoints.Clear();
         for (var i = 0; i < noteSfxPlaybackRequests.Length; i++)
             noteSfxPlaybackRequests[i] = false;
 
         recordingBuffer = null;
-        isTouchHoldRiserPlaying = false;
     }
     
     

@@ -16,22 +16,15 @@ public class BgManager : MonoBehaviour
     
     private RawImage jacketImage;
     private GameObject songDetail;
+    private Animator detailAnim;
     private SpriteRenderer spriteRender;
     private VideoPlayer videoPlayer;
 
     private float smoothRDelta;
     private float originalScaleX;
     
-    private static Sprite? Bg
-    {
-        get => ResProvider.BgRes;
-        set => ResProvider.BgRes = value;
-    }
-    private static string VideoUrl
-    {
-        get => ResProvider.VideoPath;
-        set => ResProvider.VideoPath = value;
-    }
+    private Sprite? Bg { get; set; }
+    private string? VideoUrl { get; set; }
 
     public static bool hasBg;
     public static bool hasVideo;
@@ -54,6 +47,7 @@ public class BgManager : MonoBehaviour
         jacketImage = GameObject.Find("Jacket").GetComponent<RawImage>();
         songDetail = GameObject.Find("CanvasSongDetail");
         songDetail.SetActive(false);
+        detailAnim = songDetail.GetComponent<Animator>();
     }
 
     private void Update()
@@ -80,6 +74,7 @@ public class BgManager : MonoBehaviour
     public void PlaySongDetail()
     {
         songDetail.SetActive(true);
+        detailAnim.SetTrigger("show");
     }
 
     public void PauseVideo()
@@ -116,7 +111,6 @@ public class BgManager : MonoBehaviour
     {
         if (!hasVideo) return;
         
-        videoPlayer.targetMaterialRenderer = spriteRender;
         videoPlayer.url = VideoUrl;
         StartCoroutine(WaitFumenStart());
         IEnumerator WaitFumenStart()
@@ -138,10 +132,10 @@ public class BgManager : MonoBehaviour
     public void ResetState()
     {
         videoPlayer.Stop();
-        //videoPlayer.targetMaterialRenderer = null;
+        gameObject.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
         spriteRender.sprite = defaultBg;
         smoothRDelta = 0f;
-
+        
         if (songDetail != null)
             songDetail.SetActive(false);
     }

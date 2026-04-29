@@ -21,6 +21,7 @@ public class AudioSample : IDisposable
     public AudioSampleMode Mode { get; }
 
     private readonly int _handle;
+    private float _volume;
     private double _length;
 
     public double CurrentSec
@@ -45,11 +46,16 @@ public class AudioSample : IDisposable
 
     public float Volume
     {
-        get => (float)Bass.ChannelGetAttribute(Decode, ChannelAttribute.Volume);
+        get => _volume;
         set
         {
-            var volume = Math.Clamp(value, 0f, 2f);
-            Bass.ChannelSetAttribute(Decode, ChannelAttribute.Volume, volume);
+            _volume = Math.Clamp(value, 0f, 2f);
+
+            if (Decode != 0)
+                Bass.ChannelSetAttribute(
+                    Decode,
+                    ChannelAttribute.Volume,
+                    _volume);
         }
     }
 
@@ -111,6 +117,10 @@ public class AudioSample : IDisposable
         else
         {
             Decode = Bass.SampleGetChannel(_handle);
+            Bass.ChannelSetAttribute(
+                Decode,
+                ChannelAttribute.Volume,
+                _volume);
             Bass.ChannelPlay(Decode, true);
         }
     }
@@ -135,6 +145,10 @@ public class AudioSample : IDisposable
         else
         {
             Decode = Bass.SampleGetChannel(_handle);
+            Bass.ChannelSetAttribute(
+                Decode,
+                ChannelAttribute.Volume,
+                _volume);
             Bass.ChannelPlay(Decode, true);
         }
     }

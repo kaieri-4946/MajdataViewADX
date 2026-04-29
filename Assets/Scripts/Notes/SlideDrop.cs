@@ -464,8 +464,9 @@ public class SlideDrop : NoteLongBase, ICanShine
     /// </summary>
     void Running()
     {
-        if (star_slide == null || isMine)
-            return;
+        var startTiming = timeProvider.NoteTime - timeStart;
+        if (startTiming < 0f || isMine) 
+            return; 
         if (InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random or AutoPlayMode.Disable)
             return;
 

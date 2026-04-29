@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 #nullable enable
 public class NoteManager : MonoBehaviour
@@ -82,27 +83,21 @@ public class NoteManager : MonoBehaviour
         return index <= nowIndex;
     }
 
-    public void ResetState()
+    public async UniTask ResetState()
     {       
         notes.Clear();
         noteOrder.Clear();
         touchOrder.Clear();
         noteIndex.Clear();
-        touchIndex.Clear();
-
-        StartCoroutine(ClearNotes());
-
-        IEnumerator ClearNotes()
-        {
-            for (var i = 0; i < transform.childCount; i++)
-            {
-                Destroy(transform.GetChild(i).gameObject);
-            }
+        touchIndex.Clear(); 
         
-            while (transform.childCount > 0)
-                yield return null;
-
-            PlayManager.IsReloading = false;
+        for (var i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
         }
+
+        await UniTask.WaitUntil(() => transform.childCount == 0);
+
+        PlayManager.IsReloading = false;
     }
 }

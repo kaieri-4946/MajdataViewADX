@@ -84,7 +84,7 @@ public class Sensor : MonoBehaviour
     {
         var guid = Guid.NewGuid();
         SetOn(guid);
-        yield return new WaitForEndOfFrame(); //two frame press
+        yield return new WaitForEndOfFrame();
         SetOff(guid);
     }
 
