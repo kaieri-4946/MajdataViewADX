@@ -114,7 +114,7 @@ public class TouchDrop : NoteBase
             return;
         if (isJudged || !noteManager.CanJudge(gameObject, type))
             return;
-        if (InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
+        if (Majdata<InputManager>.Instance!.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
             return;
         
         if (arg.IsClick)
@@ -160,7 +160,7 @@ public class TouchDrop : NoteBase
 
         if (GetJudgeTiming() >= 0)
         {
-            switch (InputManager.Mode)
+            switch (Majdata<InputManager>.Instance!.Mode)
             {
                 case AutoPlayMode.Enable:
                     if (isMine)
@@ -184,7 +184,7 @@ public class TouchDrop : NoteBase
                     }
                     isJudged = true;
                     break;
-                case AutoPlayMode.DjAuto:
+                case AutoPlayMode.DJAuto:
                     if (isTriggered)
                         return;
                     if (!isMine) //mine buda

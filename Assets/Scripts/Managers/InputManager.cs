@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 #nullable enable
 public class InputManager : MonoBehaviour
 {
-    public static AutoPlayMode Mode { get; set; } = AutoPlayMode.Enable;
+    private AutoPlayMode _mode;
+    public AutoPlayMode Mode { get; set; }
     
     private Guid guid = Guid.NewGuid();
     
@@ -14,7 +16,6 @@ public class InputManager : MonoBehaviour
     public Dictionary<int,List<Sensor>> triggerSensors = new();
     public List<Button> buttons = new();
     
-
     private void Awake()
     {
         Majdata<InputManager>.Instance = this;

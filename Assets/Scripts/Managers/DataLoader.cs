@@ -213,9 +213,12 @@ public class DataLoader : MonoBehaviour
         designText.text = chart.Designer;
 
         foreach (var timingList in chart.NoteTimings)
-            CountNoteSum(timingList.Notes);
+            objectCounter.CountNoteSum(timingList.Notes);
         var lastNoteTime = chart.NoteTimings.Length > 0 ? chart.NoteTimings[^1].Timing : 0d;
 
+        foreach (var timing in chart.CommaTimings)
+            objectCounter.ReportMeterBpm(timing);
+        
         LoadNotes(chart.NoteTimings, ignoreOffset, lastNoteTime);
     }
     
@@ -233,7 +236,7 @@ public class DataLoader : MonoBehaviour
             {
                 if (timing.Timing < ignoreOffset)
                 {
-                    CountNoteCount(timing.Notes);
+                    objectCounter.CountNoteCount(timing.Notes);
                     continue;
                 }
                 List<TouchDrop> members = new();
@@ -434,75 +437,7 @@ public class DataLoader : MonoBehaviour
         }
     }
 
-    private void CountNoteSum(IEnumerable<SimaiNote> notes)
-    {
-        foreach (var note in notes)
-            if (!note.IsBreak)
-            {
-                if (note.Type == SimaiNoteType.Tap) objectCounter.tapSum++;
-                if (note.Type == SimaiNoteType.Hold) objectCounter.holdSum++;
-                if (note.Type == SimaiNoteType.TouchHold) objectCounter.holdSum++;
-                if (note.Type == SimaiNoteType.Touch) objectCounter.touchSum++;
-                if (note.Type == SimaiNoteType.Slide)
-                {
-                    if (!note.IsSlideNoHead) objectCounter.tapSum++;
-                    if (note.IsSlideBreak)
-                        objectCounter.breakSum++;
-                    else
-                        objectCounter.slideSum++;
-                }
-            }
-            else
-            {
-                if (note.Type == SimaiNoteType.Slide)
-                {
-                    if (!note.IsSlideNoHead) objectCounter.breakSum++;
-                    if (note.IsSlideBreak)
-                        objectCounter.breakSum++;
-                    else
-                        objectCounter.slideSum++;
-                }
-                else
-                {
-                    objectCounter.breakSum++;
-                }
-            }
-    }
 
-    private void CountNoteCount(IEnumerable<SimaiNote> notes)
-    {
-        foreach (var note in notes)
-            if (!note.IsBreak)
-            {
-                if (note.Type == SimaiNoteType.Tap) objectCounter.tapCount++;
-                if (note.Type == SimaiNoteType.Hold) objectCounter.holdCount++;
-                if (note.Type == SimaiNoteType.TouchHold) objectCounter.holdCount++;
-                if (note.Type == SimaiNoteType.Touch) objectCounter.touchCount++;
-                if (note.Type == SimaiNoteType.Slide)
-                {
-                    if (!note.IsSlideNoHead) objectCounter.tapCount++;
-                    if (note.IsSlideBreak)
-                        objectCounter.breakCount++;
-                    else
-                        objectCounter.slideCount++;
-                }
-            }
-            else
-            {
-                if (note.Type == SimaiNoteType.Slide)
-                {
-                    if (!note.IsSlideNoHead) objectCounter.breakCount++;
-                    if (note.IsSlideBreak)
-                        objectCounter.breakCount++;
-                    else
-                        objectCounter.slideCount++;
-                }
-                else
-                {
-                    objectCounter.breakCount++;
-                }
-            }
-    }
 
     private void InstantiateStarGroup(SimaiTimingPoint timing, SimaiNote note, int sort, double lastNoteTime)
     {

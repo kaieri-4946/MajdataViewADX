@@ -56,7 +56,7 @@ public class TapBase : NoteBase
         }
         else if (timing >= -0.01f)
         {
-            switch (InputManager.Mode)
+            switch (Majdata<InputManager>.Instance!.Mode)
             {
                 case AutoPlayMode.Enable:
                     if (isMine)
@@ -81,7 +81,7 @@ public class TapBase : NoteBase
 
                     isJudged = true;
                     break;
-                case AutoPlayMode.DjAuto:
+                case AutoPlayMode.DJAuto:
                     if (isTriggered)
                         break;
                     //mine就不打了
@@ -155,7 +155,7 @@ public class TapBase : NoteBase
             return;
         if (isJudged || !noteManager.CanJudge(gameObject, startPosition))
             return;
-        if (InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
+        if (Majdata<InputManager>.Instance!.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
             return;
 
         if (arg.IsClick)

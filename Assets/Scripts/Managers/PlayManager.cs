@@ -142,9 +142,10 @@ public class PlayManager : MonoBehaviour
             loader.Load(_chart, startAt - offset, title, artist, difficulty);
             //UI
             objectCounter.ComboSetActive(_setting.ComboStatusType);
+            objectCounter.SetUIType(_setting.UIType);
             effectManager.SetDisplayMode(_setting.JudgeDisplayMode);
             //simulate
-            InputManager.Mode = _setting.AutoMode;
+            Majdata<InputManager>.Instance!.Mode = _setting.AutoMode;
             //bg
             bgCover.color = new Color(0f, 0f, 0f, _setting.BackgroundDim);
             bgManager.ShowBG();

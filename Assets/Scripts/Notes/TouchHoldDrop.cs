@@ -109,7 +109,7 @@ public class TouchHoldDrop : NoteLongBase
     {
         if (isJudged || !noteManager.CanJudge(gameObject, sensor.Type))
             return;
-        if (InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
+        if (Majdata<InputManager>.Instance!.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
             return;
         if (arg.IsClick)
         {
@@ -175,7 +175,7 @@ public class TouchHoldDrop : NoteLongBase
         else if (timing >= -0.01f)
         {
             // AutoPlay相关
-            switch (InputManager.Mode)
+            switch (Majdata<InputManager>.Instance!.Mode)
             {
                 case AutoPlayMode.Enable:
                     if (!isJudged)
@@ -191,7 +191,7 @@ public class TouchHoldDrop : NoteLongBase
                     PlayHoldEffect();
                     audioManager.PlayTouchHoldSound();
                     return;
-                case AutoPlayMode.DjAuto:
+                case AutoPlayMode.DJAuto:
                     if (!isJudged && !isMine)
                         inputManager.SetSensorOn(sensor, guid);
                     break;
@@ -341,7 +341,7 @@ public class TouchHoldDrop : NoteLongBase
             }
         }
 
-        switch (InputManager.Mode)
+        switch (Majdata<InputManager>.Instance!.Mode)
         {
             case AutoPlayMode.Enable:
                 result = JudgeType.Perfect;
@@ -349,7 +349,7 @@ public class TouchHoldDrop : NoteLongBase
             case AutoPlayMode.Random:
                 result = (JudgeType)UnityEngine.Random.Range(1, 14);
                 break;
-            case AutoPlayMode.DjAuto:
+            case AutoPlayMode.DJAuto:
             case AutoPlayMode.Disable:
                 break;
         }

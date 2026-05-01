@@ -105,7 +105,7 @@ public class HoldDrop : NoteLongBase
         else if(timing >= -0.01f)
         {
             // AutoPlay相关
-            switch (InputManager.Mode)
+            switch (Majdata<InputManager>.Instance!.Mode)
             {
                 case AutoPlayMode.Enable:
                     if(!isJudged)
@@ -121,7 +121,7 @@ public class HoldDrop : NoteLongBase
                     PlayHoldEffect();
                     PlayJudgeSFX();
                     break;
-                case AutoPlayMode.DjAuto:
+                case AutoPlayMode.DJAuto:
                     if (!isJudged && !isMine) //mine buda
                         inputManager.SetSensorOn(sensor, guid);
                     break;
@@ -162,7 +162,7 @@ public class HoldDrop : NoteLongBase
                 return;
             if (remainingTime <= 0.2f) // 忽略尾部12帧
                 return;
-            if (!timeProvider.IsStart || InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random) // 忽略暂停
+            if (!timeProvider.IsStart || Majdata<InputManager>.Instance!.Mode is AutoPlayMode.Enable or AutoPlayMode.Random) // 忽略暂停
                 return;
             
             if (inputManager.CheckAreaStatus(sensor,SensorStatus.On))
@@ -189,7 +189,7 @@ public class HoldDrop : NoteLongBase
             return;
         if (isJudged || !noteManager.CanJudge(gameObject, startPosition))
             return;
-        if (InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
+        if (Majdata<InputManager>.Instance!.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
             return;
         
         if (arg.IsClick)
@@ -387,7 +387,7 @@ public class HoldDrop : NoteLongBase
             }
         }
 
-        switch (InputManager.Mode)
+        switch (Majdata<InputManager>.Instance!.Mode)
         {
             case AutoPlayMode.Enable:
                 result = JudgeType.Perfect;
@@ -395,7 +395,7 @@ public class HoldDrop : NoteLongBase
             case AutoPlayMode.Random:
                 result = (JudgeType)UnityEngine.Random.Range(1, 14);
                 break;
-            case AutoPlayMode.DjAuto:
+            case AutoPlayMode.DJAuto:
             case AutoPlayMode.Disable:
                 break;
         }

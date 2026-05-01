@@ -268,7 +268,7 @@ public class SlideDrop : NoteLongBase, ICanShine
     
     private void FixedUpdate()
     {
-        if (InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
+        if (Majdata<InputManager>.Instance!.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
             return;
 
         // time      是Slide启动的时间点
@@ -386,7 +386,7 @@ public class SlideDrop : NoteLongBase, ICanShine
     {
         if (!canCheck || isChecking || isFinished)
             return;
-        if (InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
+        if (Majdata<InputManager>.Instance!.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
             return;
         
         isChecking = true;
@@ -467,7 +467,7 @@ public class SlideDrop : NoteLongBase, ICanShine
         var startTiming = timeProvider.NoteTime - timeStart;
         if (startTiming < 0f || isMine) 
             return; 
-        if (InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random or AutoPlayMode.Disable)
+        if (Majdata<InputManager>.Instance!.Mode is AutoPlayMode.Enable or AutoPlayMode.Random or AutoPlayMode.Disable)
             return;
 
         var starRadius = 0.763736616f;
@@ -684,7 +684,7 @@ public class SlideDrop : NoteLongBase, ICanShine
             Destroy(star_slide);
         if (ConnectInfo.IsGroupPartEnd || !ConnectInfo.IsConnSlide)
         {
-            switch(InputManager.Mode)
+            switch(Majdata<InputManager>.Instance!.Mode)
             {
                 case AutoPlayMode.Enable:
                     if (isMine)
@@ -751,7 +751,7 @@ public class SlideDrop : NoteLongBase, ICanShine
 
         if(process >= 1f)
         {
-            switch (InputManager.Mode)
+            switch (Majdata<InputManager>.Instance!.Mode)
             {
                 case AutoPlayMode.Enable:
                     if (smoothSlideAnime) HideBar(index + 1);
@@ -792,7 +792,7 @@ public class SlideDrop : NoteLongBase, ICanShine
                 applyStarRotation(newRotation);
             }
         } 
-        switch(InputManager.Mode)
+        switch(Majdata<InputManager>.Instance!.Mode)
         {
             case AutoPlayMode.Enable:
                 judgeQueue = judgeQueue.Skip((int)(process * (judgeQueue.Count - 1))).ToList();

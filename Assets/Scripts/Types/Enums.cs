@@ -81,3 +81,8 @@ public enum SampleType
     Touch
 }
 
+public enum UIType
+{
+    Legacy,
+    TrgUI
+}

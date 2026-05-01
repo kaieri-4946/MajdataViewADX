@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
     const int SAMPLERATE = 44100;
     const int CHANNELS = 2;
     
-    const float ANSWER_PLAYBACK_OFFSET_SEC = (16.66666f * 1) / 1000; //BUG: is this correct?
+    const float TRACK_ANSWER_PLAYBACK_OFFSET_SEC = (16.66666f * 1) / 1000;
     
     public const int TAP_PERFECT = 0;
     public const int TAP_GREAT = 1;
@@ -145,7 +145,7 @@ public class AudioManager : MonoBehaviour
             
             var thisFrameSec = Majdata<TimeProvider>.Instance!.NoteTime;
 
-            var delta = thisFrameSec - (timing.Timing + ANSWER_PLAYBACK_OFFSET_SEC);
+            var delta = thisFrameSec - (timing.Timing + TRACK_ANSWER_PLAYBACK_OFFSET_SEC);
             if (delta > 0)
             {
                 if (timing.IsClock) noteSfxPlaybackRequests[ANSWER_CLOCK] = true;
@@ -267,7 +267,7 @@ public class AudioManager : MonoBehaviour
         
         IEnumerator WaitForTrackAudioStart()
         {
-            while (Majdata<TimeProvider>.Instance!.AudioTime < 0) yield return null;
+            while (Majdata<TimeProvider>.Instance!.AudioTime < TRACK_ANSWER_PLAYBACK_OFFSET_SEC) yield return null;
         
             TrackSample!.CurrentSec = Majdata<TimeProvider>.Instance!.AudioTime;
             TrackSample.Play();

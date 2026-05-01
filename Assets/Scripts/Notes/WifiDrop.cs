@@ -220,7 +220,7 @@ public class WifiDrop : NoteLongBase, ICanShine
     {
         if (isFinished || isChecking || !canCheck)
             return;
-        if (InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
+        if (Majdata<InputManager>.Instance!.Mode is AutoPlayMode.Enable or AutoPlayMode.Random)
             return;
         isChecking = true;
         for (int i = 0; i < 3; i++)
@@ -362,7 +362,7 @@ public class WifiDrop : NoteLongBase, ICanShine
     }
     void Running()
     {
-        if (InputManager.Mode is AutoPlayMode.Enable or AutoPlayMode.Random or AutoPlayMode.Disable || isMine)
+        if (Majdata<InputManager>.Instance!.Mode is AutoPlayMode.Enable or AutoPlayMode.Random or AutoPlayMode.Disable || isMine)
             return;
         foreach (var star in star_slides)
         {
@@ -453,7 +453,7 @@ public class WifiDrop : NoteLongBase, ICanShine
                 star_slides[i].transform.position = SlidePositionEnd[i];
                 star_slides[i].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             }
-            switch (InputManager.Mode)
+            switch (Majdata<InputManager>.Instance!.Mode)
             {
                 case AutoPlayMode.Enable:
                     if (smoothSlideAnime) HideBar((int)pos + 1);
@@ -481,7 +481,7 @@ public class WifiDrop : NoteLongBase, ICanShine
                 star_slides[i].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             }
         }
-        switch (InputManager.Mode)
+        switch (Majdata<InputManager>.Instance!.Mode)
         {
             case AutoPlayMode.Enable:
                 judgeQueues = judgeQueues.Skip((int)(process * (judgeQueues.Count - 1))).ToList();
@@ -538,7 +538,7 @@ public class WifiDrop : NoteLongBase, ICanShine
         if (isDestroying)
             return;
 
-        switch (InputManager.Mode)
+        switch (Majdata<InputManager>.Instance!.Mode)
         {
             case AutoPlayMode.Enable:
                 if (isMine)
