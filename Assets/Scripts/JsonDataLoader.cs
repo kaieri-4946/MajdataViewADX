@@ -11,6 +11,7 @@ using System.Collections;
 using System.Diagnostics;
 using Assets.Scripts;
 using MajSimai;
+using System.Runtime.CompilerServices;
 
 public class JsonDataLoader : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class JsonDataLoader : MonoBehaviour
     public GameObject starPrefab;
     public GameObject touchHoldPrefab;
     public GameObject touchPrefab;
+    public GameObject touchStarPrefab;
     public GameObject eachLine;
     public GameObject starLine;
     public GameObject mineLine;
@@ -41,7 +43,7 @@ public class JsonDataLoader : MonoBehaviour
     float ignoreOffset = 0;
     Coroutine noteParserTask = null;
     Dictionary<int, int> noteIndex = new();
-        Dictionary<SensorType, int> touchIndex = new();
+    Dictionary<SensorType, int> touchIndex = new();
 
     public Text diffText;
     public Text levelText;
@@ -65,6 +67,9 @@ public class JsonDataLoader : MonoBehaviour
         {SimaiNoteType.Touch, 7 },
         {SimaiNoteType.TouchHold, 6 },
     };
+#if UNITY_EDITOR
+    public static Dictionary<string, int> GetSlidePrefabMap() => SLIDE_PREFAB_MAP;
+#endif
     private static readonly Dictionary<string, int> SLIDE_PREFAB_MAP = new Dictionary<string, int>()
     {
         {"line3", 0 },
@@ -109,6 +114,204 @@ public class JsonDataLoader : MonoBehaviour
         {"L3", 38 },
         {"L4", 39 },
         {"L5", 40 },
+        {"1A_Line_1", 42},
+        {"1A_Line_2", 43},
+        {"1A_Line_3", 44},
+        {"1A_Line_4", 45},
+        {"1A_Line_5", 46},
+        {"1A_Line_6", 47},
+        {"1A_Line_7", 48},
+        {"1A_Line_8", 49},
+        {"1B_Line_1", 50},
+        {"1B_Line_2", 51},
+        {"1B_Line_3", 52},
+        {"1B_Line_4", 53},
+        {"1B_Line_5", 54},
+        {"1B_Line_6", 55},
+        {"1B_Line_7", 56},
+        {"1B_Line_8", 57},
+        {"1C_Line", 58},
+        {"1D_Line_1", 59},
+        {"1D_Line_2", 60},
+        {"1D_Line_3", 61},
+        {"1D_Line_4", 62},
+        {"1D_Line_5", 63},
+        {"1D_Line_6", 64},
+        {"1D_Line_7", 65},
+        {"1D_Line_8", 66},
+        {"1E_Line_1", 67},
+        {"1E_Line_2", 68},
+        {"1E_Line_3", 69},
+        {"1E_Line_4", 70},
+        {"1E_Line_5", 71},
+        {"1E_Line_6", 72},
+        {"1E_Line_7", 73},
+        {"1E_Line_8", 74},
+        {"A1_Line_1", 75},
+        {"A1_Line_2", 76},
+        {"A1_Line_3", 77},
+        {"A1_Line_4", 78},
+        {"A1_Line_5", 79},
+        {"A1_Line_6", 80},
+        {"A1_Line_7", 81},
+        {"A1_Line_8", 82},
+        {"AA_Line_2", 83},
+        {"AA_Line_3", 84},
+        {"AA_Line_4", 85},
+        {"AA_Line_5", 86},
+        {"AA_Line_6", 87},
+        {"AA_Line_7", 88},
+        {"AA_Line_8", 89},
+        {"AB_Line_1", 90},
+        {"AB_Line_2", 91},
+        {"AB_Line_3", 92},
+        {"AB_Line_4", 93},
+        {"AB_Line_5", 94},
+        {"AB_Line_6", 95},
+        {"AB_Line_7", 96},
+        {"AB_Line_8", 97},
+        {"AC_Line", 98},
+        {"AD_Line_1", 99},
+        {"AD_Line_2", 100},
+        {"AD_Line_3", 101},
+        {"AD_Line_4", 102},
+        {"AD_Line_5", 103},
+        {"AD_Line_6", 104},
+        {"AD_Line_7", 105},
+        {"AD_Line_8", 106},
+        {"AE_Line_1", 107},
+        {"AE_Line_2", 108},
+        {"AE_Line_3", 109},
+        {"AE_Line_4", 110},
+        {"AE_Line_5", 111},
+        {"AE_Line_6", 112},
+        {"AE_Line_7", 113},
+        {"AE_Line_8", 114},
+        {"B1_Line_1", 115},
+        {"B1_Line_2", 116},
+        {"B1_Line_3", 117},
+        {"B1_Line_4", 118},
+        {"B1_Line_5", 119},
+        {"B1_Line_6", 120},
+        {"B1_Line_7", 121},
+        {"B1_Line_8", 122},
+        {"BA_Line_1", 123},
+        {"BA_Line_2", 124},
+        {"BA_Line_3", 125},
+        {"BA_Line_4", 126},
+        {"BA_Line_5", 127},
+        {"BA_Line_6", 128},
+        {"BA_Line_7", 129},
+        {"BA_Line_8", 130},
+        {"BB_Line_2", 131},
+        {"BB_Line_3", 132},
+        {"BB_Line_4", 133},
+        {"BB_Line_5", 134},
+        {"BB_Line_6", 135},
+        {"BB_Line_7", 136},
+        {"BB_Line_8", 137},
+        {"BC_Line", 138},
+        {"BD_Line_1", 139},
+        {"BD_Line_2", 140},
+        {"BD_Line_3", 141},
+        {"BD_Line_4", 142},
+        {"BD_Line_5", 143},
+        {"BD_Line_6", 144},
+        {"BD_Line_7", 145},
+        {"BD_Line_8", 146},
+        {"BE_Line_1", 147},
+        {"BE_Line_2", 148},
+        {"BE_Line_3", 149},
+        {"BE_Line_4", 150},
+        {"BE_Line_5", 151},
+        {"BE_Line_6", 152},
+        {"BE_Line_7", 153},
+        {"BE_Line_8", 154},
+        {"C1_Line", 155},
+        {"CA_Line", 156},
+        {"CB_Line", 157},
+        {"CD_Line", 158},
+        {"CE_Line", 159},
+        {"D1_Line_1", 160},
+        {"D1_Line_2", 161},
+        {"D1_Line_3", 162},
+        {"D1_Line_4", 163},
+        {"D1_Line_5", 164},
+        {"D1_Line_6", 165},
+        {"D1_Line_7", 166},
+        {"D1_Line_8", 167},
+        {"DA_Line_1", 168},
+        {"DA_Line_2", 169},
+        {"DA_Line_3", 170},
+        {"DA_Line_4", 171},
+        {"DA_Line_5", 172},
+        {"DA_Line_6", 173},
+        {"DA_Line_7", 174},
+        {"DA_Line_8", 175},
+        {"DB_Line_1", 176},
+        {"DB_Line_2", 177},
+        {"DB_Line_3", 178},
+        {"DB_Line_4", 179},
+        {"DB_Line_5", 180},
+        {"DB_Line_6", 181},
+        {"DB_Line_7", 182},
+        {"DB_Line_8", 183},
+        {"DC_Line", 184},
+        {"DD_Line_2", 185},
+        {"DD_Line_3", 186},
+        {"DD_Line_4", 187},
+        {"DD_Line_5", 188},
+        {"DD_Line_6", 189},
+        {"DD_Line_7", 190},
+        {"DD_Line_8", 191},
+        {"DE_Line_1", 192},
+        {"DE_Line_2", 193},
+        {"DE_Line_3", 194},
+        {"DE_Line_4", 195},
+        {"DE_Line_5", 196},
+        {"DE_Line_6", 197},
+        {"DE_Line_7", 198},
+        {"DE_Line_8", 199},
+        {"E1_Line_1", 200},
+        {"E1_Line_2", 201},
+        {"E1_Line_3", 202},
+        {"E1_Line_4", 203},
+        {"E1_Line_5", 204},
+        {"E1_Line_6", 205},
+        {"E1_Line_7", 206},
+        {"E1_Line_8", 207},
+        {"EA_Line_1", 208},
+        {"EA_Line_2", 209},
+        {"EA_Line_3", 210},
+        {"EA_Line_4", 211},
+        {"EA_Line_5", 212},
+        {"EA_Line_6", 213},
+        {"EA_Line_7", 214},
+        {"EA_Line_8", 215},
+        {"EB_Line_1", 216},
+        {"EB_Line_2", 217},
+        {"EB_Line_3", 218},
+        {"EB_Line_4", 219},
+        {"EB_Line_5", 220},
+        {"EB_Line_6", 221},
+        {"EB_Line_7", 222},
+        {"EB_Line_8", 223},
+        {"EC_Line", 224},
+        {"ED_Line_1", 225},
+        {"ED_Line_2", 226},
+        {"ED_Line_3", 227},
+        {"ED_Line_4", 228},
+        {"ED_Line_5", 229},
+        {"ED_Line_6", 230},
+        {"ED_Line_7", 231},
+        {"ED_Line_8", 232},
+        {"EE_Line_2", 233},
+        {"EE_Line_3", 234},
+        {"EE_Line_4", 235},
+        {"EE_Line_5", 236},
+        {"EE_Line_6", 237},
+        {"EE_Line_7", 238},
+        {"EE_Line_8", 239},
     };
 
     static readonly Dictionary<SensorType, SensorType[]> TOUCH_GROUPS = new()
@@ -197,6 +400,205 @@ public class JsonDataLoader : MonoBehaviour
         { "L3", 0.0711f},
         { "L4", 0.0948f},
         { "L5", 0.1186f},
+        // TODO: Figure out what this is
+        {"1A_Line_1", 0.1186f},
+        {"1A_Line_2", 0.1186f},
+        {"1A_Line_3", 0.1186f},
+        {"1A_Line_4", 0.1186f},
+        {"1A_Line_5", 0.1186f},
+        {"1A_Line_6", 0.1186f},
+        {"1A_Line_7", 0.1186f},
+        {"1A_Line_8", 0.1186f},
+        {"1B_Line_1", 0.1186f},
+        {"1B_Line_2", 0.1186f},
+        {"1B_Line_3", 0.1186f},
+        {"1B_Line_4", 0.1186f},
+        {"1B_Line_5", 0.1186f},
+        {"1B_Line_6", 0.1186f},
+        {"1B_Line_7", 0.1186f},
+        {"1B_Line_8", 0.1186f},
+        {"1C_Line", 0.1186f},
+        {"1D_Line_1", 0.1186f},
+        {"1D_Line_2", 0.1186f},
+        {"1D_Line_3", 0.1186f},
+        {"1D_Line_4", 0.1186f},
+        {"1D_Line_5", 0.1186f},
+        {"1D_Line_6", 0.1186f},
+        {"1D_Line_7", 0.1186f},
+        {"1D_Line_8", 0.1186f},
+        {"1E_Line_1", 0.1186f},
+        {"1E_Line_2", 0.1186f},
+        {"1E_Line_3", 0.1186f},
+        {"1E_Line_4", 0.1186f},
+        {"1E_Line_5", 0.1186f},
+        {"1E_Line_6", 0.1186f},
+        {"1E_Line_7", 0.1186f},
+        {"1E_Line_8", 0.1186f},
+        {"A1_Line_1", 0.1186f},
+        {"A1_Line_2", 0.1186f},
+        {"A1_Line_3", 0.1186f},
+        {"A1_Line_4", 0.1186f},
+        {"A1_Line_5", 0.1186f},
+        {"A1_Line_6", 0.1186f},
+        {"A1_Line_7", 0.1186f},
+        {"A1_Line_8", 0.1186f},
+        {"AA_Line_2", 0.1186f},
+        {"AA_Line_3", 0.1186f},
+        {"AA_Line_4", 0.1186f},
+        {"AA_Line_5", 0.1186f},
+        {"AA_Line_6", 0.1186f},
+        {"AA_Line_7", 0.1186f},
+        {"AA_Line_8", 0.1186f},
+        {"AB_Line_1", 0.1186f},
+        {"AB_Line_2", 0.1186f},
+        {"AB_Line_3", 0.1186f},
+        {"AB_Line_4", 0.1186f},
+        {"AB_Line_5", 0.1186f},
+        {"AB_Line_6", 0.1186f},
+        {"AB_Line_7", 0.1186f},
+        {"AB_Line_8", 0.1186f},
+        {"AC_Line", 0.1186f},
+        {"AD_Line_1", 0.1186f},
+        {"AD_Line_2", 0.1186f},
+        {"AD_Line_3", 0.1186f},
+        {"AD_Line_4", 0.1186f},
+        {"AD_Line_5", 0.1186f},
+        {"AD_Line_6", 0.1186f},
+        {"AD_Line_7", 0.1186f},
+        {"AD_Line_8", 0.1186f},
+        {"AE_Line_1", 0.1186f},
+        {"AE_Line_2", 0.1186f},
+        {"AE_Line_3", 0.1186f},
+        {"AE_Line_4", 0.1186f},
+        {"AE_Line_5", 0.1186f},
+        {"AE_Line_6", 0.1186f},
+        {"AE_Line_7", 0.1186f},
+        {"AE_Line_8", 0.1186f},
+        {"B1_Line_1", 0.1186f},
+        {"B1_Line_2", 0.1186f},
+        {"B1_Line_3", 0.1186f},
+        {"B1_Line_4", 0.1186f},
+        {"B1_Line_5", 0.1186f},
+        {"B1_Line_6", 0.1186f},
+        {"B1_Line_7", 0.1186f},
+        {"B1_Line_8", 0.1186f},
+        {"BA_Line_1", 0.1186f},
+        {"BA_Line_2", 0.1186f},
+        {"BA_Line_3", 0.1186f},
+        {"BA_Line_4", 0.1186f},
+        {"BA_Line_5", 0.1186f},
+        {"BA_Line_6", 0.1186f},
+        {"BA_Line_7", 0.1186f},
+        {"BA_Line_8", 0.1186f},
+        {"BB_Line_2", 0.1186f},
+        {"BB_Line_3", 0.1186f},
+        {"BB_Line_4", 0.1186f},
+        {"BB_Line_5", 0.1186f},
+        {"BB_Line_6", 0.1186f},
+        {"BB_Line_7", 0.1186f},
+        {"BB_Line_8", 0.1186f},
+        {"BC_Line", 0.1186f},
+        {"BD_Line_1", 0.1186f},
+        {"BD_Line_2", 0.1186f},
+        {"BD_Line_3", 0.1186f},
+        {"BD_Line_4", 0.1186f},
+        {"BD_Line_5", 0.1186f},
+        {"BD_Line_6", 0.1186f},
+        {"BD_Line_7", 0.1186f},
+        {"BD_Line_8", 0.1186f},
+        {"BE_Line_1", 0.1186f},
+        {"BE_Line_2", 0.1186f},
+        {"BE_Line_3", 0.1186f},
+        {"BE_Line_4", 0.1186f},
+        {"BE_Line_5", 0.1186f},
+        {"BE_Line_6", 0.1186f},
+        {"BE_Line_7", 0.1186f},
+        {"BE_Line_8", 0.1186f},
+        {"C1_Line", 0.1186f},
+        {"CA_Line", 0.1186f},
+        {"CB_Line", 0.1186f},
+        {"CD_Line", 0.1186f},
+        {"CE_Line", 0.1186f},
+        {"D1_Line_1", 0.1186f},
+        {"D1_Line_2", 0.1186f},
+        {"D1_Line_3", 0.1186f},
+        {"D1_Line_4", 0.1186f},
+        {"D1_Line_5", 0.1186f},
+        {"D1_Line_6", 0.1186f},
+        {"D1_Line_7", 0.1186f},
+        {"D1_Line_8", 0.1186f},
+        {"DA_Line_1", 0.1186f},
+        {"DA_Line_2", 0.1186f},
+        {"DA_Line_3", 0.1186f},
+        {"DA_Line_4", 0.1186f},
+        {"DA_Line_5", 0.1186f},
+        {"DA_Line_6", 0.1186f},
+        {"DA_Line_7", 0.1186f},
+        {"DA_Line_8", 0.1186f},
+        {"DB_Line_1", 0.1186f},
+        {"DB_Line_2", 0.1186f},
+        {"DB_Line_3", 0.1186f},
+        {"DB_Line_4", 0.1186f},
+        {"DB_Line_5", 0.1186f},
+        {"DB_Line_6", 0.1186f},
+        {"DB_Line_7", 0.1186f},
+        {"DB_Line_8", 0.1186f},
+        {"DC_Line", 0.1186f},
+        {"DD_Line_2", 0.1186f},
+        {"DD_Line_3", 0.1186f},
+        {"DD_Line_4", 0.1186f},
+        {"DD_Line_5", 0.1186f},
+        {"DD_Line_6", 0.1186f},
+        {"DD_Line_7", 0.1186f},
+        {"DD_Line_8", 0.1186f},
+        {"DE_Line_1", 0.1186f},
+        {"DE_Line_2", 0.1186f},
+        {"DE_Line_3", 0.1186f},
+        {"DE_Line_4", 0.1186f},
+        {"DE_Line_5", 0.1186f},
+        {"DE_Line_6", 0.1186f},
+        {"DE_Line_7", 0.1186f},
+        {"DE_Line_8", 0.1186f},
+        {"E1_Line_1", 0.1186f},
+        {"E1_Line_2", 0.1186f},
+        {"E1_Line_3", 0.1186f},
+        {"E1_Line_4", 0.1186f},
+        {"E1_Line_5", 0.1186f},
+        {"E1_Line_6", 0.1186f},
+        {"E1_Line_7", 0.1186f},
+        {"E1_Line_8", 0.1186f},
+        {"EA_Line_1", 0.1186f},
+        {"EA_Line_2", 0.1186f},
+        {"EA_Line_3", 0.1186f},
+        {"EA_Line_4", 0.1186f},
+        {"EA_Line_5", 0.1186f},
+        {"EA_Line_6", 0.1186f},
+        {"EA_Line_7", 0.1186f},
+        {"EA_Line_8", 0.1186f},
+        {"EB_Line_1", 0.1186f},
+        {"EB_Line_2", 0.1186f},
+        {"EB_Line_3", 0.1186f},
+        {"EB_Line_4", 0.1186f},
+        {"EB_Line_5", 0.1186f},
+        {"EB_Line_6", 0.1186f},
+        {"EB_Line_7", 0.1186f},
+        {"EB_Line_8", 0.1186f},
+        {"EC_Line", 0.1186f},
+        {"ED_Line_1", 0.1186f},
+        {"ED_Line_2", 0.1186f},
+        {"ED_Line_3", 0.1186f},
+        {"ED_Line_4", 0.1186f},
+        {"ED_Line_5", 0.1186f},
+        {"ED_Line_6", 0.1186f},
+        {"ED_Line_7", 0.1186f},
+        {"ED_Line_8", 0.1186f},
+        {"EE_Line_2", 0.1186f},
+        {"EE_Line_3", 0.1186f},
+        {"EE_Line_4", 0.1186f},
+        {"EE_Line_5", 0.1186f},
+        {"EE_Line_6", 0.1186f},
+        {"EE_Line_7", 0.1186f},
+        {"EE_Line_8", 0.1186f},
     };
 
     private static readonly Dictionary<string, List<int>> SLIDE_AREA_STEP_MAP = new Dictionary<string, List<int>>()
@@ -243,6 +645,205 @@ public class JsonDataLoader : MonoBehaviour
         {"L3", new List<int>(){ 0, 2, 8, 17, 20, 26, 29, 34 } },
         {"L4", new List<int>(){ 0, 2, 8, 17, 22, 26, 32 } },
         {"L5", new List<int>(){ 0, 2, 8, 16, 22, 28 } },
+        // Index of line in prefab on that is on top of the sensor, used when smooth slide aniation is off to turn off part of slides
+        {"1A_Line_1",new List<int>() {0}},
+        {"1A_Line_2",new List<int>() {0, 5}},
+        {"1A_Line_3",new List<int>() {0, 11}},
+        {"1A_Line_4",new List<int>() {0, 6, 10, 16}},
+        {"1A_Line_5",new List<int>() {0, 4, 7, 13, 17}},
+        {"1A_Line_6",new List<int>() {0, 6, 10, 16}},
+        {"1A_Line_7",new List<int>() {0, 11}},
+        {"1A_Line_8",new List<int>() {0, 5}},
+        {"1B_Line_1",new List<int>() {0, 3}},
+        {"1B_Line_2",new List<int>() {0, 5}},
+        {"1B_Line_3",new List<int>() {0, 6, 9}},
+        {"1B_Line_4",new List<int>() {0, 7, 9, 12}},
+        {"1B_Line_5",new List<int>() {0, 4, 7, 13}},
+        {"1B_Line_6",new List<int>() {0, 7, 9, 12}},
+        {"1B_Line_7",new List<int>() {0, 6, 9}},
+        {"1B_Line_8",new List<int>() {0, 5}},
+        {"1C_Line",new List<int>() {0, 4, 7}},
+        {"1D_Line_1",new List<int>() {0, 3}},
+        {"1D_Line_2",new List<int>() {0, 3}},
+        {"1D_Line_3",new List<int>() {0, 5}},
+        {"1D_Line_4",new List<int>() {0, 6, 10}},
+        {"1D_Line_5",new List<int>() {0, 4, 8, 12}},
+        {"1D_Line_6",new List<int>() {0, 4, 8, 12}},
+        {"1D_Line_7",new List<int>() {0, 6, 10}},
+        {"1D_Line_8",new List<int>() {0, 5}},
+        {"1E_Line_1",new List<int>() {0, 3}},
+        {"1E_Line_2",new List<int>() {0, 3}},
+        {"1E_Line_3",new List<int>() {0, 8}},
+        {"1E_Line_4",new List<int>() {0, 6, 9}},
+        {"1E_Line_5",new List<int>() {0, 4, 8, 13}},
+        {"1E_Line_6",new List<int>() {0, 4, 8, 13}},
+        {"1E_Line_7",new List<int>() {0, 6, 9}},
+        {"1E_Line_8",new List<int>() {0, 8}},
+        {"A1_Line_1",new List<int>() {0}},
+        {"A1_Line_2",new List<int>() {0, 4}},
+        {"A1_Line_3",new List<int>() {0, 10}},
+        {"A1_Line_4",new List<int>() {0, 5, 8, 14}},
+        {"A1_Line_5",new List<int>() {0, 2, 6, 11, 15}},
+        {"A1_Line_6",new List<int>() {0, 5, 8, 14}},
+        {"A1_Line_7",new List<int>() {0, 10}},
+        {"A1_Line_8",new List<int>() {0, 4}},
+        {"AA_Line_2",new List<int>() {0, 4}},
+        {"AA_Line_3",new List<int>() {0, 10}},
+        {"AA_Line_4",new List<int>() {0, 5, 8, 14}},
+        {"AA_Line_5",new List<int>() {0, 2, 6, 12, 16}},
+        {"AA_Line_6",new List<int>() {0, 5, 8, 14}},
+        {"AA_Line_7",new List<int>() {0, 10}},
+        {"AA_Line_8",new List<int>() {0, 4}},
+        {"AB_Line_1",new List<int>() {0, 2}},
+        {"AB_Line_2",new List<int>() {0, 3}},
+        {"AB_Line_3",new List<int>() {0, 4, 8}},
+        {"AB_Line_4",new List<int>() {0, 3, 7, 11}},
+        {"AB_Line_5",new List<int>() {0, 2, 6, 12}},
+        {"AB_Line_6",new List<int>() {0, 3, 7, 11}},
+        {"AB_Line_7",new List<int>() {0, 4, 8}},
+        {"AB_Line_8",new List<int>() {0, 3}},
+        {"AC_Line",new List<int>() {0, 2, 5}},
+        {"AD_Line_1",new List<int>() {0, 3}},
+        {"AD_Line_2",new List<int>() {0, 3}},
+        {"AD_Line_3",new List<int>() {0, 4}},
+        {"AD_Line_4",new List<int>() {0, 5, 9}},
+        {"AD_Line_5",new List<int>() {0, 3, 6, 11}},
+        {"AD_Line_6",new List<int>() {0, 3, 6, 11}},
+        {"AD_Line_7",new List<int>() {0, 5, 9}},
+        {"AD_Line_8",new List<int>() {0, 4}},
+        {"AE_Line_1",new List<int>() {0, 3}},
+        {"AE_Line_2",new List<int>() {0, 3}},
+        {"AE_Line_3",new List<int>() {0, 7}},
+        {"AE_Line_4",new List<int>() {0, 4, 7}},
+        {"AE_Line_5",new List<int>() {0, 3, 6, 11}},
+        {"AE_Line_6",new List<int>() {0, 3, 6, 11}},
+        {"AE_Line_7",new List<int>() {0, 4, 7}},
+        {"AE_Line_8",new List<int>() {0, 7}},
+        {"B1_Line_1",new List<int>() {0}},
+        {"B1_Line_2",new List<int>() {0, 4}},
+        {"B1_Line_3",new List<int>() {0, 2, 7}},
+        {"B1_Line_4",new List<int>() {0, 3, 5, 10}},
+        {"B1_Line_5",new List<int>() {0, 2, 7, 11}},
+        {"B1_Line_6",new List<int>() {0, 3, 5, 10}},
+        {"B1_Line_7",new List<int>() {0, 2, 7}},
+        {"B1_Line_8",new List<int>() {0, 4}},
+        {"BA_Line_1",new List<int>() {0, 2}},
+        {"BA_Line_2",new List<int>() {0, 3}},
+        {"BA_Line_3",new List<int>() {0, 2, 8}},
+        {"BA_Line_4",new List<int>() {0, 3, 7, 11}},
+        {"BA_Line_5",new List<int>() {0, 2, 8, 12}},
+        {"BA_Line_6",new List<int>() {0, 3, 7, 11}},
+        {"BA_Line_7",new List<int>() {0, 2, 8}},
+        {"BA_Line_8",new List<int>() {0, 3}},
+        {"BB_Line_2",new List<int>() {0, 2}},
+        {"BB_Line_3",new List<int>() {0, 2, 4}},
+        {"BB_Line_4",new List<int>() {0, 2, 6}},
+        {"BB_Line_5",new List<int>() {0, 2, 7}},
+        {"BB_Line_6",new List<int>() {0, 2, 6}},
+        {"BB_Line_7",new List<int>() {0, 2, 4}},
+        {"BB_Line_8",new List<int>() {0, 2}},
+        {"BC_Line",new List<int>() {0, 1}},
+        {"BD_Line_1",new List<int>() {0}},
+        {"BD_Line_2",new List<int>() {0}},
+        {"BD_Line_3",new List<int>() {0, 2}},
+        {"BD_Line_4",new List<int>() {0, 2, 4}},
+        {"BD_Line_5",new List<int>() {0, 2, 7}},
+        {"BD_Line_6",new List<int>() {0, 2, 7}},
+        {"BD_Line_7",new List<int>() {0, 2, 4}},
+        {"BD_Line_8",new List<int>() {0, 2}},
+        {"BE_Line_1",new List<int>() {0, 3}},
+        {"BE_Line_2",new List<int>() {0, 3}},
+        {"BE_Line_3",new List<int>() {0, 2}},
+        {"BE_Line_4",new List<int>() {0, 2, 5}},
+        {"BE_Line_5",new List<int>() {0, 2, 7}},
+        {"BE_Line_6",new List<int>() {0, 2, 7}},
+        {"BE_Line_7",new List<int>() {0, 2, 5}},
+        {"BE_Line_8",new List<int>() {0, 2}},
+        {"C1_Line",new List<int>() {0, 2, 6}},
+        {"CA_Line",new List<int>() {0, 2, 6}},
+        {"CB_Line",new List<int>() {0, 2}},
+        {"CD_Line",new List<int>() {0, 7}},
+        {"CE_Line",new List<int>() {0, 5}},
+        {"D1_Line_1",new List<int>() {0}},
+        {"D1_Line_2",new List<int>() {0, 7}},
+        {"D1_Line_3",new List<int>() {0, 7, 12}},
+        {"D1_Line_4",new List<int>() {0, 6, 12, 15}},
+        {"D1_Line_5",new List<int>() {0, 6, 12, 15}},
+        {"D1_Line_6",new List<int>() {0, 7, 12}},
+        {"D1_Line_7",new List<int>() {0, 7}},
+        {"D1_Line_8",new List<int>() {0}},
+        {"DA_Line_1",new List<int>() {0}},
+        {"DA_Line_2",new List<int>() {0, 7}},
+        {"DA_Line_3",new List<int>() {0, 7, 13}},
+        {"DA_Line_4",new List<int>() {0, 6, 11, 15}},
+        {"DA_Line_5",new List<int>() {0, 6, 11, 15}},
+        {"DA_Line_6",new List<int>() {0, 7, 13}},
+        {"DA_Line_7",new List<int>() {0, 7}},
+        {"DA_Line_8",new List<int>() {0}},
+        {"DB_Line_1",new List<int>() {0}},
+        {"DB_Line_2",new List<int>() {0, 6}},
+        {"DB_Line_3",new List<int>() {0, 6, 9}},
+        {"DB_Line_4",new List<int>() {0, 6, 11}},
+        {"DB_Line_5",new List<int>() {0, 6, 11}},
+        {"DB_Line_6",new List<int>() {0, 6, 9}},
+        {"DB_Line_7",new List<int>() {0, 6}},
+        {"DB_Line_8",new List<int>() {0}},
+        {"DC_Line",new List<int>() {0}},
+        {"DD_Line_2",new List<int>() {0, 5}},
+        {"DD_Line_3",new List<int>() {0}},
+        {"DD_Line_4",new List<int>() {0, 7, 9}},
+        {"DD_Line_5",new List<int>() {0, 17}},
+        {"DD_Line_6",new List<int>() {0, 7, 9}},
+        {"DD_Line_7",new List<int>() {0}},
+        {"DD_Line_8",new List<int>() {0, 5}},
+        {"DE_Line_1",new List<int>() {0}},
+        {"DE_Line_2",new List<int>() {0, 4}},
+        {"DE_Line_3",new List<int>() {0, 6}},
+        {"DE_Line_4",new List<int>() {0, 9}},
+        {"DE_Line_5",new List<int>() {0, 14}},
+        {"DE_Line_6",new List<int>() {0, 9}},
+        {"DE_Line_7",new List<int>() {0, 6}},
+        {"DE_Line_8",new List<int>() {0, 4}},
+        {"E1_Line_1",new List<int>() {0}},
+        {"E1_Line_2",new List<int>() {0}},
+        {"E1_Line_3",new List<int>() {0, 4, 10}},
+        {"E1_Line_4",new List<int>() {0, 4, 9, 13}},
+        {"E1_Line_5",new List<int>() {0, 4, 9, 13}},
+        {"E1_Line_6",new List<int>() {0, 4, 10}},
+        {"E1_Line_7",new List<int>() {0}},
+        {"E1_Line_8",new List<int>() {0}},
+        {"EA_Line_1",new List<int>() {0}},
+        {"EA_Line_2",new List<int>() {0}},
+        {"EA_Line_3",new List<int>() {0, 4, 10}},
+        {"EA_Line_4",new List<int>() {0, 4, 9, 13}},
+        {"EA_Line_5",new List<int>() {0, 4, 9, 13}},
+        {"EA_Line_6",new List<int>() {0, 4, 10}},
+        {"EA_Line_7",new List<int>() {0}},
+        {"EA_Line_8",new List<int>() {0}},
+        {"EB_Line_1",new List<int>() {0}},
+        {"EB_Line_2",new List<int>() {0, 4}},
+        {"EB_Line_3",new List<int>() {0, 5, 7}},
+        {"EB_Line_4",new List<int>() {0, 3, 9}},
+        {"EB_Line_5",new List<int>() {0, 3, 9}},
+        {"EB_Line_6",new List<int>() {0, 5, 7}},
+        {"EB_Line_7",new List<int>() {0, 4}},
+        {"EB_Line_8",new List<int>() {0}},
+        {"EC_Line",new List<int>() {0}},
+        {"ED_Line_1",new List<int>() {0}},
+        {"ED_Line_2",new List<int>() {0, 4}},
+        {"ED_Line_3",new List<int>() {0, 5}},
+        {"ED_Line_4",new List<int>() {0, 7}},
+        {"ED_Line_5",new List<int>() {0, 14}},
+        {"ED_Line_6",new List<int>() {0, 7}},
+        {"ED_Line_7",new List<int>() {0, 5}},
+        {"ED_Line_8",new List<int>() {0, 4}},
+        {"EE_Line_2",new List<int>() {0}},
+        {"EE_Line_3",new List<int>() {0, 4}},
+        {"EE_Line_4",new List<int>() {0, 5, 7}},
+        {"EE_Line_5",new List<int>() {0, 12}},
+        {"EE_Line_6",new List<int>() {0, 5, 7}},
+        {"EE_Line_7",new List<int>() {0, 4}},
+        {"EE_Line_8",new List<int>() {0}},
     };
     private static readonly Dictionary<int, List<List<JudgeArea>>> WIFISLIDE_JUDGE_QUEUE = new Dictionary<int, List<List<JudgeArea>>>()
     {
@@ -467,7 +1068,7 @@ public class JsonDataLoader : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        switch(State)
+        switch (State)
         {
             case NoteLoaderStatus.LodingJson:
                 if (jsonLoaderTask is null || !jsonLoaderTask.IsCompleted)
@@ -532,7 +1133,7 @@ public class JsonDataLoader : MonoBehaviour
                     {
                         GameObject GOnote = null;
                         TapBase NDCompo = null;
-                        
+
                         if (note.IsForceStar)
                         {
                             GOnote = Instantiate(starPrefab, notes.transform);
@@ -737,7 +1338,10 @@ public class JsonDataLoader : MonoBehaviour
                 }
 
                 var eachNotes = timing.Notes.ToList().FindAll(o =>
-                    o.Type != SimaiNoteType.Touch && o.Type != SimaiNoteType.TouchHold);
+                    o.Type != SimaiNoteType.Touch &&
+                    o.Type != SimaiNoteType.TouchHold &&
+                    !isTouch(o.TouchArea) // Slide start with touch have simaiNoteType = Slide
+                );
                 if (eachNotes.Count > 1) //有多个非touchnote
                 {
                     var startPos = eachNotes[0].StartPosition;
@@ -845,7 +1449,11 @@ public class JsonDataLoader : MonoBehaviour
                     if (note.Type == SimaiNoteType.Touch) ObjectCounter.touchSum++;
                     if (note.Type == SimaiNoteType.Slide)
                     {
-                        if (!note.IsSlideNoHead) ObjectCounter.tapSum++;
+                        if (!note.IsSlideNoHead)
+                        {
+                            if (isTouch(note.TouchArea)) ObjectCounter.touchSum++;
+                            else ObjectCounter.tapSum++;
+                        }
                         if (note.IsSlideBreak)
                             ObjectCounter.breakSum++;
                         else
@@ -906,9 +1514,13 @@ public class JsonDataLoader : MonoBehaviour
 
     private void InstantiateStarGroup(SimaiTimingPoint timing, SimaiNote note, int sort, double lastNoteTime)
     {
-        int charIntParse(char c)
+        string readSlideAnchor(string noteContent, ref int ptr)
         {
-            return c - '0';
+            if (isNonCTouchArea(noteContent[ptr]))
+            {
+                return noteContent[ptr++..++ptr];
+            }
+            return noteContent[ptr++].ToString();
         }
 
         var subSlide = new List<SimaiNote>();
@@ -916,21 +1528,26 @@ public class JsonDataLoader : MonoBehaviour
         var sumBarCount = 0;
 
         var noteContent = note.RawContent;
-        var latestStartIndex = charIntParse(noteContent[0]); // 存储上一个Slide的结尾 也就是下一个Slide的起点
-        var ptr = 1; // 指向目前处理的字符
+        var ptr = 0; // 指向目前处理的字符
+        var latestStartIndex = readSlideAnchor(noteContent, ref ptr); // 存储上一个Slide的结尾 也就是下一个Slide的起点
 
         var specTimeFlag = 0; // 表示此组合slide是指定总时长 还是指定每一段的时长
         // 0-目前还没有读取 1-读取到了一个未指定时长的段落 2-读取到了一个指定时长的段落 3-（期望）读取到了最后一个时长指定
 
         while (ptr < noteContent.Length)
-            if (!char.IsNumber(noteContent[ptr]))
+            if (!isSupportedSlideStart(noteContent[ptr]))
             {
-                // 读取到字符
+                // Reading the slide type. Due to touch slide support, we can no longer assume the slide start is 1 character anymore
                 var slideTypeChar = noteContent[ptr++].ToString();
 
                 var slidePart = new SimaiNote();
                 slidePart.Type = SimaiNoteType.Slide;
-                slidePart.StartPosition = latestStartIndex;
+                slidePart.StartPosition = parseSlideAnchor(latestStartIndex);
+                if (isTouch(latestStartIndex[0]))
+                {
+                    slidePart.TouchArea = latestStartIndex[0];
+                }
+
                 if (slideTypeChar == "V")
                 {
                     // 转折星星
@@ -938,17 +1555,24 @@ public class JsonDataLoader : MonoBehaviour
                     var endPos = noteContent[ptr++];
 
                     slidePart.RawContent = latestStartIndex + slideTypeChar + middlePos + endPos;
-                    latestStartIndex = charIntParse(endPos);
+                    // Temp: Unsure if V touch slide is supported
+                    latestStartIndex = endPos.ToString();
                 }
                 else
                 {
                     // 其他普通星星
                     // 额外检查pp和qq
                     if (noteContent[ptr] == slideTypeChar[0]) slideTypeChar += noteContent[ptr++];
-                    var endPos = noteContent[ptr++];
+                    var endPos = readSlideAnchor(noteContent, ref ptr);
+
+                    // Special case if C is the start, use endPos for rotation
+                    if (slidePart.StartPosition == 0)
+                    {
+                        slidePart.StartPosition = parseSlideAnchor(endPos);
+                    }
 
                     slidePart.RawContent = latestStartIndex + slideTypeChar + endPos;
-                    latestStartIndex = charIntParse(endPos);
+                    latestStartIndex = endPos.ToString();
                 }
 
                 if (noteContent[ptr] == '[')
@@ -962,7 +1586,7 @@ public class JsonDataLoader : MonoBehaviour
                         specTimeFlag = 3;
                     else if (specTimeFlag == 3)
                         // 之前读取到了指定时长 并期待那个时长就是最终时长 但是又读取到一个新的时长 则报错
-                        throw new Exception("组合星星有错误\nSLIDE CHAIN ERROR");
+                        throw new Exception($"SLIDE ERROR: {note.RawContent}");
 
                     while (ptr < noteContent.Length && noteContent[ptr] != ']')
                         slidePart.RawContent += noteContent[ptr++];
@@ -976,7 +1600,7 @@ public class JsonDataLoader : MonoBehaviour
                         specTimeFlag = 1;
                     else if (specTimeFlag == 2 || specTimeFlag == 3)
                         // 之前读取到指定时长的段落了 说明这一条组合星星有的指定时长 有的没指定 则需要报错
-                        throw new Exception("组合星星有错误\nSLIDE CHAIN ERROR");
+                        throw new Exception($"SLIDE ERROR: {note.RawContent}");
                 }
 
                 string slideShape = detectShapeFromText(slidePart.RawContent);
@@ -996,7 +1620,7 @@ public class JsonDataLoader : MonoBehaviour
             else
             {
                 // 理论上来说 不应该读取到数字 因此如果读取到了 说明有语法错误
-                throw new Exception("组合星星有错误\nwSLIDE CHAIN ERROR");
+                throw new Exception($"SLIDE ERROR: {note.RawContent}");
             }
 
         subSlide.ForEach(o =>
@@ -1012,10 +1636,10 @@ public class JsonDataLoader : MonoBehaviour
 
         if (specTimeFlag == 1 || specTimeFlag == 0)
             // 如果到结束还是1 那说明没有一个指定了时长 报错
-            throw new Exception("组合星星有错误\nwSLIDE CHAIN ERROR");
+            throw new Exception($"SLIDE ERROR: {note.RawContent}");
         // 此时 flag为2表示每条指定语法 为3表示整体指定语法
 
-            var tempBarCount = 0;
+        var tempBarCount = 0;
         for (var i = 0; i < subSlide.Count; i++)
         {
             subSlide[i].SlideStartTime = note.SlideStartTime + (double)tempBarCount / sumBarCount * note.SlideTime;
@@ -1049,7 +1673,14 @@ public class JsonDataLoader : MonoBehaviour
                     IsGroupPartEnd = isGroupEnd,
                     Parent = parent
                 };
-                parent = InstantiateStar(timing, subSlide[i], info);
+                if (note.RawContent[0] >= 'A' && note.RawContent[0] <= 'E')
+                {
+                    parent = InstantiateTouchStar(timing, subSlide[i], info);
+                }
+                else
+                {
+                    parent = InstantiateStar(timing, subSlide[i], info);
+                }
                 subSlides.Add(parent.GetComponent<SlideDrop>());
             }
         }
@@ -1060,7 +1691,8 @@ public class JsonDataLoader : MonoBehaviour
             totalJudgeAreaCount += s.judgeQueue.Count;
         });
         totalJudgeAreaCount -= (subSlides.Count - 1);
-        subSlides.ForEach(s => {
+        subSlides.ForEach(s =>
+        {
             s.ConnectInfo.TotalSlideLen = totalSlideLen;
             s.SetCanSkip(totalJudgeAreaCount);
         });
@@ -1079,7 +1711,7 @@ public class JsonDataLoader : MonoBehaviour
 
         var GOnote = Instantiate(starPrefab, notes.transform);
         var NDCompo = GOnote.GetComponent<StarDrop>();
-        if(!note.IsSlideNoHead)
+        if (!note.IsSlideNoHead)
             noteManager.AddNote(GOnote, noteIndex[note.StartPosition]++);
 
 
@@ -1178,7 +1810,7 @@ public class JsonDataLoader : MonoBehaviour
     {
         var GOnote = Instantiate(starPrefab, notes.transform);
         var NDCompo = GOnote.GetComponent<StarDrop>();
-        if(!note.IsSlideNoHead)
+        if (!note.IsSlideNoHead)
             noteManager.AddNote(GOnote, noteIndex[note.StartPosition]++);
         // note的图层顺序
         NDCompo.noteSortOrder = noteSortOrder;
@@ -1286,7 +1918,133 @@ public class JsonDataLoader : MonoBehaviour
         }
         SliCompo.speed = noteSpeed * timing.HSpeed;
         SliCompo.timeStart = (float)timing.Timing;
+        SliCompo.areaPosition = note.TouchArea;
         SliCompo.startPosition = note.StartPosition;
+        SliCompo.star_slide = slide_star;
+        SliCompo.time = (float)note.SlideStartTime;
+        SliCompo.LastFor = (float)note.SlideTime;
+        //SliCompo.sortIndex = -7000 + (int)((lastNoteTime - timing.time) * -100) + sort * 5;
+        SliCompo.sortIndex = slideLayer;
+        slideLayer -= SLIDE_AREA_STEP_MAP[slideShape].Last();
+        //slideLayer += 5;
+        return slide;
+    }
+
+    private GameObject InstantiateTouchStar(SimaiTimingPoint timing, SimaiNote note, ConnSlideInfo info)
+    {
+        var GOnote = Instantiate(touchStarPrefab, notes.transform);
+        if (!note.IsSlideNoHead)
+            noteManager.AddTouch(GOnote, touchIndex[TouchBase.GetSensor(note.TouchArea, note.StartPosition)]++);
+        var NDCompo = GOnote.GetComponent<TouchStarDrop>();
+
+        // note的图层顺序
+        NDCompo.noteSortOrder = noteSortOrder;
+        noteSortOrder -= NOTE_LAYER_COUNT[note.Type];
+
+        NDCompo.time = (float)timing.Timing;
+        NDCompo.areaPosition = note.TouchArea;
+        NDCompo.startPosition = note.StartPosition;
+
+        NDCompo.fanNormalSprite = customSkin.TouchStar;
+        NDCompo.fanEachSprite = customSkin.TouchStar_Each;
+        NDCompo.fanBreakSprite = customSkin.TouchStar_Break;
+        NDCompo.fanMineSprite = customSkin.TouchStar_Mine;
+        NDCompo.pointNormalSprite = customSkin.TouchPoint;
+        NDCompo.pointEachSprite = customSkin.TouchPoint_Each;
+        NDCompo.pointBreakSprite = customSkin.TouchPoint_Break;
+        NDCompo.pointMineSprite = customSkin.TouchPoint_Mine;
+        NDCompo.justSprite = customSkin.TouchJust;
+        Array.Copy(customSkin.TouchBorder, NDCompo.multTouchNormalSprite, 2);
+        Array.Copy(customSkin.TouchBorder_Each, NDCompo.multTouchEachSprite, 2);
+        Array.Copy(customSkin.TouchBorder_Break, NDCompo.multTouchBreakSprite, 2);
+        Array.Copy(customSkin.TouchBorder_Mine, NDCompo.multTouchMineSprite, 2);
+        NDCompo.speed = touchSpeed * timing.HSpeed;
+        NDCompo.isFirework = note.IsHanabi;
+        NDCompo.isBreak = note.IsBreak;
+        NDCompo.isMine = note.IsMine;
+        NDCompo.GroupInfo = null;
+
+        string slideShape = detectShapeFromText(note.RawContent);
+        var isMirror = false;
+        if (slideShape.StartsWith("-"))
+        {
+            isMirror = true;
+            slideShape = slideShape.Substring(1);
+        }
+        int slideIndex = SLIDE_PREFAB_MAP[slideShape];
+
+        var slide = Instantiate(slidePrefab[slideIndex], notes.transform);
+        var slide_star = Instantiate(star_slidePrefab, notes.transform);
+        slide_star.GetComponent<SpriteRenderer>().sprite = customSkin.Star;
+        slide_star.SetActive(false);
+        slide.SetActive(false);
+        NDCompo.slide = slide;
+        var SliCompo = slide.AddComponent<SlideDrop>();
+
+        SliCompo.slideType = slideShape;
+        SliCompo.spriteNormal = customSkin.Slide;
+        SliCompo.spriteEach = customSkin.Slide_Each;
+        SliCompo.spriteBreak = customSkin.Slide_Break;
+        SliCompo.spriteMine = customSkin.Slide_Mine;
+        SliCompo.slideShine = BreakShine;
+        SliCompo.breakMaterial = breakMaterial;
+        SliCompo.judgeBreakShine = JudgeBreakShine;
+        SliCompo.areaStep = new List<int>(SLIDE_AREA_STEP_MAP[slideShape]);
+        SliCompo.slideConst = SLIDE_AREA_CONST[slideShape];
+        SliCompo.smoothSlideAnime = smoothSlideAnime;
+
+        if (timing.Notes.Length > 1)
+        {
+            var notes = timing.Notes.ToList();
+            NDCompo.isEach = true;
+            if (notes.FindAll(o => o.Type == SimaiNoteType.Slide).Count > 1)
+            {
+                SliCompo.isEach = true;
+                slide_star.GetComponent<SpriteRenderer>().sprite = customSkin.Star_Each;
+            }
+
+            var count = notes.FindAll(
+                o => o.Type == SimaiNoteType.Slide &&
+                     o.StartPosition == note.StartPosition).Count;
+            if (count > 1)
+            {
+                if (count == notes.Count)
+                    NDCompo.isEach = false;
+                else
+                    NDCompo.isEach = true;
+            }
+        }
+
+        SliCompo.ConnectInfo = info;
+        SliCompo.isBreak = note.IsSlideBreak;
+        SliCompo.isMine = note.IsMineSlide;
+        if (note.IsSlideBreak) slide_star.GetComponent<SpriteRenderer>().sprite = customSkin.Star_Break;
+
+        NDCompo.isNoHead = note.IsSlideNoHead;
+        NDCompo.time = (float)timing.Timing;
+        NDCompo.startPosition = note.StartPosition;
+        NDCompo.speed = noteSpeed * timing.HSpeed;
+
+        SliCompo.isMirror = isMirror;
+        SliCompo.isJustR = detectJustType(note.RawContent, out int endPos);
+        SliCompo.endPosition = endPos;
+        if (slideIndex - 26 > 0 && slideIndex - 26 <= 8)
+        {
+            // known slide sprite issue
+            //    1 2 3 4 5 6 7 8
+            // p  X X X X X X O O
+            // q  X O O X X X X X
+            var pqEndPos = slideIndex - 26;
+            SliCompo.isSpecialFlip = isMirror == (pqEndPos == 7 || pqEndPos == 8);
+        }
+        else
+        {
+            SliCompo.isSpecialFlip = isMirror;
+        }
+        SliCompo.speed = noteSpeed * timing.HSpeed;
+        SliCompo.timeStart = (float)timing.Timing;
+        SliCompo.startPosition = note.StartPosition;
+        SliCompo.areaPosition = note.TouchArea;
         SliCompo.star_slide = slide_star;
         SliCompo.time = (float)note.SlideStartTime;
         SliCompo.LastFor = (float)note.SlideTime;
@@ -1363,16 +2121,29 @@ public class JsonDataLoader : MonoBehaviour
         }
         else
         {
-            //int endPos;
-            if (content.Contains("qq") || content.Contains("pp"))
-                endPos = int.Parse(content.Substring(3, 1));
-            else
-                endPos = int.Parse(content.Substring(2, 1));
+            var slidePart = toSlidePart(content);
+            endPos = parseSlideAnchor(slidePart[1]);
+            // Handle touch slide end in C
+            if (endPos == 0) endPos = parseSlideAnchor(slidePart[0]);
             if (isRightHalf(endPos))
                 return true;
             return false;
         }
         return true;
+    }
+
+    private string[] toSlidePart(string rawContent)
+    {
+        // Must have pp and qq before p and q
+        var separators = new string[] { "pp", "qq", "-", "v", "s", "z", "p", "q" };
+        foreach (var separator in separators)
+        {
+            if (rawContent.Contains(separator))
+            {
+                return rawContent.Split(separator);
+            }
+        }
+        throw new InvalidOperationException($"Unable to get end position of {rawContent}");
     }
 
     private string detectShapeFromText(string content)
@@ -1385,15 +2156,35 @@ public class JsonDataLoader : MonoBehaviour
             return endPos + 1;
         }
 
+        char toDictName(char c)
+        {
+            if (c >= '1' && c <= '8') return '1';
+            return c;
+        }
+
         //print(content);
         if (content.Contains('-'))
         {
             // line
-            var str = content.Substring(0, 3); //something like "8-6"
+            var str = content.Split('[')[0]; // Length can now varied anywhere from 3 to 5, get substring until the first '[', if any
             var digits = str.Split('-');
-            var startPos = int.Parse(digits[0]);
-            var endPos = int.Parse(digits[1]);
+            var startPos = parseSlideAnchor(digits[0]);
+            var endPos = parseSlideAnchor(digits[1]);
             endPos = getRelativeEndPos(startPos, endPos);
+
+            // If either start or end is in C position, single prefab for all 8 direction
+            if (digits[0][0] == 'C' || digits[1][0] == 'C')
+            {
+                return $"{toDictName(digits[0][0])}{toDictName(digits[1][0])}_Line";
+            }
+
+            // If either start or end is non C touch
+            if (isTouch(digits[0][0]) || isTouch(digits[1][0]))
+            {
+                return $"{toDictName(digits[0][0])}{toDictName(digits[1][0])}_Line_{endPos}";
+            }
+
+            // Normal slide logic
             if (endPos < 3 || endPos > 7) throw new Exception("-星星至少隔开一键\n-スライドエラー");
             return "line" + endPos;
         }
@@ -1611,4 +2402,34 @@ public class JsonDataLoader : MonoBehaviour
         if (key == 8) return 2;
         throw new Exception("Keys out of range: " + key);
     }
+
+
+    #region Small helpers
+    private int charIntParse(char c)
+    {
+        return c - '0';
+    }
+
+    private int parseSlideAnchor(string anchor)
+    {
+        if (anchor.StartsWith('C')) return 0;
+        if (anchor.Length == 1) return charIntParse(anchor[0]);
+        return charIntParse(anchor[1]);
+    }
+
+    private bool isTouch(char c)
+    {
+        return (c >= 'A' && c <= 'E');
+    }
+
+    private bool isNonCTouchArea(char c)
+    {
+        return c != 'C' && isTouch(c);
+    }
+
+    private bool isSupportedSlideStart(char c)
+    {
+        return char.IsNumber(c) || isTouch(c);
+    }
+    #endregion Small helpers
 }

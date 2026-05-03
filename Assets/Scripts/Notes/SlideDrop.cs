@@ -72,11 +72,12 @@ public class SlideDrop : NoteLongDrop, IFlasher
 
     private SpriteRenderer spriteRenderer_star;
 
+    public char areaPosition;
     public int endPosition;
 
     List<GameObject> sensors = new();
     SensorManager sManager;
-    
+
     List<Sensor> registerSensors = new();
 
     bool canShine = false;
@@ -141,7 +142,15 @@ public class SlideDrop : NoteLongDrop, IFlasher
 
         slideOK.SetActive(false);
         slideOK.transform.SetParent(transform.parent);
-        slidePositions.Add(getPositionFromDistance(4.8f));
+        // This also control where the star slide appearing
+        if (areaPosition >= 'A' && areaPosition <= 'E')
+        {
+            slidePositions.Add(GetAreaPos(startPosition, areaPosition));
+        }
+        else
+        {
+            slidePositions.Add(getPositionFromDistance(4.8f));
+        }
         foreach (var bars in slideBars)
         {
             slidePositions.Add(bars.transform.position);
@@ -151,12 +160,13 @@ public class SlideDrop : NoteLongDrop, IFlasher
         var x = slidePositions.LastOrDefault() - Vector3.zero;
         var y = endPos - Vector3.zero;
         var angle = Mathf.Acos(Vector3.Dot(x, y) / (x.magnitude * y.magnitude)) * Mathf.Rad2Deg;
+        if (angle == float.NaN) angle = 0;
         var offset = slideRotations.TakeLast(1).First().eulerAngles - slideRotations.TakeLast(2).First().eulerAngles;
         if (offset.z < 0)
             angle = -angle;
-            
+
         var q = slideRotations.LastOrDefault() * Quaternion.Euler(0, 0, angle);
-        slidePositions.Add(endPos);
+        //slidePositions.Add(endPos);
         slideRotations.Add(q);
         foreach (var gm in slideBars)
         {
@@ -234,7 +244,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
             registerSensors.Add(sManager.GetSensor(judgeSensors[1].Type + 8));
         }
         //else if (slideType == "circle3")// 1^3
-            //judgeQueue[1].CanSkip = ConnectInfo.IsConnSlide;         //CanSkip above is set in SetCanSkip
+        //judgeQueue[1].CanSkip = ConnectInfo.IsConnSlide;         //CanSkip above is set in SetCanSkip
         else if (slideType[0] == 'L')// 1V3                            //the V is special
         {
             judgeQueue[1].CanSkip = ConnectInfo.IsConnSlide;
@@ -256,7 +266,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
         _judgeQueue = new(judgeQueue);
 
         parent = ConnectInfo.Parent;
-        if( (ConnectInfo.IsConnSlide && ConnectInfo.IsGroupPartEnd) || 
+        if ((ConnectInfo.IsConnSlide && ConnectInfo.IsGroupPartEnd) ||
             !ConnectInfo.IsConnSlide)
         {
             judgeTiming = time + LastFor * CalJudgeTiming();
@@ -292,10 +302,10 @@ public class SlideDrop : NoteLongDrop, IFlasher
     private void Start()
     {
         Initialize();
-        if(ConnectInfo.IsConnSlide)
+        if (ConnectInfo.IsConnSlide)
         {
             LastFor = (ConnectInfo.TotalLength / ConnectInfo.TotalSlideLen) * GetSlideLength();
-            if(!ConnectInfo.IsGroupPartHead)
+            if (!ConnectInfo.IsGroupPartHead)
             {
                 var parent = ConnectInfo.Parent!.GetComponent<SlideDrop>();
                 time = parent.time + parent.LastFor;
@@ -313,15 +323,19 @@ public class SlideDrop : NoteLongDrop, IFlasher
     void GetSensors(RectTransform[] sensors)
     {
         Sensor lastSensor = null;
-        foreach (var bar in slideBars)
+        for (var i = 0; i < slideBars.Count; i++)
         {
+            var bar = slideBars[i];
             var pos = bar.transform.position;
-            
+
             foreach (var s in sensors)
             {
                 var sensor = s.GetComponent<Sensor>();
-                if (sensor.Group == SensorGroup.E || sensor.Group == SensorGroup.D)
-                    continue;
+
+                // Count E and D touch toward sensor needed if the slide can be completed with just the slide start sensor otherwise
+                if (i != slideBars.Count - 1 && i != 0)// || judgeSensors.Count > 1)
+                    if (sensor.Group == SensorGroup.E || sensor.Group == SensorGroup.D)
+                        continue;
 
                 var rCenter = s.position;
                 var rWidth = s.rect.width * s.lossyScale.x;
@@ -331,7 +345,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
 
                 if ((pos - rCenter).sqrMagnitude <= radius * radius)
                 {
-                    if(lastSensor is null || sensor != lastSensor)
+                    if (lastSensor is null || sensor != lastSensor)
                     {
                         judgeSensors.Add(sensor);
                         lastSensor = sensor;
@@ -340,7 +354,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
                 }
             }
         }
-        
+
     }
     private void FixedUpdate()
     {
@@ -370,14 +384,14 @@ public class SlideDrop : NoteLongDrop, IFlasher
         //此处对mine音符的处理：一进judge就判定为miss并销毁，能进too late就判为perfect
         if (ConnectInfo.IsConnSlide)
         {
-            if(ConnectInfo.IsGroupPartEnd && isFinished)
+            if (ConnectInfo.IsGroupPartEnd && isFinished)
             {
                 HideBar(areaStep.LastOrDefault());
                 Judge();
             }
             else if (ConnectInfo.IsGroupPartEnd && timeProvider.AudioTime - forceJudgeTiming >= 0)
                 TooLateJudge();
-            else if(isFinished)
+            else if (isFinished)
                 HideBar(areaStep.LastOrDefault());
         }
         else if (isFinished)
@@ -411,7 +425,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
             else if (!fadeInAnimator.enabled && startiming >= fadeInTime)
                 fadeInAnimator.enabled = true;
             return;
-            
+
         }
         fadeInAnimator.enabled = false;
         setSlideBarAlpha(1f);
@@ -429,7 +443,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
                 // 只有当它是一个起点Slide（而非Slide Group中的子部分）的时候，才会有开始的星星渐入动画
                 alpha = 1f - -timing / (time - timeStart);
                 alpha = alpha > 1f ? 1f : alpha;
-                alpha = alpha < 0f ? 0f : alpha;                
+                alpha = alpha < 0f ? 0f : alpha;
             }
 
             spriteRenderer_star.color = new Color(1, 1, 1, alpha);
@@ -451,7 +465,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
         {
             var a = slidePositions[i];
             var b = slidePositions[i + 1];
-            len += (b - a).magnitude; 
+            len += (b - a).magnitude;
         }
         return len;
     }
@@ -553,12 +567,15 @@ public class SlideDrop : NoteLongDrop, IFlasher
         var starRadius = 0.763736616f;
         var starPos = star_slide.transform.position;
         var oldList = new List<Sensor>(triggerSensors);
+        var isLastSensorGroupDOrE = judgeSensors.LastOrDefault().Group == SensorGroup.D || judgeSensors.LastOrDefault().Group == SensorGroup.E;
         triggerSensors.Clear();
         foreach (var s in sensors.Select(x => x.GetComponent<RectTransform>()))
         {
             var sensor = s.GetComponent<Sensor>();
-            if (sensor.Group == SensorGroup.E || sensor.Group == SensorGroup.D)
-                continue;
+
+            if (!isLastSensorGroupDOrE)
+                if (sensor.Group == SensorGroup.E || sensor.Group == SensorGroup.D)
+                    continue;
 
             var rCenter = s.position;
             var rWidth = s.rect.width * s.lossyScale.x;
@@ -596,14 +613,14 @@ public class SlideDrop : NoteLongDrop, IFlasher
         if (!isJudged)
         {
             arriveTime = timeProvider.AudioTime;
-            var triggerTime = timeProvider.AudioTime;           
+            var triggerTime = timeProvider.AudioTime;
 
             const float totalInterval = 1.2f; // 秒
             const float nPInterval = 0.4666667f; // Perfect基础区间
 
             float extInterval = MathF.Min(stayTime / 4, 0.733333f);           // Perfect额外区间
             float pInterval = MathF.Min(nPInterval + extInterval, totalInterval);// Perfect总区间
-            var ext = MathF.Max(extInterval - 0.4f,0);
+            var ext = MathF.Max(extInterval - 0.4f, 0);
             float grInterval = MathF.Max(0.4f - extInterval, 0);        // Great总区间
             float gdInterval = MathF.Max(0.3333334f - ext, 0); // Good总区间
 
@@ -619,9 +636,9 @@ public class SlideDrop : NoteLongDrop, IFlasher
             var gd = gdInterval / 2;
             diff = MathF.Abs(diff);
 
-            if( gr == 0 )
+            if (gr == 0)
             {
-                if(diff >= p)
+                if (diff >= p)
                     judge = isFast ? JudgeType.FastGood : JudgeType.LateGood;
                 else
                     judge = JudgeType.Perfect;
@@ -634,8 +651,8 @@ public class SlideDrop : NoteLongDrop, IFlasher
                     judge = isFast ? JudgeType.FastGreat : JudgeType.LateGreat;
                 else
                     judge = JudgeType.Perfect;
-            }            
-            print($"Slide diff : {MathF.Round(diff * 1000,2)} ms");
+            }
+            print($"Slide diff : {MathF.Round(diff * 1000, 2)} ms");
             judgeResult = judge ?? JudgeType.Miss;
             SetJust();
             isJudged = true;
@@ -677,14 +694,16 @@ public class SlideDrop : NoteLongDrop, IFlasher
     /// <returns>正解帧 (单位: s)</returns>
     float CalJudgeTiming()
     {
-        var s = judgeSensors.LastOrDefault().gameObject.transform.GetComponent<RectTransform>();
+        var lastSensor = judgeSensors.LastOrDefault();
+        if (lastSensor is null) return 0.9f;
+        var s = lastSensor.gameObject.transform.GetComponent<RectTransform>();
         var starRadius = 0.763736616f;
         var rCenter = s.position;
         var rWidth = s.rect.width * s.lossyScale.x;
         var rHeight = s.rect.height * s.lossyScale.y;
 
         var radius = Math.Max(rWidth, rHeight) / 2;
-        for (float process = 0.85f; process < 1;process += 0.01f)
+        for (float process = 0.85f; process < 1; process += 0.01f)
         {
             var indexProcess = (slidePositions.Count - 1) * process;
             var index = (int)indexProcess;
@@ -727,14 +746,14 @@ public class SlideDrop : NoteLongDrop, IFlasher
     void DestroySelf(bool onlyStar = false)
     {
         if (onlyStar)
-        { 
+        {
             Destroy(star_slide);
             star_slide = null;
             ClearTriggeredSensor();
         }
         else
         {
-            if(ConnectInfo.Parent != null)
+            if (ConnectInfo.Parent != null)
                 Destroy(ConnectInfo.Parent);
 
             foreach (GameObject obj in slideBars)
@@ -761,11 +780,11 @@ public class SlideDrop : NoteLongDrop, IFlasher
             return;
         if (ConnectInfo.Parent != null)
             Destroy(ConnectInfo.Parent);
-        if(star_slide != null)
+        if (star_slide != null)
             Destroy(star_slide);
         if (ConnectInfo.IsGroupPartEnd || !ConnectInfo.IsConnSlide)
         {
-            switch(InputManager.Mode)
+            switch (InputManager.Mode)
             {
                 case AutoPlayMode.Enable:
                     if (isMine)
@@ -824,7 +843,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
         var index = (int)indexProcess;
         var pos = indexProcess - index;
 
-        if(process == 1)
+        if (process == 1)
         {
             switch (InputManager.Mode)
             {
@@ -866,8 +885,8 @@ public class SlideDrop : NoteLongDrop, IFlasher
                                 Mathf.MoveTowardsAngle(_b, _a, dAngle));
                 applyStarRotation(newRotation);
             }
-        } 
-        switch(InputManager.Mode)
+        }
+        switch (InputManager.Mode)
         {
             case AutoPlayMode.Enable:
                 judgeQueue = judgeQueue.Skip((int)(process * (judgeQueue.Count - 1))).ToList();
@@ -881,7 +900,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
                 break;
         }
     }
-   
+
     private void setSlideBarAlpha(float alpha)
     {
         foreach (var gm in slideBars) gm.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alpha);
@@ -897,4 +916,41 @@ public class SlideDrop : NoteLongDrop, IFlasher
     }
     public GameObject[] GetSlideBars() => slideBars.ToArray();
     public bool CanShine() => canShine;
+
+    private Vector3 GetAreaPos(int index, char area)
+    {
+        /// <summary>
+        /// AreaDistance: 
+        /// C:   0
+        /// E:   3.1
+        /// B:   2.21
+        /// A,D: 4.8
+        /// </summary>
+        if (area == 'C') return Vector3.zero;
+        if (area == 'B')
+        {
+            var angle = -index * (Mathf.PI / 4) + Mathf.PI * 5 / 8;
+            return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 2.3f;
+        }
+
+        if (area == 'A')
+        {
+            var angle = -index * (Mathf.PI / 4) + Mathf.PI * 5 / 8;
+            return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 4.1f;
+        }
+
+        if (area == 'E')
+        {
+            var angle = -index * (Mathf.PI / 4) + Mathf.PI * 6 / 8;
+            return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 3.0f;
+        }
+
+        if (area == 'D')
+        {
+            var angle = -index * (Mathf.PI / 4) + Mathf.PI * 6 / 8;
+            return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 4.1f;
+        }
+
+        return Vector3.zero;
+    }
 }

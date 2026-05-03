@@ -32,18 +32,18 @@ public class TouchDrop : TouchBase
     public Sprite[] multTouchMineSprite = new Sprite[2];
 
     public GameObject[] fans;
-    private readonly SpriteRenderer[] fansSprite = new SpriteRenderer[7];
-    private float displayDuration;
+    protected readonly SpriteRenderer[] fansSprite = new SpriteRenderer[7];
+    protected float displayDuration;
 
-    private GameObject firework;
-    private Animator fireworkEffect;
-    private bool isStarted;
-    private int layer;
-    private float moveDuration;
-    bool isTriggered = false;
-    private MultTouchHandler multTouchHandler;
+    protected GameObject firework;
+    protected Animator fireworkEffect;
+    protected bool isStarted;
+    protected int layer;
+    protected float moveDuration;
+    protected bool isTriggered = false;
+    protected MultTouchHandler multTouchHandler;
 
-    private float wholeDuration;
+    protected float wholeDuration;
 
     // Start is called before the first frame update
     void Start()

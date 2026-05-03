@@ -57,7 +57,7 @@ public class LoadJustSprite : MonoBehaviour
         judgeOffset = 30;
         refreshSprite();
     }
-    private void refreshSprite()
+    protected virtual void refreshSprite()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = GameObject.Find("Outline").GetComponent<CustomSkin>()
             .Just[_0curv1str2wifi + indexOffset + judgeOffset];
