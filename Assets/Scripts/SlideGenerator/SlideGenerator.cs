@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using Assets.Scripts.Types;
 using System;
 using System.Collections;
@@ -9,6 +10,7 @@ using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static System.Collections.Specialized.BitVector32;
 
 // This is attached to SlideGenerator object in SampleScene, disable that object before running
 // This will generate the prefabs and the slide section needed to add to the dictionary in JsonDataLoader
@@ -44,18 +46,8 @@ public class SlideGenerator : MonoBehaviour
         }
 
         CreateAllStraightSlide(42);
-    }
-
-    private int parseSlideAnchor(string anchor)
-    {
-        if (anchor.StartsWith('C')) return 0;
-        if (anchor.Length == 1) return anchor[0] - '0';
-        return anchor[1] - '0';
-    }
-    private char toDictName(char c)
-    {
-        if (c >= '1' && c <= '8') return '1';
-        return c;
+        CreateAllCWCenterSlide(240);
+        CreateAllCWNonCenterSlide(320);
     }
 
     private void CreateAllStraightSlide(int startCounter)
@@ -75,13 +67,26 @@ public class SlideGenerator : MonoBehaviour
                 if (start == "C" && parseSlideAnchor(end) != 1) continue;
 
                 // Draw slide on screen
-                var slideBars = InstantiateSlideShape(start, end, ShapeFunctions.StraightLine).ToList();
+                var posList = ShapeFunctions.CalculatePosition(
+                    GetSensorPosition(start),
+                    GetSensorPosition(end),
+                    ShapeFunctions.StraightLine,
+                    4,
+                    256
+                ).ToList();
+
+                Debug.Log($"{start} - {end} - {posList.Count}");
+
+                var slideBars = InstantiateSlideShape(posList).ToList();
                 var parentObject = slideBars[0].transform.parent.gameObject;
                 // Add judgeObj to parentObject
                 InstantiateJudgeObject(parentObject, slideBars.Last());
 
                 // Get all sensor the slide cover
                 var sections = GetSlideSectionCount(slideBars, _sensorTransforms);
+
+                // Assign an Animator component to the parent gameObject
+                AssignAnimator(parentObject);
 
                 // Name convention
                 var assetName = string.Empty;
@@ -96,11 +101,7 @@ public class SlideGenerator : MonoBehaviour
                 {
                     assetName = $"{toDictName(start[0])}{toDictName(end[0])}_Line_{parseSlideAnchor(end)}";
                 }
-
                 // We do not generate existing normal slide here, so this is sufficient
-
-                // Assign an Animator component to the parent gameObject
-                AssignAnimator(parentObject);
 
                 // Generate prefab
                 Directory.CreateDirectory("Assets/GeneratedPrefab");
@@ -115,6 +116,142 @@ public class SlideGenerator : MonoBehaviour
 
         // Write slide section to the file
         File.WriteAllText("Assets/GeneratedPrefab/StraightSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+    }
+
+    private void CreateAllCWCenterSlide(int startCounter)
+    {
+        var sb = new StringBuilder();
+        var sb2 = new StringBuilder();
+        string[] startSensors = _touchSensorString.ToArray();
+        string[] endSensors = _touchSensorString.ToArray();
+
+        foreach (var start in startSensors)
+        {
+            // Skip unnecessary slide
+            if (start == "C") continue;
+
+            var assetName = CWSlideNameConvention(start, "C");
+            var sections = CreateCWSlide(start, "C", assetName);
+
+            sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
+            sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+        }
+
+        foreach (var end in endSensors)
+        {
+            // Skip unnecessary slide
+            if (end == "C") continue;
+
+            var assetName = CWSlideNameConvention("C", end);
+            var sections = CreateCWSlide("C", end, assetName);
+
+            sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
+            sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+        }
+
+        // Write slide section to the file
+        File.WriteAllText("Assets/GeneratedPrefab/CenterCWSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+    }
+
+    private void CreateAllCWNonCenterSlide(int startCounter)
+    {
+        var sb = new StringBuilder();
+        var sb2 = new StringBuilder();
+        string[] startSensors = new string[] { "1", "A1", "B1", "D1", "E1" };
+        string[] endSensors = _touchSensorString.Where(x => x != "C").ToArray();
+
+        foreach (var start in startSensors)
+        {
+            foreach (var end in endSensors)
+            {
+                // Skip unnecessary slide
+                if (start == "1" && end[0] >= '1' && end[0] <= '8') continue;
+
+                var assetName = CWSlideNameConvention(start, end);
+                var sections = CreateCWSlide(start, end, assetName);
+
+                sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
+                sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+            }
+        }
+        // Write slide section to the file
+        File.WriteAllText("Assets/GeneratedPrefab/NonCenterCWSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+    }
+
+    private string CWSlideNameConvention(string start, string end)
+    {
+        var startPos = parseSlideAnchor(start);
+        var endPos = parseSlideAnchor(end);
+
+        if (start[0] == 'C')
+        {
+            return $"{toDictName(start[0])}{toDictName(end[0])}_Circle_{endPos}";
+        }
+
+        if (end[0] == 'C')
+        {
+            return $"{toDictName(start[0])}{toDictName(end[0])}_Circle_{startPos}";
+        }
+
+        // Otherwise, follow the mirroring logic
+        if (isUpperHalf(startPos))
+        {
+            if (isTouch(start[0]) || isTouch(end[0]))
+            {
+                return $"{toDictName(start[0])}{toDictName(end[0])}_Circle_{endPos}";
+            }
+            return "circle" + endPos;
+        }
+
+        endPos = MirrorKeys(endPos);
+        if (isTouch(start[0]) || isTouch(end[0]))
+        {
+            return $"-{toDictName(start[0])}{toDictName(end[0])}_Circle_{endPos}";
+        }
+        return "-circle" + endPos; //Mirror
+    }
+
+    private List<int> CreateCWSlide(string start, string end, string assetName)
+    {
+        // Draw slide on screen
+        var posList = ShapeFunctions.CalculatePositionFixedStepLength(
+            GetSensorPosition(start),
+            GetSensorPosition(end),
+            ShapeFunctions.CWCircle,
+            ShapeFunctions.CWCircleSlideLength
+        ).ToList();
+
+        var slideBars = InstantiateSlideShape(posList).ToList();
+        var parentObject = slideBars[0].transform.parent.gameObject;
+        // Add judgeObj to parentObject
+        InstantiateJudgeObject(parentObject, slideBars.Last());
+
+        // Get all sensor the slide cover
+        var sections = GetSlideSectionCount(slideBars, _sensorTransforms);
+
+        // Assign an Animator component to the parent gameObject
+        AssignAnimator(parentObject);
+
+        // Generate prefab
+        Directory.CreateDirectory("Assets/GeneratedPrefab");
+        PrefabUtility.SaveAsPrefabAsset(parentObject, $"Assets/GeneratedPrefab/{assetName}.prefab");
+
+        // Destroy gameObject
+        Destroy(parentObject);
+
+        return sections;
+    }
+
+    private int parseSlideAnchor(string anchor)
+    {
+        if (anchor.StartsWith('C')) return 0;
+        if (anchor.Length == 1) return anchor[0] - '0';
+        return anchor[1] - '0';
+    }
+    private char toDictName(char c)
+    {
+        if (c >= '1' && c <= '8') return '1';
+        return c;
     }
 
     private void AssignAnimator(GameObject slide)
@@ -134,21 +271,9 @@ public class SlideGenerator : MonoBehaviour
     /// <param name="endSensor">Same as above</param>
     /// <param name=""></param>
     private IEnumerable<GameObject> InstantiateSlideShape(
-        string startSensor,
-        string endSensor,
-        Func<Vector3, Vector3, float, Vector3> interpolateFunction
+        List<Vector3> posList
     )
     {
-        var posList = ShapeFunctions.CalculatePosition(
-            GetSensorPosition(startSensor),
-            GetSensorPosition(endSensor),
-            interpolateFunction,
-            4,
-            256
-        ).ToList();
-
-        Debug.Log($"{startSensor} - {endSensor} - {posList.Count}");
-
         var slideParentObject = new GameObject();
         float angleInDeg = 0;
         for (int i = 1; i < posList.Count; i++)
@@ -260,11 +385,6 @@ public class SlideGenerator : MonoBehaviour
             {
                 var sensor = s.GetComponent<Sensor>();
 
-                // Count E and D touch toward sensor needed if the slide can be completed with just the slide start sensor otherwise
-                if (i != slideBars.Count - 1 || judgeSensors.Count > 1)
-                    if (sensor.Group == SensorGroup.E || sensor.Group == SensorGroup.D)
-                        continue;
-
                 var rCenter = s.position;
                 var rWidth = s.rect.width * s.lossyScale.x;
                 var rHeight = s.rect.height * s.lossyScale.y;
@@ -286,4 +406,28 @@ public class SlideGenerator : MonoBehaviour
         }
         return result;
     }
+    private bool isUpperHalf(int key)
+    {
+        if (key == 7) return true;
+        if (key == 8) return true;
+        if (key == 1) return true;
+        if (key == 2) return true;
+
+        return false;
+    }
+
+    private int MirrorKeys(int key)
+    {
+        if (key == 1) return 1;
+        if (key == 2) return 8;
+        if (key == 3) return 7;
+        if (key == 4) return 6;
+
+        if (key == 5) return 5;
+        if (key == 6) return 4;
+        if (key == 7) return 3;
+        if (key == 8) return 2;
+        throw new Exception("Keys out of range: " + key);
+    }
 }
+#endif

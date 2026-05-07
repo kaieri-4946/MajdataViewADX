@@ -21,10 +21,11 @@ public class SlideDrop : NoteLongDrop, IFlasher
     public GameObject parent;
 
     public bool isMirror;
+    public bool isUDMirror;
     public bool isJustR;
     public bool isSpecialFlip; // fixes known star problem
     public bool isBreak;
-
+    public bool isNoStartPositionRotation;
 
     public float timeStart;
 
@@ -101,12 +102,18 @@ public class SlideDrop : NoteLongDrop, IFlasher
         if (isMirror)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
-            transform.rotation = Quaternion.Euler(0f, 0f, -45f * startPosition);
+            if(!isNoStartPositionRotation)
+                transform.rotation = Quaternion.Euler(0f, 0f, -45f * startPosition);
+            if (isUDMirror)
+                transform.localScale = new Vector3(-1f, -1f, 1f);
             slideOK.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, -45f * (startPosition - 1));
+            if(!isNoStartPositionRotation)
+                transform.rotation = Quaternion.Euler(0f, 0f, -45f * (startPosition - 1));
+            if (isUDMirror)
+                transform.localScale = new Vector3(1f, -1f, 1f);
         }
 
         if (isJustR)
@@ -332,8 +339,8 @@ public class SlideDrop : NoteLongDrop, IFlasher
             {
                 var sensor = s.GetComponent<Sensor>();
 
-                // Count E and D touch toward sensor needed if the slide can be completed with just the slide start sensor otherwise
-                if (i != slideBars.Count - 1 && i != 0)// || judgeSensors.Count > 1)
+                // Count E and D touch if touch slide
+                if (areaPosition < 'A' || areaPosition > 'E')
                     if (sensor.Group == SensorGroup.E || sensor.Group == SensorGroup.D)
                         continue;
 
