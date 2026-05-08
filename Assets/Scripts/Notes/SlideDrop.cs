@@ -167,7 +167,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
         var x = slidePositions.LastOrDefault() - Vector3.zero;
         var y = endPos - Vector3.zero;
         var angle = Mathf.Acos(Vector3.Dot(x, y) / (x.magnitude * y.magnitude)) * Mathf.Rad2Deg;
-        if (angle == float.NaN) angle = 0;
+        if (float.IsNaN(angle)) angle = 0;
         var offset = slideRotations.TakeLast(1).First().eulerAngles - slideRotations.TakeLast(2).First().eulerAngles;
         if (offset.z < 0)
             angle = -angle;
@@ -574,13 +574,13 @@ public class SlideDrop : NoteLongDrop, IFlasher
         var starRadius = 0.763736616f;
         var starPos = star_slide.transform.position;
         var oldList = new List<Sensor>(triggerSensors);
-        var isLastSensorGroupDOrE = judgeSensors.LastOrDefault().Group == SensorGroup.D || judgeSensors.LastOrDefault().Group == SensorGroup.E;
+        //var isLastSensorGroupDOrE = judgeSensors.LastOrDefault().Group == SensorGroup.D || judgeSensors.LastOrDefault().Group == SensorGroup.E;
         triggerSensors.Clear();
         foreach (var s in sensors.Select(x => x.GetComponent<RectTransform>()))
         {
             var sensor = s.GetComponent<Sensor>();
 
-            if (!isLastSensorGroupDOrE)
+            if (areaPosition < 'A' || areaPosition > 'E')
                 if (sensor.Group == SensorGroup.E || sensor.Group == SensorGroup.D)
                     continue;
 
