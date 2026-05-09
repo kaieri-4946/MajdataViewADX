@@ -20,6 +20,7 @@ public class SlideDrop : NoteLongDrop, IFlasher
     public RuntimeAnimatorController judgeBreakShine;
     public GameObject parent;
 
+    public bool isRimDSlide;
     public bool isMirror;
     public bool isUDMirror;
     public bool isJustR;
@@ -102,16 +103,16 @@ public class SlideDrop : NoteLongDrop, IFlasher
         if (isMirror)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
-            if(!isNoStartPositionRotation)
-                transform.rotation = Quaternion.Euler(0f, 0f, -45f * startPosition);
+            if (!isNoStartPositionRotation)
+                transform.rotation = Quaternion.Euler(0f, 0f, -45f * startPosition - (isRimDSlide ? -22.5f : 0f));
             if (isUDMirror)
                 transform.localScale = new Vector3(-1f, -1f, 1f);
             slideOK.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
-            if(!isNoStartPositionRotation)
-                transform.rotation = Quaternion.Euler(0f, 0f, -45f * (startPosition - 1));
+            if (!isNoStartPositionRotation)
+                transform.rotation = Quaternion.Euler(0f, 0f, -45f * (startPosition - 1) - (isRimDSlide ? -22.5f : 0f));
             if (isUDMirror)
                 transform.localScale = new Vector3(1f, -1f, 1f);
         }

@@ -44,7 +44,6 @@ public static class ShapeFunctions
             }
         }
 
-
         for (int i = 0; i <= section; i++)
         {
             yield return interpolateFunction(start, end, (float)i / section);
@@ -115,7 +114,7 @@ public static class ShapeFunctions
         return (GetAngle(start) + GetAngle(end)) * GetSpan(start, end, cw: true) / 2;
     }
 
-    private static float GetSpan(Vector3 start, Vector3 end, bool cw)
+    public static float GetSpan(Vector3 start, Vector3 end, bool cw)
     {
         var span = cw
             ? (GetAngle(start) - GetAngle(end) + 2 * TAU) % TAU
@@ -124,10 +123,41 @@ public static class ShapeFunctions
         return span;
     }
 
-    private static float GetAngle(Vector3 point)
+    public static float GetAngle(Vector3 point)
     {
         var angle = Mathf.Atan2(point.y, point.x);
         if (angle < 0) angle += TAU;
         return angle;
+    }
+
+    public static List<Vector3> GetTangentPoints(Vector3 center, float radius, Vector3 point)
+    {
+        var cpAngle = GetAngle(point - center);
+        var tangentAngleFromCp = Mathf.Acos(radius / (point - center).magnitude);
+        var tangentAngle1 = cpAngle + tangentAngleFromCp;
+        var tangentPoint1 = new Vector3(center.x + radius * Mathf.Cos(tangentAngle1), center.y + radius * Mathf.Sin(tangentAngle1));
+
+        var tangentAngle2 = cpAngle - tangentAngleFromCp;
+        var tangentPoint2 = new Vector3(center.x + radius * Mathf.Cos(tangentAngle2), center.y + radius * Mathf.Sin(tangentAngle2));
+
+        return new List<Vector3> { tangentPoint1, tangentPoint2 };
+    }
+
+    public static Vector3 GetDirectionalTangentPoint(Vector3 center, float radius, Vector3 point, bool cw)
+    {
+        var tangentPoints = GetTangentPoints(center, radius, point);
+        foreach (var tangentPoint in tangentPoints)
+        {
+            var centerToTangentPoint = tangentPoint - center;
+            var tangentToPoint = point - tangentPoint;
+
+            var _2DCrossProduct = centerToTangentPoint.x * tangentToPoint.y - tangentToPoint.x * centerToTangentPoint.y;
+            if (cw == _2DCrossProduct < 0)
+            {
+                return tangentPoint;
+            }
+        }
+
+        throw new Exception($"No {(cw ? "cw" : "ccw")} tangent point");
     }
 }

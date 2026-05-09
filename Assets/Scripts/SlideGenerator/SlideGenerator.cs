@@ -5,12 +5,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static System.Collections.Specialized.BitVector32;
 
 // This is attached to SlideGenerator object in SampleScene, disable that object before running
 // This will generate the prefabs and the slide section needed to add to the dictionary in JsonDataLoader
@@ -45,9 +45,176 @@ public class SlideGenerator : MonoBehaviour
             _touchSensorString.Add(((SensorType)i).ToString());
         }
 
-        CreateAllStraightSlide(42);
-        CreateAllCWCenterSlide(240);
-        CreateAllCWNonCenterSlide(320);
+        //CreateAllStraightSlide(42);
+        //CreateAllCWCenterSlide(240);
+        //CreateAllCWNonCenterSlide(320);
+        CreateAllPQSlide(512);
+        CreateAllPPQQSlide(520);
+        CreateAllSSlide(528);
+    }
+
+    private void CreateAllPQSlide(int startCounter)
+    {
+        var sb = new StringBuilder();
+        var sb2 = new StringBuilder();
+        string[] endSensors = _touchSensorString.Where(x => x[0] == 'D').ToArray(); // Only need 1pDx, 1px already exist
+
+        foreach (var end in endSensors)
+        {
+            Vector3 endPoint;
+            if (end[0] == 'D')
+            {
+                var angle = (-end[1] - '0') * (Mathf.PI / 4) + Mathf.PI * 6 / 8;
+                endPoint = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 4.8f;
+            }
+            else endPoint = GetSensorPosition(end);
+
+            var slideGenObject = new PSlideGenerator(GetSensorPosition("1"), endPoint);
+
+            // Draw slide on screen
+            var posList = ShapeFunctions.CalculatePosition(
+                GetSensorPosition("1"),
+                endPoint,
+                slideGenObject.CalculatePosition,
+                4,
+                256
+            ).ToList();
+
+            var slideBars = InstantiateSlideShape(posList).ToList();
+            var parentObject = slideBars[0].transform.parent.gameObject;
+            // Add judgeObj to parentObject
+            InstantiateJudgeObject(parentObject, slideBars.Last());
+
+            // Get all sensor the slide cover
+            var sections = GetSlideSectionCount(slideBars, _sensorTransforms);
+
+            // Assign an Animator component to the parent gameObject
+            AssignAnimator(parentObject);
+
+            // Name convention
+            var assetName = $"1D_PQ_{parseSlideAnchor(end)}";
+
+            // Generate prefab
+            Directory.CreateDirectory("Assets/GeneratedPrefab");
+            PrefabUtility.SaveAsPrefabAsset(parentObject, $"Assets/GeneratedPrefab/{assetName}.prefab");
+            sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
+            sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+
+            // Destroy gameObject
+            Destroy(parentObject);
+        }
+
+        // Write slide section to the file
+        File.WriteAllText("Assets/GeneratedPrefab/PSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+    }
+
+    private void CreateAllPPQQSlide(int startCounter)
+    {
+        var sb = new StringBuilder();
+        var sb2 = new StringBuilder();
+        string[] endSensors = _touchSensorString.Where(x => x[0] == 'D').ToArray(); // Only need 1ppDx, 1ppx already exist
+
+        foreach (var end in endSensors)
+        {
+            Vector3 endPoint;
+            if (end[0] == 'D')
+            {
+                var angle = (-end[1] - '0') * (Mathf.PI / 4) + Mathf.PI * 6 / 8;
+                endPoint = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 4.8f;
+            }
+            else endPoint = GetSensorPosition(end);
+            var slideGenObject = new PPSlideGenerator(GetSensorPosition("1"), endPoint);
+
+            // Draw slide on screen
+            var posList = ShapeFunctions.CalculatePosition(
+                GetSensorPosition("1"),
+                endPoint,
+                slideGenObject.CalculatePosition,
+                4,
+                256
+            ).ToList();
+
+            var slideBars = InstantiateSlideShape(posList).ToList();
+            var parentObject = slideBars[0].transform.parent.gameObject;
+            // Add judgeObj to parentObject
+            InstantiateJudgeObject(parentObject, slideBars.Last());
+
+            // Get all sensor the slide cover
+            var sections = GetSlideSectionCount(slideBars, _sensorTransforms);
+
+            // Assign an Animator component to the parent gameObject
+            AssignAnimator(parentObject);
+
+            // Name convention
+            var assetName = $"1D_PPQQ_{parseSlideAnchor(end)}";
+
+            // Generate prefab
+            Directory.CreateDirectory("Assets/GeneratedPrefab");
+            PrefabUtility.SaveAsPrefabAsset(parentObject, $"Assets/GeneratedPrefab/{assetName}.prefab");
+            sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
+            sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+
+            // Destroy gameObject
+            Destroy(parentObject);
+        }
+
+        // Write slide section to the file
+        File.WriteAllText("Assets/GeneratedPrefab/PPSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+    }
+
+    private void CreateAllSSlide(int startCounter)
+    {
+        var sb = new StringBuilder();
+        var sb2 = new StringBuilder();
+        string[] endSensors = _touchSensorString.Where(x => x[0] == 'D' || (x[0] >= '1' && x[0] <= '8')).ToArray();
+
+        foreach (var end in endSensors)
+        {
+            Vector3 endPoint;
+            if (end[0] == 'D')
+            {
+                var angle = (-end[1] - '0') * (Mathf.PI / 4) + Mathf.PI * 6 / 8;
+                endPoint = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 4.8f;
+            }
+            else endPoint = GetSensorPosition(end);
+
+            var slideGenObject = new SSlideGenerator(GetSensorPosition("1"), endPoint);
+
+            // Draw slide on screen
+            var posList = ShapeFunctions.CalculatePosition(
+                GetSensorPosition("1"),
+                endPoint,
+                slideGenObject.CalculatePosition,
+                4,
+                256
+            ).ToList();
+
+            var slideBars = InstantiateSlideShape(posList).ToList();
+            var parentObject = slideBars[0].transform.parent.gameObject;
+            // Add judgeObj to parentObject
+            InstantiateJudgeObject(parentObject, slideBars.Last());
+
+            // Get all sensor the slide cover
+            var sections = GetSlideSectionCount(slideBars, _sensorTransforms);
+
+            // Assign an Animator component to the parent gameObject
+            AssignAnimator(parentObject);
+
+            // Name convention
+            var assetName = $"1{toDictName(end[0])}_S_{parseSlideAnchor(end)}";
+
+            // Generate prefab
+            Directory.CreateDirectory("Assets/GeneratedPrefab");
+            PrefabUtility.SaveAsPrefabAsset(parentObject, $"Assets/GeneratedPrefab/{assetName}.prefab");
+            sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
+            sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+
+            // Destroy gameObject
+            Destroy(parentObject);
+        }
+
+        // Write slide section to the file
+        File.WriteAllText("Assets/GeneratedPrefab/SSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
     }
 
     private void CreateAllStraightSlide(int startCounter)

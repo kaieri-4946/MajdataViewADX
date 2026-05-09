@@ -584,6 +584,38 @@ public class JsonDataLoader : MonoBehaviour
         {"EE_Circle_6", 509},
         {"EE_Circle_7", 510},
         {"EE_Circle_8", 511},
+        {"1D_PQ_1", 512},
+        {"1D_PQ_2", 513},
+        {"1D_PQ_3", 514},
+        {"1D_PQ_4", 515},
+        {"1D_PQ_5", 516},
+        {"1D_PQ_6", 517},
+        {"1D_PQ_7", 518},
+        {"1D_PQ_8", 519},
+        {"1D_PPQQ_1", 520},
+        {"1D_PPQQ_2", 521},
+        {"1D_PPQQ_3", 522},
+        {"1D_PPQQ_4", 523},
+        {"1D_PPQQ_5", 524},
+        {"1D_PPQQ_6", 525},
+        {"1D_PPQQ_7", 526},
+        {"1D_PPQQ_8", 527},
+        {"11_S_1", 528},
+        {"11_S_2", 529},
+        {"11_S_3", 530},
+        {"11_S_4", 531},
+        {"11_S_5", 532},
+        {"11_S_6", 533},
+        {"11_S_7", 534},
+        {"11_S_8", 535},
+        {"1D_S_1", 536},
+        {"1D_S_2", 537},
+        {"1D_S_3", 538},
+        {"1D_S_4", 539},
+        {"1D_S_5", 540},
+        {"1D_S_6", 541},
+        {"1D_S_7", 542},
+        {"1D_S_8", 543},
     };
 
     static readonly Dictionary<SensorType, SensorType[]> TOUCH_GROUPS = new()
@@ -1143,6 +1175,38 @@ public class JsonDataLoader : MonoBehaviour
         {"EE_Circle_6", 0.1186f},
         {"EE_Circle_7", 0.1186f},
         {"EE_Circle_8", 0.1186f},
+        {"1D_PQ_1", 0.1186f},
+        {"1D_PQ_2", 0.1186f},
+        {"1D_PQ_3", 0.1186f},
+        {"1D_PQ_4", 0.1186f},
+        {"1D_PQ_5", 0.1186f},
+        {"1D_PQ_6", 0.1186f},
+        {"1D_PQ_7", 0.1186f},
+        {"1D_PQ_8", 0.1186f},
+        {"1D_PPQQ_1", 0.1186f},
+        {"1D_PPQQ_2", 0.1186f},
+        {"1D_PPQQ_3", 0.1186f},
+        {"1D_PPQQ_4", 0.1186f},
+        {"1D_PPQQ_5", 0.1186f},
+        {"1D_PPQQ_6", 0.1186f},
+        {"1D_PPQQ_7", 0.1186f},
+        {"1D_PPQQ_8", 0.1186f},
+        {"11_S_1", 0.1186f},
+        {"11_S_2", 0.1186f},
+        {"11_S_3", 0.1186f},
+        {"11_S_4", 0.1186f},
+        {"11_S_5", 0.1186f},
+        {"11_S_6", 0.1186f},
+        {"11_S_7", 0.1186f},
+        {"11_S_8", 0.1186f},
+        {"1D_S_1", 0.1186f},
+        {"1D_S_2", 0.1186f},
+        {"1D_S_3", 0.1186f},
+        {"1D_S_4", 0.1186f},
+        {"1D_S_5", 0.1186f},
+        {"1D_S_6", 0.1186f},
+        {"1D_S_7", 0.1186f},
+        {"1D_S_8", 0.1186f},
     };
 
     private static readonly Dictionary<string, List<int>> SLIDE_AREA_STEP_MAP = new Dictionary<string, List<int>>()
@@ -1660,6 +1724,38 @@ public class JsonDataLoader : MonoBehaviour
         {"EE_Circle_6",new List<int>() {0, 4, 9, 14, 19, 24}},
         {"EE_Circle_7",new List<int>() {0, 7, 12, 16, 21, 25}},
         {"EE_Circle_8",new List<int>() {0, 6, 10, 14, 17, 21}},
+        {"1D_PQ_1",new List<int>() {0, 4, 6, 10, 13, 16, 20, 23, 26, 29, 34}},
+        {"1D_PQ_2",new List<int>() {0, 4, 6, 10, 13, 16, 19, 22, 26, 31}},
+        {"1D_PQ_3",new List<int>() {0, 4, 6, 10, 13, 16, 19, 23, 27}},
+        {"1D_PQ_4",new List<int>() {0, 4, 6, 10, 13, 16, 20, 24}},
+        {"1D_PQ_5",new List<int>() {0, 4, 6, 10, 13, 16, 21}},
+        {"1D_PQ_6",new List<int>() {0, 4, 6, 10, 13, 17, 20, 23, 26, 30, 33, 36, 39, 44}},
+        {"1D_PQ_7",new List<int>() {0, 4, 6, 10, 13, 16, 19, 23, 26, 29, 32, 36, 40}},
+        {"1D_PQ_8",new List<int>() {0, 4, 6, 10, 13, 16, 20, 23, 26, 29, 32, 37}},
+        {"1D_PPQQ_1",new List<int>() {0, 4, 8, 14, 17, 20, 24, 28, 32, 35, 39}},
+        {"1D_PPQQ_2",new List<int>() {0, 4, 8, 13, 17, 20, 23, 27, 31}},
+        {"1D_PPQQ_3",new List<int>() {0, 4, 7, 13, 16, 19, 23}},
+        {"1D_PPQQ_4",new List<int>() {0, 4, 8, 14, 17, 20, 24, 28, 33, 36, 39, 45, 49, 50}},
+        {"1D_PPQQ_5",new List<int>() {0, 4, 8, 14, 17, 21, 24, 28, 33, 36, 40, 48, 50}},
+        {"1D_PPQQ_6",new List<int>() {0, 4, 8, 14, 17, 20, 24, 28, 33, 36, 39, 45, 47, 49}},
+        {"1D_PPQQ_7",new List<int>() {0, 4, 8, 14, 17, 21, 24, 28, 33, 36, 41, 43, 48}},
+        {"1D_PPQQ_8",new List<int>() {0, 4, 8, 14, 17, 20, 24, 28, 33, 37, 39, 43, 45}},
+        {"11_S_1",new List<int>() {0, 4, 6, 10, 13, 17, 19}},
+        {"11_S_2",new List<int>() {0, 4, 6, 10, 13, 17, 20, 23}},
+        {"11_S_3",new List<int>() {0, 4, 6, 10, 16, 20, 23, 26}},
+        {"11_S_4",new List<int>() {0, 4, 6, 10, 13, 18, 22, 25, 28}},
+        {"11_S_5",new List<int>() {0, 4, 6, 10, 13, 19, 22, 26, 28}},
+        {"11_S_6",new List<int>() {0, 4, 6, 10, 13, 18, 22, 25, 28}},
+        {"11_S_7",new List<int>() {0, 4, 6, 10, 16, 20, 23, 26}},
+        {"11_S_8",new List<int>() {0, 4, 6, 10, 13, 17, 20, 23}},
+        {"1D_S_1",new List<int>() {0, 4, 6, 10, 17, 22}},
+        {"1D_S_2",new List<int>() {0, 4, 6, 10, 13, 17, 22}},
+        {"1D_S_3",new List<int>() {0, 4, 6, 10, 13, 16, 20, 25}},
+        {"1D_S_4",new List<int>() {0, 4, 6, 10, 14, 17, 19, 23, 27}},
+        {"1D_S_5",new List<int>() {0, 4, 6, 10, 13, 20, 24, 29}},
+        {"1D_S_6",new List<int>() {0, 4, 6, 10, 13, 20, 24, 29}},
+        {"1D_S_7",new List<int>() {0, 4, 6, 10, 14, 17, 23, 27}},
+        {"1D_S_8",new List<int>() {0, 4, 6, 10, 13, 20, 25}},
     };
     private static readonly Dictionary<int, List<List<JudgeArea>>> WIFISLIDE_JUDGE_QUEUE = new Dictionary<int, List<List<JudgeArea>>>()
     {
@@ -2328,17 +2424,106 @@ public class JsonDataLoader : MonoBehaviour
             }
     }
 
-    private void InstantiateStarGroup(SimaiTimingPoint timing, SimaiNote note, int sort, double lastNoteTime)
+    private SimaiNote CloneSimaiNote(SimaiNote note)
     {
-        string readSlideAnchor(string noteContent, ref int ptr)
+        return new SimaiNote()
         {
-            if (isNonCTouchArea(noteContent[ptr]))
-            {
-                return noteContent[ptr++..++ptr];
-            }
-            return noteContent[ptr++].ToString();
+            Type = note.Type,
+            StartPosition = note.StartPosition,
+            HoldTime = note.HoldTime,
+            IsBreak = note.IsBreak,
+            IsEx = note.IsEx,
+            IsFakeRotate = note.IsFakeRotate,
+            IsForceStar = note.IsForceStar,
+            IsHanabi = note.IsHanabi,
+            IsSlideBreak = note.IsSlideBreak,
+            IsSlideNoHead = note.IsSlideNoHead,
+            IsMine = note.IsMine,
+            IsMineSlide = note.IsMineSlide,
+            RawContent = note.RawContent,
+            SlideStartTime = note.SlideStartTime,
+            SlideTime = note.SlideTime,
+            TouchArea = note.TouchArea,
+        };
+    }
+
+    private List<SimaiNote> SeparateVSlide(SimaiNote slidePart)
+    {
+        // Let's just ignore the time part of the notation for now and see if something break down the line =))
+        int ptr = 0;
+        if (slidePart.RawContent.Contains('V'))
+        {
+            var start = readSlideAnchor(slidePart.RawContent, ref ptr);
+            ptr++; // Skip V character
+            var middle = readSlideAnchor(slidePart.RawContent, ref ptr);
+            var end = readSlideAnchor(slidePart.RawContent, ref ptr);
+
+            if (!isTouch(start[0]) && !isTouch(middle[0]) && !isTouch(end[0]))
+                return new List<SimaiNote>() { slidePart };
+
+            var first = CloneSimaiNote(slidePart);
+            first.RawContent = $"{start}-{middle}";
+            first.SlideTime = slidePart.SlideTime / 2;
+
+            var second = CloneSimaiNote(slidePart);
+            second.RawContent = $"{middle}-{end}";
+            second.SlideTime = slidePart.SlideTime / 2;
+            second.SlideStartTime = first.SlideStartTime + first.SlideTime;
+            second.StartPosition = parseSlideAnchor(middle);
+            second.TouchArea = (middle[0] >= 'A' && middle[0] <= 'E') ? middle[0] : ' ';
+            return new List<SimaiNote>() { first, second };
         }
 
+        if (slidePart.RawContent.Contains('v'))
+        {
+            var start = readSlideAnchor(slidePart.RawContent, ref ptr);
+            ptr++; // Skip v character
+            var end = readSlideAnchor(slidePart.RawContent, ref ptr);
+
+            if (!isTouch(start[0]) && !isTouch(end[0]))
+                return new List<SimaiNote>() { slidePart };
+
+            var first = CloneSimaiNote(slidePart);
+            first.RawContent = $"{start}-C";
+            first.SlideTime = slidePart.SlideTime / 2;
+
+            var second = CloneSimaiNote(slidePart);
+            second.RawContent = $"C-{end}";
+            second.SlideTime = slidePart.SlideTime / 2;
+            second.SlideStartTime = first.SlideStartTime + first.SlideTime;
+            second.StartPosition = parseSlideAnchor(end);
+            second.TouchArea = 'C';
+            return new List<SimaiNote>() { first, second };
+        }
+
+        return new List<SimaiNote>() { slidePart };
+    }
+
+    private void CreateSlideSection(SimaiNote slidePart, List<int> subBarCount, ref int sumBarCount, List<SimaiNote> subSlide)
+    {
+        List<SimaiNote> slides;
+        if (slidePart.RawContent.Contains('v', StringComparison.InvariantCultureIgnoreCase))
+            slides = SeparateVSlide(slidePart);
+        else
+            slides = new List<SimaiNote>() { slidePart };
+
+        foreach (var slide in slides)
+        {
+            string slideShape = detectShapeFromText(slide.RawContent);
+            slideShape = slideShape.TrimStart('<').TrimStart('*').TrimStart('^').TrimStart('-');
+            int slideIndex = SLIDE_PREFAB_MAP[slideShape];
+            if (slideIndex < 0) slideIndex = -slideIndex;
+
+            var barCount = slidePrefab[slideIndex].transform.childCount;
+            subBarCount.Add(barCount);
+            sumBarCount += barCount;
+
+            subSlide.Add(slide);
+        }
+    }
+
+    private void InstantiateStarGroup(SimaiTimingPoint timing, SimaiNote note, int sort, double lastNoteTime)
+    {
         var subSlide = new List<SimaiNote>();
         var subBarCount = new List<int>();
         var sumBarCount = 0;
@@ -2367,11 +2552,10 @@ public class JsonDataLoader : MonoBehaviour
                 if (slideTypeChar == "V")
                 {
                     // 转折星星
-                    var middlePos = noteContent[ptr++];
-                    var endPos = noteContent[ptr++];
+                    var middlePos = readSlideAnchor(noteContent, ref ptr);
+                    var endPos = readSlideAnchor(noteContent, ref ptr);
 
                     slidePart.RawContent = latestStartIndex + slideTypeChar + middlePos + endPos;
-                    // Temp: Unsure if V touch slide is supported
                     latestStartIndex = endPos.ToString();
                 }
                 else
@@ -2419,16 +2603,7 @@ public class JsonDataLoader : MonoBehaviour
                         throw new Exception($"SLIDE ERROR: {note.RawContent}");
                 }
 
-                string slideShape = detectShapeFromText(slidePart.RawContent);
-                slideShape = slideShape.TrimStart('*').TrimStart('^').TrimStart('-');
-                int slideIndex = SLIDE_PREFAB_MAP[slideShape];
-                if (slideIndex < 0) slideIndex = -slideIndex;
-
-                var barCount = slidePrefab[slideIndex].transform.childCount;
-                subBarCount.Add(barCount);
-                sumBarCount += barCount;
-
-                subSlide.Add(slidePart);
+                CreateSlideSection(slidePart, subBarCount, ref sumBarCount, subSlide);
             }
             else
             {
@@ -2651,9 +2826,15 @@ public class JsonDataLoader : MonoBehaviour
         if (NDCompo.isMine) NDCompo.tapLine = mineLine;
 
         string slideShape = detectShapeFromText(note.RawContent);
+        var isRimDSlide = false;
         var isMirror = false;
         var isUDMirror = false;
         var isNoStartPositionRotation = false;
+        if (slideShape.StartsWith("<"))
+        {
+            isRimDSlide = true;
+            slideShape = slideShape.Substring(1);
+        }
         if (slideShape.StartsWith("*"))
         {
             isNoStartPositionRotation = true;
@@ -2724,7 +2905,7 @@ public class JsonDataLoader : MonoBehaviour
         NDCompo.startPosition = note.StartPosition;
         NDCompo.speed = noteSpeed * timing.HSpeed;
 
-
+        SliCompo.isRimDSlide = isRimDSlide;
         SliCompo.isMirror = isMirror;
         SliCompo.isUDMirror = isUDMirror;
         SliCompo.isNoStartPositionRotation = isNoStartPositionRotation;
@@ -2792,9 +2973,15 @@ public class JsonDataLoader : MonoBehaviour
         NDCompo.GroupInfo = null;
 
         string slideShape = detectShapeFromText(note.RawContent);
+        var isRimDSlide = false;
         var isMirror = false;
         var isUDMirror = false;
         var isNoStartPositionRotation = false;
+        if (slideShape.StartsWith("<"))
+        {
+            isRimDSlide = true;
+            slideShape = slideShape.Substring(1);
+        }
         if (slideShape.StartsWith("*"))
         {
             isNoStartPositionRotation = true;
@@ -2864,6 +3051,7 @@ public class JsonDataLoader : MonoBehaviour
         NDCompo.startPosition = note.StartPosition;
         NDCompo.speed = noteSpeed * timing.HSpeed;
 
+        SliCompo.isRimDSlide = isRimDSlide;
         SliCompo.isMirror = isMirror;
         SliCompo.isUDMirror = isUDMirror;
         SliCompo.isNoStartPositionRotation = isNoStartPositionRotation;
@@ -3121,7 +3309,7 @@ public class JsonDataLoader : MonoBehaviour
         if (content.Contains('^'))
         {
             var str = content.Split('[')[0];
-            if(str.Length > 3)
+            if (str.Length > 3)
             {
                 throw new Exception("Currently doesn't support touch slide with ^");
             }
@@ -3156,75 +3344,167 @@ public class JsonDataLoader : MonoBehaviour
             if (endPos == 5) throw new Exception("v星星不合法\nvスライドエラー");
             return "v" + endPos;
         }
-
+        // pp, qq, p, q, s, z slides in AstroDX treated as having rim start and end point, except the tap get replace for a touch
+        // EX: A4ppB5 is 4pp5 but the tap is replace by A4. E4ppD5 is treated as D4ppD5, while the touch is still at E4
+        // C is treated as position 1 (still 1 with mirroring (might be a bug there but idk lol))
+        // s and z slide also aren't bounded to opposite tap anymore
         if (content.Contains("pp"))
         {
             // ppqq 默认为pp
-            var str = content.Substring(0, 4);
+            var str = content.Split('[')[0];
             var digits = str.Split('p');
-            var startPos = int.Parse(digits[0]);
-            var endPos = int.Parse(digits[2]);
+            var startPos = parseSlideAnchor(digits[0]);
+            var endPos = parseSlideAnchor(digits[2]);
             endPos = getRelativeEndPos(startPos, endPos);
+
+            if(digits[0][0] is 'D' or 'E' ^ digits[2][0] is 'D' or 'E')
+            {
+                if (digits[0][0] is 'D' or 'E')
+                {
+                    endPos = endPos % 8 + 1;
+                    return $"<1D_PPQQ_{endPos}";
+                }
+
+                return $"1D_PPQQ_{endPos}";
+            }
+
+            if (digits[0][0] is 'D' or 'E')
+                return $"<ppqq{endPos}";
+
             return "ppqq" + endPos;
         }
 
         if (content.Contains("qq"))
         {
             // ppqq 默认为pp
-            var str = content.Substring(0, 4);
+            var str = content.Split('[')[0];
             var digits = str.Split('q');
-            var startPos = int.Parse(digits[0]);
-            var endPos = int.Parse(digits[2]);
+            var startPos = parseSlideAnchor(digits[0]);
+            var endPos = parseSlideAnchor(digits[2]);
             endPos = getRelativeEndPos(startPos, endPos);
             endPos = MirrorKeys(endPos);
+
+            if (digits[0][0] is 'D' or 'E' ^ digits[2][0] is 'D' or 'E')
+            {
+                if (digits[2][0] is 'D' or 'E')
+                {
+                    endPos = endPos % 8 + 1;
+                    return $"-1D_PPQQ_{endPos}";
+                }
+
+                return $"<-1D_PPQQ_{endPos}";
+            }
+
+            if (digits[0][0] is 'D' or 'E')
+                return $"<-ppqq{endPos}";
+
             return "-ppqq" + endPos;
         }
 
         if (content.Contains('p'))
         {
             // pq 默认为p
-            var str = content.Substring(0, 3);
+            var str = content.Split('[')[0];
             var digits = str.Split('p');
-            var startPos = int.Parse(digits[0]);
-            var endPos = int.Parse(digits[1]);
+            var startPos = parseSlideAnchor(digits[0]);
+            var endPos = parseSlideAnchor(digits[1]);
             endPos = getRelativeEndPos(startPos, endPos);
+
+            if (digits[0][0] is 'D' or 'E' ^ digits[1][0] is 'D' or 'E')
+            {
+                if (digits[0][0] is 'D' or 'E')
+                {
+                    endPos = endPos % 8 + 1;
+                    return $"<1D_PQ_{endPos}";
+                }
+
+                return $"1D_PQ_{endPos}";
+            }
+
+            if (digits[0][0] is 'D' or 'E')
+                return $"<pq{endPos}";
+
             return "pq" + endPos;
         }
 
         if (content.Contains('q'))
         {
             // pq 默认为p
-            var str = content.Substring(0, 3);
+            var str = content.Split('[')[0];
             var digits = str.Split('q');
-            var startPos = int.Parse(digits[0]);
-            var endPos = int.Parse(digits[1]);
+            var startPos = parseSlideAnchor(digits[0]);
+            var endPos = parseSlideAnchor(digits[1]);
             endPos = getRelativeEndPos(startPos, endPos);
             endPos = MirrorKeys(endPos);
+
+            if (digits[0][0] is 'D' or 'E' ^ digits[1][0] is 'D' or 'E')
+            {
+                if (digits[1][0] is 'D' or 'E')
+                {
+                    endPos = endPos % 8 + 1;
+                    return $"-1D_PQ_{endPos}";
+                }
+
+                return $"<-1D_PQ_{endPos}";
+            }
+
+            if (digits[0][0] is 'D' or 'E')
+                return $"<-pq{endPos}";
+
             return "-pq" + endPos;
         }
 
         if (content.Contains('s'))
         {
             // s
-            var str = content.Substring(0, 3);
+            var str = content.Split('[')[0];
             var digits = str.Split('s');
-            var startPos = int.Parse(digits[0]);
-            var endPos = int.Parse(digits[1]);
+            var startPos = parseSlideAnchor(digits[0]);
+            var endPos = parseSlideAnchor(digits[1]);
             endPos = getRelativeEndPos(startPos, endPos);
-            if (endPos != 5) throw new Exception("s星星尾部错误\nsスライドエラー");
-            return "s";
+
+            if (digits[0][0] is 'D' or 'E' ^ digits[1][0] is 'D' or 'E')
+            {
+                if (digits[0][0] is 'D' or 'E')
+                {
+                    endPos = endPos % 8 + 1;
+                    return $"<1D_S_{endPos}";
+                }
+
+                return $"1D_S_{endPos}";
+            }
+
+            if (digits[0][0] is 'D' or 'E')
+                return $"<11_S_{endPos}";
+
+            return "11_S_" + endPos;
         }
 
         if (content.Contains('z'))
         {
             // s镜像
-            var str = content.Substring(0, 3);
+            var str = content.Split('[')[0];
             var digits = str.Split('z');
-            var startPos = int.Parse(digits[0]);
-            var endPos = int.Parse(digits[1]);
+            var startPos = parseSlideAnchor(digits[0]);
+            var endPos = parseSlideAnchor(digits[1]);
             endPos = getRelativeEndPos(startPos, endPos);
-            if (endPos != 5) throw new Exception("z星星尾部错误\nzスライドエラー");
-            return "-s";
+            endPos = MirrorKeys(endPos);
+
+            if (digits[0][0] is 'D' or 'E' ^ digits[1][0] is 'D' or 'E')
+            {
+                if (digits[1][0] is 'D' or 'E')
+                {
+                    endPos = endPos % 8 + 1;
+                    return $"-1D_S_{endPos}";
+                }
+
+                return $"<-1D_S_{endPos}";
+            }
+
+            if (digits[0][0] is 'D' or 'E')
+                return $"<-11_S_{endPos}";
+
+            return "-11_S_" + endPos;
         }
 
         if (content.Contains('V'))
@@ -3343,6 +3623,15 @@ public class JsonDataLoader : MonoBehaviour
     private bool isSupportedSlideStart(char c)
     {
         return char.IsNumber(c) || isTouch(c);
+    }
+
+    private string readSlideAnchor(string noteContent, ref int ptr)
+    {
+        if (isNonCTouchArea(noteContent[ptr]))
+        {
+            return noteContent[ptr++..++ptr];
+        }
+        return noteContent[ptr++].ToString();
     }
     #endregion Small helpers
 }
