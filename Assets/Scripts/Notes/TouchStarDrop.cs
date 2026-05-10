@@ -9,6 +9,12 @@ public class TouchStarDrop : TouchDrop
 {
     public GameObject slide;
     public bool isNoHead;
+    public bool isDouble;
+
+    public Sprite tapSpr_Double;
+    public Sprite eachSpr_Double;
+    public Sprite breakSpr_Double;
+    public Sprite mineSpr_Double;
 
     private new readonly SpriteRenderer[] fansSprite = new SpriteRenderer[8];
 
@@ -33,28 +39,28 @@ public class TouchStarDrop : TouchDrop
             fansSprite[i].sortingOrder += noteSortOrder;
         }
 
-        SetfanSprite(fanNormalSprite);
+        SetfanSprite(isDouble ? tapSpr_Double : fanNormalSprite);
         fansSprite[5].sprite = pointNormalSprite;
         fansSprite[6].sprite = multTouchNormalSprite[0];
         fansSprite[7].sprite = multTouchNormalSprite[1];
 
         if (isEach)
         {
-            SetfanSprite(fanEachSprite);
+            SetfanSprite(isDouble ? eachSpr_Double : fanEachSprite);
             fansSprite[5].sprite = pointEachSprite;
             fansSprite[6].sprite = multTouchEachSprite[0];
             fansSprite[7].sprite = multTouchEachSprite[1];
         }
         if (isBreak)
         {
-            SetfanSprite(fanBreakSprite);
+            SetfanSprite(isDouble ? breakSpr_Double : fanBreakSprite);
             fansSprite[5].sprite = pointBreakSprite;
             fansSprite[6].sprite = multTouchBreakSprite[0];
             fansSprite[7].sprite = multTouchBreakSprite[1];
         }
         if (isMine)
         {
-            SetfanSprite(fanMineSprite);
+            SetfanSprite(isDouble ? mineSpr_Double : fanMineSprite);
             fansSprite[5].sprite = pointMineSprite;
             fansSprite[6].sprite = multTouchMineSprite[0];
             fansSprite[7].sprite = multTouchMineSprite[1];

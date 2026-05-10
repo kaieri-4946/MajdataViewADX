@@ -37,8 +37,6 @@ public class CustomSkin : MonoBehaviour
     public Sprite TouchStar_Break_Double;
     public Sprite TouchStar_Mine;
     public Sprite TouchStar_Mine_Double;
-    public Sprite TouchStar_Ex;
-    public Sprite TouchStar_Ex_Double;
 
     public Sprite Hold;
     public Sprite Hold_On;
@@ -123,8 +121,6 @@ public class CustomSkin : MonoBehaviour
         TouchStar_Each_Double = SpriteLoader.LoadSpriteFromFile(path + "/touch_star_each_double.png");
         TouchStar_Break = SpriteLoader.LoadSpriteFromFile(path + "/touch_star_break.png");
         TouchStar_Break_Double = SpriteLoader.LoadSpriteFromFile(path + "/touch_star_break_double.png");
-        TouchStar_Ex = SpriteLoader.LoadSpriteFromFile(path + "/touch_star_ex.png");
-        TouchStar_Ex_Double = SpriteLoader.LoadSpriteFromFile(path + "/touch_star_ex_double.png");
         TouchStar_Mine = SpriteLoader.LoadSpriteFromFile(path + "/touch_star_mine.png");
         TouchStar_Mine_Double = SpriteLoader.LoadSpriteFromFile(path + "/touch_star_mine_double.png");
 

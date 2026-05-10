@@ -2566,7 +2566,7 @@ public class JsonDataLoader : MonoBehaviour
                     var endPos = readSlideAnchor(noteContent, ref ptr);
 
                     // Special case if C is the start, use endPos for rotation
-                    if (slidePart.StartPosition == 0)
+                    if (slidePart.TouchArea == 'C' && slideTypeChar.Contains('-'))
                     {
                         slidePart.StartPosition = parseSlideAnchor(endPos);
                     }
@@ -2961,6 +2961,12 @@ public class JsonDataLoader : MonoBehaviour
         NDCompo.pointEachSprite = customSkin.TouchPoint_Each;
         NDCompo.pointBreakSprite = customSkin.TouchPoint_Break;
         NDCompo.pointMineSprite = customSkin.TouchPoint_Mine;
+
+        NDCompo.tapSpr_Double = customSkin.TouchStar_Double;
+        NDCompo.eachSpr_Double = customSkin.TouchStar_Each_Double;
+        NDCompo.breakSpr_Double = customSkin.TouchStar_Break_Double;
+        NDCompo.mineSpr_Double = customSkin.TouchStar_Mine_Double;
+
         NDCompo.justSprite = customSkin.TouchJust;
         Array.Copy(customSkin.TouchBorder, NDCompo.multTouchNormalSprite, 2);
         Array.Copy(customSkin.TouchBorder_Each, NDCompo.multTouchEachSprite, 2);
@@ -3031,9 +3037,10 @@ public class JsonDataLoader : MonoBehaviour
 
             var count = notes.FindAll(
                 o => o.Type == SimaiNoteType.Slide &&
-                     o.StartPosition == note.StartPosition).Count;
+                     (o.StartPosition == note.StartPosition || o.TouchArea == 'C')).Count;
             if (count > 1)
             {
+                NDCompo.isDouble = true;
                 if (count == notes.Count)
                     NDCompo.isEach = false;
                 else
