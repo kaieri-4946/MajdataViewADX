@@ -7,6 +7,7 @@ public class HoldDrop : NoteLongDrop
 {
     public bool isEX;
     public bool isBreak;
+    public bool isStar;
 
     public Sprite tapSpr;
     public Sprite holdOnSpr;
@@ -17,10 +18,12 @@ public class HoldDrop : NoteLongDrop
     public Sprite breakSpr;
     public Sprite breakHoldOnSpr;
     public Sprite mineSpr;
+    public Sprite starSpr;
+    public Sprite starHoldOnSpr;
 
     public Sprite holdEachEnd;
     public Sprite holdBreakEnd;
-
+    public Sprite holdStarEnd;
 
     public RuntimeAnimatorController HoldShine;
     public RuntimeAnimatorController BreakShine;
@@ -82,6 +85,13 @@ public class HoldDrop : NoteLongDrop
         if (isEX)
         {
             exSpriteRender.color = exEffectTap;
+        }
+        if (isStar)
+        {
+            spriteRenderer.sprite = starSpr;
+            lineSpriteRender.sprite = starTapLineSpr;
+            holdEndRender.sprite = holdStarEnd;
+            if (isEX) exSpriteRender.color = exEffectEach;
         }
         if (isEach)
         {
@@ -459,6 +469,8 @@ public class HoldDrop : NoteLongDrop
                 sprRenderer.sprite = breakHoldOnSpr;
             else if (isEach)
                 sprRenderer.sprite = eachHoldOnSpr;
+            else if (isStar)
+                sprRenderer.sprite = starHoldOnSpr;
             else
                 sprRenderer.sprite = holdOnSpr;
         }

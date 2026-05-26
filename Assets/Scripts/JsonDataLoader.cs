@@ -59,6 +59,8 @@ public class JsonDataLoader : MonoBehaviour
     private int slideLayer = -1;
     private int noteSortOrder = 0;
 
+    private static readonly char[] ALL_SLIDE_TYPE = new char[] { '-', 'v', 'V', 'z', 's', 'p', 'q', 'w', '<', '>', '^' };
+
     private static readonly Dictionary<SimaiNoteType, int> NOTE_LAYER_COUNT = new Dictionary<SimaiNoteType, int>()
     {
         {SimaiNoteType.Tap, 2 },
@@ -2522,8 +2524,136 @@ public class JsonDataLoader : MonoBehaviour
         }
     }
 
+    private void InstantiateHoldSlideHead(SimaiTimingPoint timing, SimaiNote note)
+    {
+        var GOnote = Instantiate(holdPrefab, notes.transform);
+        noteManager.AddNote(GOnote, noteIndex[note.StartPosition]++);
+        var NDCompo = GOnote.GetComponent<HoldDrop>();
+
+        // note的图层顺序
+        NDCompo.noteSortOrder = noteSortOrder;
+        noteSortOrder -= NOTE_LAYER_COUNT[note.Type];
+        
+        NDCompo.tapSpr = customSkin.Hold;
+        NDCompo.holdOnSpr = customSkin.Hold_On;
+        NDCompo.holdOffSpr = customSkin.Hold_Off;
+        NDCompo.eachSpr = customSkin.Hold_Each;
+        NDCompo.eachHoldOnSpr = customSkin.Hold_Each_On;
+        NDCompo.exSpr = customSkin.Hold_Ex;
+        NDCompo.breakSpr = customSkin.Hold_Break;
+        NDCompo.breakHoldOnSpr = customSkin.Hold_Break_On;
+        NDCompo.mineSpr = customSkin.Hold_Mine;
+        NDCompo.starSpr = customSkin.Hold_Star;
+        NDCompo.starHoldOnSpr = customSkin.Hold_Star_On;
+
+        NDCompo.HoldShine = HoldShine;
+        NDCompo.BreakShine = BreakShine;
+
+        if (timing.Notes.Length > 1)
+        {
+            var notes = timing.Notes.ToList();
+            NDCompo.isEach = true;
+
+            var count = notes.FindAll(
+                o => o.Type == SimaiNoteType.Slide &&
+                     o.StartPosition == note.StartPosition).Count;
+            if (count > 1)
+            {
+                if (count == notes.Count)
+                    NDCompo.isEach = false;
+                else
+                    NDCompo.isEach = true;
+            }
+        }
+
+        NDCompo.time = (float)timing.Timing;
+        NDCompo.LastFor = (float)note.HoldTime;
+        NDCompo.startPosition = note.StartPosition;
+        NDCompo.speed = noteSpeed * timing.HSpeed;
+        NDCompo.isEX = note.IsEx;
+        NDCompo.isBreak = note.IsBreak;
+        NDCompo.isMine = note.IsMine;
+        NDCompo.isStar = true;
+
+        if (NDCompo.isMine) NDCompo.tapLine = mineLine;
+    }
+
+    private void InstantiateHoldTouchSlideHead(SimaiTimingPoint timing, SimaiNote note)
+    {
+        var GOnote = Instantiate(touchHoldPrefab, notes.transform);
+        noteManager.AddTouch(GOnote, touchIndex[TouchHoldBase.GetSensor(note.TouchArea, note.StartPosition)]++);
+        var NDCompo = GOnote.GetComponent<TouchHoldDrop>();
+
+        // note的图层顺序
+        NDCompo.noteSortOrder = noteSortOrder;
+        noteSortOrder -= NOTE_LAYER_COUNT[note.Type];
+
+        NDCompo.time = (float)timing.Timing;
+        NDCompo.LastFor = (float)note.HoldTime;
+        NDCompo.speed = touchSpeed * timing.HSpeed;
+        NDCompo.isFirework = note.IsHanabi;
+        NDCompo.isBreak = note.IsBreak;
+        NDCompo.isMine = note.IsMine;
+        NDCompo.areaPosition = note.TouchArea;
+        NDCompo.startPosition = note.StartPosition;
+        NDCompo.TouchPointSprite = customSkin.TouchPoint;
+        NDCompo.TouchPointEachSprite = customSkin.TouchPoint_Each;
+        NDCompo.TouchPointBreakSprite = customSkin.TouchPoint_Break;
+        NDCompo.TouchPointMineSprite = customSkin.TouchPoint_Mine;
+
+        if (timing.Notes.Length > 1) NDCompo.isEach = true;
+        if (note.IsMine)
+        {
+            Array.Copy(customSkin.TouchHold_Mine, NDCompo.TouchHoldSprite, 5);
+        }
+        else if (note.IsBreak)
+        {
+            Array.Copy(customSkin.TouchHold_Break, NDCompo.TouchHoldSprite, 5);
+        }
+        else
+        {
+            Array.Copy(customSkin.TouchHold, NDCompo.TouchHoldSprite, 5);
+        }
+    }
+
+    private void SeparateHoldSlide(SimaiTimingPoint timing, SimaiNote note)
+    {
+        if (note.TouchArea == ' ')
+        {
+            InstantiateHoldSlideHead(timing, note);
+        }
+        else
+        {
+            InstantiateHoldTouchSlideHead(timing, note);
+        }
+
+        // Modify slide to remove hold as treat it as a no head slide
+        note.IsSlideNoHead = true;
+        note.RawContent = ConstructSlidePart(note);
+    }
+
+    private string ConstructSlidePart(SimaiNote note)
+    {
+        var index = note.RawContent.IndexOfAny(ALL_SLIDE_TYPE);
+        if (index == -1) throw new Exception($"Unable to parse hold slide {note.RawContent}");
+        if (note.TouchArea == ' ')
+        {
+            return $"{note.StartPosition}{note.RawContent[index..]}";
+        }
+        if(note.TouchArea == 'C')
+        {
+            return $"C{note.RawContent[index..]}";
+        }
+        return $"{note.TouchArea}{note.StartPosition}{note.RawContent[index..]}";
+    }
+
     private void InstantiateStarGroup(SimaiTimingPoint timing, SimaiNote note, int sort, double lastNoteTime)
     {
+        if (note.HoldTime > 0)
+        {
+            SeparateHoldSlide(timing, note);
+        }
+
         var subSlide = new List<SimaiNote>();
         var subBarCount = new List<int>();
         var sumBarCount = 0;
@@ -3364,7 +3494,7 @@ public class JsonDataLoader : MonoBehaviour
             var endPos = parseSlideAnchor(digits[2]);
             endPos = getRelativeEndPos(startPos, endPos);
 
-            if(digits[0][0] is 'D' or 'E' ^ digits[2][0] is 'D' or 'E')
+            if (digits[0][0] is 'D' or 'E' ^ digits[2][0] is 'D' or 'E')
             {
                 if (digits[0][0] is 'D' or 'E')
                 {

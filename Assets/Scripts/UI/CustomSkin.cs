@@ -45,6 +45,8 @@ public class CustomSkin : MonoBehaviour
     public Sprite Hold_Each_On;
     public Sprite Hold_Break;
     public Sprite Hold_Break_On;
+    public Sprite Hold_Star;
+    public Sprite Hold_Star_On;
     public Sprite Hold_Mine;
     //public Sprite Hold_Mine_On; //no need
     public Sprite Hold_Ex;
@@ -125,11 +127,13 @@ public class CustomSkin : MonoBehaviour
         TouchStar_Mine_Double = SpriteLoader.LoadSpriteFromFile(path + "/touch_star_mine_double.png");
 
         var border = new Vector4(0, 58, 0, 58);
-        Hold = SpriteLoader.LoadSpriteFromFile(path + "/hold.png", border);        
+        Hold = SpriteLoader.LoadSpriteFromFile(path + "/hold.png", border);
         Hold_Each = SpriteLoader.LoadSpriteFromFile(path + "/hold_each.png", border);
         Hold_Each_On = SpriteLoader.LoadSpriteFromFile(path + "/hold_each_on.png", border);
         Hold_Break = SpriteLoader.LoadSpriteFromFile(path + "/hold_break.png", border);
         Hold_Break_On = SpriteLoader.LoadSpriteFromFile(path + "/hold_break_on.png", border);
+        Hold_Star = SpriteLoader.LoadSpriteFromFile(path + "/hold_star.png", border);
+        Hold_Star_On = SpriteLoader.LoadSpriteFromFile(path + "/hold_star_on.png", border);
         Hold_Mine = SpriteLoader.LoadSpriteFromFile(path + "/hold_mine.png", border);
         Hold_Ex = SpriteLoader.LoadSpriteFromFile(path + "/hold_ex.png", border);
 
