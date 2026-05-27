@@ -2109,6 +2109,8 @@ public class JsonDataLoader : MonoBehaviour
                         NDCompo.breakSpr = customSkin.Hold_Break;
                         NDCompo.breakHoldOnSpr = customSkin.Hold_Break_On;
                         NDCompo.mineSpr = customSkin.Hold_Mine;
+                        NDCompo.starSpr = customSkin.Hold_Star;
+                        NDCompo.starHoldOnSpr = customSkin.Hold_Star_On;
 
                         NDCompo.HoldShine = HoldShine;
                         NDCompo.BreakShine = BreakShine;
@@ -2121,6 +2123,7 @@ public class JsonDataLoader : MonoBehaviour
                         NDCompo.isEX = note.IsEx;
                         NDCompo.isBreak = note.IsBreak;
                         NDCompo.isMine = note.IsMine;
+                        NDCompo.isStar = note.IsForceStar;
 
                         if (NDCompo.isMine) NDCompo.tapLine = mineLine;
                     }
