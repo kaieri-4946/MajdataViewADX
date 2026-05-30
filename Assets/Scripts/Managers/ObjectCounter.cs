@@ -24,7 +24,7 @@ public class ObjectCounter : MonoBehaviour
 
     public BgInfoDisplay TextMode { get; private set; }
     public UIType? CurrentUIType { get; private set; } = null;
-    
+
     public bool AllFinished =>
         TapFinishedCount == TapSum &&
         HoldFinishedCount == HoldSum &&
@@ -37,10 +37,10 @@ public class ObjectCounter : MonoBehaviour
     public int TouchFinishedCount { get; private set; }
     public int BreakFinishedCount { get; private set; }
     public int NoteFinishedCount =>
-        TapFinishedCount + 
-        HoldFinishedCount + 
-        SlideFinishedCount + 
-        TouchFinishedCount + 
+        TapFinishedCount +
+        HoldFinishedCount +
+        SlideFinishedCount +
+        TouchFinishedCount +
         BreakFinishedCount;
 
     public int TapSum { get; private set; }
@@ -93,13 +93,13 @@ public class ObjectCounter : MonoBehaviour
                                 SlideSum * 3.0 +
                                 TouchSum * 1.0 +
                                 BreakSum * 5.0;
-            
+
             if (totalScore <= 0) return 0.0;
             var rate = (currentScore / totalScore) * 100.0;
             return Math.Round(rate, 4);
         }
     }
-    
+
     private double DeluxeRateFromCount
     {
         get
@@ -115,11 +115,11 @@ public class ObjectCounter : MonoBehaviour
                                  SlideSum * 3.0 +
                                  TouchSum * 1.0 +
                                  BreakSum * 5.0;
-            
+
             var baseRate = totalDeluxe > 0 ? (currentDeluxe / totalDeluxe) * 100.0 : 0.0;
             var breakBonus = BreakSum > 0 ? (double)BreakFinishedCount / BreakSum : 0.0;
             var finalRate = baseRate + breakBonus;
-            
+
             return Math.Round(finalRate, 4);
         }
     }
@@ -144,10 +144,10 @@ public class ObjectCounter : MonoBehaviour
     readonly Dictionary<JudgeType, int> judgedSlideCount = new();
     readonly Dictionary<JudgeType, int> judgedBreakCount = new();
     readonly Dictionary<JudgeType, int> totalJudgedCount = new();
-    
+
     readonly Dictionary<double, (int, int)> meterList = new();
     readonly Dictionary<double, float> bpmList = new();
-    
+
     //Legacy UI
     [SerializeField]
     private GameObject legacyUIRoot;
@@ -159,7 +159,7 @@ public class ObjectCounter : MonoBehaviour
     private Text objectRate;
     [SerializeField]
     private Text judgeResultCount;
-    
+
     //Trg UI
     [SerializeField]
     private GameObject trgUIRoot;
@@ -182,7 +182,7 @@ public class ObjectCounter : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI objAutoMode;
 
-    
+
     //Main Output
     [SerializeField]
     private Text statusAchievement;
@@ -216,7 +216,7 @@ public class ObjectCounter : MonoBehaviour
                 {
                     if (!note.IsBreak)
                     {
-                        switch(note.Type)
+                        switch (note.Type)
                         {
                             case SimaiNoteType.Tap:
                                 TapSum++;
@@ -242,7 +242,7 @@ public class ObjectCounter : MonoBehaviour
                     {
                         if (note.Type == SimaiNoteType.Slide)
                         {
-                            if (!note.IsSlideNoHead) 
+                            if (!note.IsSlideNoHead)
                                 BreakSum++;
                             if (note.IsSlideBreak)
                                 BreakSum++;
@@ -378,19 +378,19 @@ public class ObjectCounter : MonoBehaviour
         switch (type)
         {
             case UIType.Legacy:
-            {
-                CurrentUIType = type;
-                legacyUIRoot.SetActive(true);
-                trgUIRoot.SetActive(false);
-                break;
-            }
+                {
+                    CurrentUIType = type;
+                    legacyUIRoot.SetActive(true);
+                    trgUIRoot.SetActive(false);
+                    break;
+                }
             case UIType.TrgUI:
-            {
-                CurrentUIType = type;
-                legacyUIRoot.SetActive(false);
-                trgUIRoot.SetActive(true);
-                break;
-            }
+                {
+                    CurrentUIType = type;
+                    legacyUIRoot.SetActive(false);
+                    trgUIRoot.SetActive(true);
+                    break;
+                }
         }
     }
 
@@ -561,57 +561,59 @@ public class ObjectCounter : MonoBehaviour
         }
         else
         {
-            switch(type)
+            switch (type)
             {
                 case SimaiNoteType.Tap:
-                {
-                    judgedTapCount[judgeType]++;
-                    TapFinishedCount++;
-                }
+                    {
+                        judgedTapCount[judgeType]++;
+                        TapFinishedCount++;
+                    }
                     break;
                 case SimaiNoteType.Slide:
-                {
-                    judgedSlideCount[judgeType]++;
-                    SlideFinishedCount++;
-                }
+                    {
+                        judgedSlideCount[judgeType]++;
+                        SlideFinishedCount++;
+                    }
                     break;
                 case SimaiNoteType.Hold:
-                {
-                    judgedHoldCount[judgeType]++;
-                    HoldFinishedCount++;
-                }
+                    {
+                        judgedHoldCount[judgeType]++;
+                        HoldFinishedCount++;
+                    }
                     break;
                 case SimaiNoteType.Touch:
-                {
-                    judgedTouchCount[judgeType]++;
-                    TouchFinishedCount++;
-                }
+                    {
+                        judgedTouchCount[judgeType]++;
+                        TouchFinishedCount++;
+                    }
                     break;
                 case SimaiNoteType.TouchHold:
-                {
-                    judgedTouchHoldCount[judgeType]++;
-                    HoldFinishedCount++;
-                }
+                    {
+                        judgedTouchHoldCount[judgeType]++;
+                        HoldFinishedCount++;
+                    }
                     break;
             }
         }
         totalJudgedCount[judgeType]++;
-        
-        if(judgeType != 0) combo++;
+
+        if (judgeType != 0) combo++;
         switch (judgeType)
         {
             case JudgeType.Miss:
                 missCount++;
                 combo = 0;
+                lostDXScore -= 3;
                 break;
             case JudgeType.Perfect:
-                cPerfectCount++; 
+                cPerfectCount++;
                 break;
             case JudgeType.LatePerfect2:
             case JudgeType.LatePerfect1:
             case JudgeType.FastPerfect1:
             case JudgeType.FastPerfect2:
                 perfectCount++;
+                lostDXScore -= 1;
                 break;
             case JudgeType.LateGreat2:
             case JudgeType.LateGreat1:
@@ -619,10 +621,12 @@ public class ObjectCounter : MonoBehaviour
             case JudgeType.FastGreat:
             case JudgeType.FastGreat1:
             case JudgeType.FastGreat2:
+                lostDXScore -= 2;
                 greatCount++;
                 break;
             case JudgeType.LateGood:
             case JudgeType.FastGood:
+                lostDXScore -= 3;
                 goodCount++;
                 break;
         }
@@ -638,76 +642,76 @@ public class ObjectCounter : MonoBehaviour
             lateCount++;
         }
     }
-    
+
     private void UpdateOutput()
     {
         OutputMain();
         OutputSide();
         OutputTime();
     }
-    
+
     private void OutputMain()
     {
         switch (TextMode)
         {
             case BgInfoDisplay.Combo:
-            {
-                statusCombo.text = combo > 0 ? 
-                    combo.ToString() : string.Empty;
-            }
+                {
+                    statusCombo.text = combo > 0 ?
+                        combo.ToString() : string.Empty;
+                }
                 break;
             case BgInfoDisplay.Achievement_101:
-            {
-                statusAchievement.text = $"{accRate[2]:0.0000}%";
-                UpdateAchievementColor(accRate[2], statusAchievement);
-            }
+                {
+                    statusAchievement.text = $"{accRate[2]:0.0000}%";
+                    UpdateAchievementColor(accRate[2], statusAchievement);
+                }
                 break;
             case BgInfoDisplay.Achievement_100:
-            {
-                statusAchievement.text = $"{accRate[3]:0.0000}%";
-                UpdateAchievementColor(accRate[3], statusAchievement);
-            }
+                {
+                    statusAchievement.text = $"{accRate[3]:0.0000}%";
+                    UpdateAchievementColor(accRate[3], statusAchievement);
+                }
                 break;
             case BgInfoDisplay.Achievement:
-            {
-                statusAchievement.text = $"{accRate[4]:0.0000}%";
-                UpdateAchievementColor(accRate[4], statusAchievement);
-            }
+                {
+                    statusAchievement.text = $"{accRate[4]:0.0000}%";
+                    UpdateAchievementColor(accRate[4], statusAchievement);
+                }
                 break;
             case BgInfoDisplay.AchievementClassical:
-            {
-                statusAchievement.text = $"{accRate[0]:0.0000}%";
-                UpdateAchievementColor(accRate[0], statusAchievement);
-            }
+                {
+                    statusAchievement.text = $"{accRate[0]:0.0000}%";
+                    UpdateAchievementColor(accRate[0], statusAchievement);
+                }
                 break;
             case BgInfoDisplay.AchievementClassical_100:
-            {
-                statusAchievement.text = $"{accRate[1]:0.0000}%";
-                UpdateAchievementColor(accRate[1], statusAchievement);
-            }
+                {
+                    statusAchievement.text = $"{accRate[1]:0.0000}%";
+                    UpdateAchievementColor(accRate[1], statusAchievement);
+                }
                 break;
             case BgInfoDisplay.DXScore:
-            {
-                statusDXScore.text = lostDXScore.ToString();
-            }
+                {
+                    statusDXScore.text = (totalDXScore + lostDXScore).ToString();
+                }
                 break;
             case BgInfoDisplay.S_Border:
-            {
-                var rate = accRate[2] - 97;
-                UpdateBorder(rate, statusAchievement);
-            }
+                {
+                    var rate = accRate[2] - 97;
+                    UpdateBorder(rate, statusAchievement);
+                }
                 break;
             case BgInfoDisplay.SS_Border:
-            {
-                var rate = accRate[2] - 99;
-                UpdateBorder(rate, statusAchievement);
-            }
+                {
+                    var rate = accRate[2] - 99;
+                    UpdateBorder(rate, statusAchievement);
+                }
                 break;
             case BgInfoDisplay.SSS_Border:
-            {
-                var rate = accRate[2] - 100;
-                UpdateBorder(rate, statusAchievement);
-            }
+                {
+                    var rate = accRate[2] - 100;
+                    UpdateBorder(rate, statusAchievement);
+                }
                 break;
         }
         void UpdateAchievementColor(double rate, Text textElement)
@@ -724,6 +728,12 @@ public class ObjectCounter : MonoBehaviour
             {
                 textElement.color = newColor;
             }
+
+            var headerElement = textElement.transform.GetChild(0).GetComponent<Text>();
+            if (headerElement.color != newColor)
+            {
+                headerElement.color = newColor;
+            }
         }
 
         void UpdateBorder(double rate, Text textElement)
@@ -736,7 +746,7 @@ public class ObjectCounter : MonoBehaviour
             textElement.text = $"{rate:0.0000}%";
         }
     }
-    
+
     private void OutputSide()
     {
         if (CurrentUIType is UIType.Legacy)
@@ -754,14 +764,14 @@ public class ObjectCounter : MonoBehaviour
                 NoteFinishedCount, NoteSum,
                 Majdata<InputManager>.Instance!.Mode
             );
-            
+
             objectRate.text = string.Format(
                 "FiNALE  Rate:\n" +
                 $"{ClassicRateFromCount:000.00}   %\n" +
                 "DELUXE Rate:\n" +
                 $"{DeluxeRateFromCount:000.0000} % "
             );
-            
+
             judgeResultCount.text = $"{cPerfectCount}\n" +
                                     $"{perfectCount}\n" +
                                     $"{greatCount}\n" +
@@ -772,21 +782,21 @@ public class ObjectCounter : MonoBehaviour
         }
         else
         {
-            objNoteCount.text = 
+            objNoteCount.text =
                 $"{TapFinishedCount} / {TapSum}\n" +
                 $"{HoldFinishedCount} / {HoldSum}\n" +
                 $"{SlideFinishedCount} / {SlideSum}\n" +
                 $"{TouchFinishedCount} / {TouchSum}\n" +
                 $"{BreakFinishedCount} / {BreakSum}\n" +
                 $"{NoteFinishedCount} / {NoteSum}";
-            
+
             var rate = DeluxeRateFromCount;
             var intPart = (int)rate;
             var fracPart = (rate - intPart) * 10000;
             objRate.text =
                 $"<size=7.5>{intPart:0}</size><size=5.7>.{fracPart:0000}</size> <size=3.7>%</size>";
-            
-            objJudgeResult.text = 
+
+            objJudgeResult.text =
                 $"{cPerfectCount}\n{perfectCount}\n{greatCount}\n{goodCount}\n{missCount}";
 
             objCombo.text = combo.ToString();
@@ -796,7 +806,7 @@ public class ObjectCounter : MonoBehaviour
             {
                 var meter = meterList.ElementAt(i);
                 if (meter.Key > time) continue;
-                
+
                 var (num, deno) = meter.Value;
                 objMeter.text = $"{num}\n{deno}";
                 break;
@@ -805,7 +815,7 @@ public class ObjectCounter : MonoBehaviour
             {
                 var bpm = bpmList.ElementAt(i);
                 if (bpm.Key > time) continue;
-                
+
                 objBpm.text = bpm.Value.ToString();
                 break;
             }
@@ -858,7 +868,7 @@ public class ObjectCounter : MonoBehaviour
         accRate[2] = 101.0000;
         accRate[3] = 100.0000;
         accRate[4] = 0.0000;
-        
+
         TapFinishedCount = 0;
         HoldFinishedCount = 0;
         SlideFinishedCount = 0;
@@ -879,7 +889,7 @@ public class ObjectCounter : MonoBehaviour
         LostNoteBaseScore = 0;
         LostNoteExtraScore = 0;
         LostNoteExtraScoreClassic = 0;
-        
+
         cPerfectCount = 0;
         perfectCount = 0;
         greatCount = 0;
@@ -893,10 +903,10 @@ public class ObjectCounter : MonoBehaviour
         lostDXScore = 0;
 
         combo = 0;
-        
+
         meterList.Clear();
         bpmList.Clear();
-        
+
         statusAchievement.gameObject.SetActive(false);
         statusCombo.gameObject.SetActive(false);
         statusDXScore.gameObject.SetActive(false);
