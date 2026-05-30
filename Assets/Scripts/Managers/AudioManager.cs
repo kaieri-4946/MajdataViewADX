@@ -334,7 +334,7 @@ public class AudioManager : MonoBehaviour
 
     //Sfx control
 
-    public void GenerateAnswerSFX(SimaiChart chart, int clockCount = 0)
+    public void GenerateAnswerSFX(SimaiChart chart, double ignoreOffset, int clockCount = 0)
     {
         //Generate ClockSounds
         var firstBpm = 0f;
@@ -360,6 +360,7 @@ public class AudioManager : MonoBehaviour
         foreach (var timingPoint in chart.NoteTimings)
         {
             var startTiming = (float)timingPoint.Timing;
+            if (startTiming < ignoreOffset) continue;
 
             if (!timingPoint.Notes.All              //无头别叫
                             (o => o.Type is SimaiNoteType.Slide

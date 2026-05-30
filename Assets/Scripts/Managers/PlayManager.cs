@@ -150,6 +150,7 @@ public class PlayManager : MonoBehaviour
             loader.noteSpeed = (float)(107.25 / (71.4184491 * Mathf.Pow(_setting.TapSpeed + 0.9975f, -0.985558604f)));
             loader.touchSpeed = _setting.TouchSpeed;
             loader.smoothSlideAnime = _setting.SmoothSlideAnime;
+            var ignoreOffset = startAt - offset;
             //UI
             objectCounter.StartOutput(_setting.ComboStatusType, _setting.UIType);
             effectManager.SetDisplayMode(_setting.JudgeDisplayMode);
@@ -163,13 +164,13 @@ public class PlayManager : MonoBehaviour
             var clockCount = 0;
             var clockCommand = commands.FirstOrDefault(c => c.Prefix == "clock_count");
             if (clockCommand != default) int.TryParse(clockCommand.Value, out clockCount);
-            audioManager.GenerateAnswerSFX(_chart, clockCount);
+            audioManager.GenerateAnswerSFX(_chart, ignoreOffset, clockCount);
 
             switch (playmode)
             {
                 case PlaybackMode.Normal:
                     await loader.Load(_chart,
-                    startAt - offset, title, artist, difficulty, _setting.LegacySlideLayer);
+                    ignoreOffset, title, artist, difficulty, _setting.LegacySlideLayer);
 
                     Majdata<AllPerfectManager>.Instance!.enabled = false;
                     timeProvider.SetStartTime(startAt, offset, speed, playmode);
@@ -177,7 +178,7 @@ public class PlayManager : MonoBehaviour
                     break;
                 case PlaybackMode.IncludeOp:
                     await loader.Load(_chart,
-                    startAt - offset, title, artist, difficulty, _setting.LegacySlideLayer);
+                    ignoreOffset, title, artist, difficulty, _setting.LegacySlideLayer);
 
                     bgManager.PlaySongDetail();
                     AudioManager.noteSfxPlaybackRequests[AudioManager.TRACK_START] = true; //track_start
@@ -194,7 +195,7 @@ public class PlayManager : MonoBehaviour
                     }
 
                     await loader.Load(_chart,
-                    startAt - offset, title, artist, difficulty, _setting.LegacySlideLayer);
+                    ignoreOffset, title, artist, difficulty, _setting.LegacySlideLayer);
 
                     bgManager.PlaySongDetail();
 

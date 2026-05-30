@@ -363,16 +363,6 @@ public class ObjectCounter : MonoBehaviour
                     objAutoMode.text = "DISABLED\nNONE";
                     break;
             }
-
-            float min, max;
-            min = max = bpmList.FirstOrDefault().Value;
-            foreach (var bpm in bpmList.Values)
-            {
-                if (bpm < min) min = bpm;
-                if (bpm > max) max = bpm;
-            }
-
-            objBpmRange.text = $"{min} ～ {max}";
         }
         if (CurrentUIType == type) return;
         switch (type)
@@ -407,6 +397,14 @@ public class ObjectCounter : MonoBehaviour
                     bpmList.TryAdd(timing.Timing, timing.Bpm);
             }
         });
+        float min, max;
+        min = max = bpmList.FirstOrDefault().Value;
+        foreach (var bpm in bpmList.Values)
+        {
+            if (bpm < min) min = bpm;
+            if (bpm > max) max = bpm;
+        }
+        objBpmRange.text = $"{min} ～ {max}";
     }
 
     public void ReportResult(SimaiNoteType type, JudgeType judgeType, bool isBreak = false)
