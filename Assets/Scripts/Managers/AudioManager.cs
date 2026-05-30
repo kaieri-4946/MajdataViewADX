@@ -63,6 +63,7 @@ public class AudioManager : MonoBehaviour
 
     private List<Guid> touchholdRiserPlayingTask = new();
     private bool isTouchholdRiserPlaying;
+    private bool cancelPlayTrack;
     private void Awake()
     {
         Majdata<AudioManager>.Instance = this;
@@ -169,7 +170,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (timeProvider.IsRecord) return;
 
@@ -294,7 +295,15 @@ public class AudioManager : MonoBehaviour
         IEnumerator WaitForTrackAudioStart()
         {
             var offset = TRACK_ANSWER_PLAYBACK_OFFSET_SEC + GlobalAudioOffset;
-            while (Majdata<TimeProvider>.Instance!.AudioTime < offset) yield return null;
+            while (Majdata<TimeProvider>.Instance!.AudioTime < offset)
+            {
+                if (cancelPlayTrack)
+                {
+                    cancelPlayTrack = false;
+                    yield break;
+                }
+                yield return null;
+            }
 
             TrackSample!.CurrentSec = Majdata<TimeProvider>.Instance!.AudioTime - offset;
             TrackSample.Play();
@@ -303,7 +312,12 @@ public class AudioManager : MonoBehaviour
 
     public void PauseTrack() => TrackSample?.Pause();
 
-    public void StopTrack() => TrackSample?.Stop();
+    public void StopTrack()
+    {
+        if (TrackSample?.IsPlaying == true)
+            cancelPlayTrack = true;
+        TrackSample?.Stop();
+    }
 
     public void ResetState()
     {
