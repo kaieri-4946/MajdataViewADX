@@ -11,41 +11,40 @@ using Random = UnityEngine.Random;
 
 public class TouchDrop : NoteBase
 {
-    private MultTouchHandler multTouchHandler;
+    protected MultTouchHandler multTouchHandler;
 
     public char areaPosition;
     public bool isFirework;
     public TouchGroup? GroupInfo;
 
     [SerializeField]
-    GameObject justEffect;
+    protected GameObject justEffect;
     [SerializeField]
-    GameObject multTouchEffect2;
+    protected GameObject multTouchEffect2;
     [SerializeField]
-    GameObject multTouchEffect3;
+    protected GameObject multTouchEffect3;
 
     [SerializeField]
-    GameObject touchEffect;
+    protected GameObject touchEffect;
     [SerializeField]
-    GameObject gr_TouchEffect;
+    protected GameObject gr_TouchEffect;
     [SerializeField]
-    GameObject gd_TouchEffect;
+    protected GameObject gd_TouchEffect;
     [SerializeField]
-    GameObject judgeEffect;
+    protected GameObject judgeEffect;
 
-    [SerializeField]
-    GameObject[] fans = new GameObject[7]; //01,02,03,04,point,border_02,border_03
+    public GameObject[] fans = new GameObject[7]; //01,02,03,04,point,border_02,border_03
 
-    private SpriteRenderer[] fansRenderers = new SpriteRenderer[7];
-    private GameObject firework;
-    private Animator fireworkEffect;
+    protected readonly SpriteRenderer[] fansRenderers = new SpriteRenderer[7];
+    protected GameObject firework;
+    protected Animator fireworkEffect;
 
-    private float wholeDuration;
-    private float moveDuration;
-    private float displayDuration;
-    private bool isStarted;
-    private int layer;
-    private bool isTriggered = false;
+    protected float wholeDuration;
+    protected float moveDuration;
+    protected float displayDuration;
+    protected bool isStarted;
+    protected int layer;
+    protected bool isTriggered = false;
 
     void Start()
     {

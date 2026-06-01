@@ -7,12 +7,12 @@ using UnityEngine;
 public class LoadJustSprite : MonoBehaviour
 {
     [SerializeField]
-    int _0curv1str2wifi;
+    protected int _0curv1str2wifi;
     
-    private int indexOffset;
-    private int judgeOffset = 0;
-    
-    private SpriteRenderer spriteRenderer;
+    protected int indexOffset;
+    protected int judgeOffset = 0;
+
+    protected SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -57,7 +57,7 @@ public class LoadJustSprite : MonoBehaviour
         judgeOffset = 30;
         refreshSprite();
     }
-    private void refreshSprite()
+    protected virtual void refreshSprite()
     {
         spriteRenderer.sprite = Majdata<SkinManager>.Instance!
             .Just[_0curv1str2wifi + indexOffset + judgeOffset];

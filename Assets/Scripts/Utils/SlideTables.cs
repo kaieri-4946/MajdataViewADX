@@ -4,6 +4,7 @@
 
 using System;
 using System.Linq;
+using UnityEngine;
 
 #endregion
 
@@ -14,7 +15,7 @@ public class SlideArea
     public int ArrowProgressWhenFinished { get; init; }
     public bool IsSkippable { get; set; }
     public bool IsLast { get; set; }
-    
+
     public bool On { get; set; }
     public bool Off { get; set; }
     public bool IsFinished
@@ -23,14 +24,14 @@ public class SlideArea
         {
             if (IsLast)
                 return On;
-            
+
             return On && Off;
         }
     }
 
     public void SetIsLast() => IsLast = true;
     public void SetNonLast() => IsLast = false;
-    
+
     public SlideArea Clone()
     {
         return new SlideArea
@@ -52,7 +53,7 @@ public class SlideArea
             Areas[i] = Areas[i].Mirror(baseLine);
         }
     }
-    
+
     public void Diff(int diff)
     {
         for (var i = 0; i < Areas.Length; i++)
@@ -60,7 +61,7 @@ public class SlideArea
             Areas[i] = Areas[i].Diff(diff);
         }
     }
-    
+
     public void Judge(bool status)
     {
         if (status)
@@ -92,7 +93,7 @@ public class SlideTable
             Const = Const
         };
     }
-    
+
     public void Mirror(SensorType baseLine)
     {
         foreach (var area in JudgeQueue)
@@ -100,7 +101,7 @@ public class SlideTable
             area.Mirror(baseLine);
         }
     }
-    
+
     public void Diff(int diff)
     {
         foreach (var area in JudgeQueue)
@@ -762,7 +763,23 @@ public static class SlideTables
 
     public static SlideTable? FindTableByName(string prefabName)
     {
-        return Array.Find(SLIDE_TABLES, x => x.Name == prefabName)?.Clone();
+        //Temp
+        var a = Array.Find(SLIDE_TABLES, x => x.Name == prefabName)?.Clone();
+        if (a is null)
+        {
+            return new SlideTable()
+            {
+                Name = prefabName,
+                JudgeQueue = new SlideArea[]
+                {
+                BuildSlideArea(SensorType.A1, 0, 4),
+                BuildSlideArea(SensorType.B8, 5, 8),
+                BuildSlideArea(SensorType.B7, 9, 11, true, true),
+                },
+                Const = 0.0895f
+            };
+        }
+        return a;
     }
 
     public static WifiTable GetWifiTable(int startPos)

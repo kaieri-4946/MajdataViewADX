@@ -13,11 +13,15 @@ using Random = UnityEngine.Random;
 
 public class SlideDrop : NoteLongBase, ICanShine
 {
+    public char areaPosition;
     public int endPosition;
 
+    public bool isRimDSlide;
     public bool isMirror;
+    public bool isUDMirror;
     public bool isJustR;
     public bool isSpecialFlip; // fixes known star problem
+    public bool isNoStartPositionRotation;
 
     public float startTime;
     public int sortIndex;
@@ -97,12 +101,18 @@ public class SlideDrop : NoteLongBase, ICanShine
         if (isMirror)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
-            transform.rotation = Quaternion.Euler(0f, 0f, -45f * startPosition);
+            if (!isNoStartPositionRotation)
+                transform.rotation = Quaternion.Euler(0f, 0f, -45f * startPosition - (isRimDSlide ? -22.5f : 0f));
+            if (isUDMirror)
+                transform.localScale = new Vector3(-1f, -1f, 1f);
             slideOK.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, -45f * (startPosition - 1));
+            if (!isNoStartPositionRotation)
+                transform.rotation = Quaternion.Euler(0f, 0f, -45f * (startPosition - 1) - (isRimDSlide ? -22.5f : 0f));
+            if (isUDMirror)
+                transform.localScale = new Vector3(1f, -1f, 1f);
         }
         if (isJustR)
         {
@@ -124,9 +134,18 @@ public class SlideDrop : NoteLongBase, ICanShine
         }
         slideOK.SetActive(false);
         slideOK.transform.SetParent(transform.parent);
+        // This also control where the star slide appearing
+        if (areaPosition >= 'A' && areaPosition <= 'E')
+        {
+            slidePositions.Add(GetAreaPos(startPosition, areaPosition));
+        }
+        else
+        {
+            slidePositions.Add(getPositionFromDistance(4.8f));
+        }
 
         //bars
-        slidePositions.Add(getPositionFromDistance(4.8f));
+        //slidePositions.Add(getPositionFromDistance(4.8f));
         foreach (var bars in slideBars)
         {
             slidePositions.Add(bars.transform.position);
@@ -138,12 +157,13 @@ public class SlideDrop : NoteLongBase, ICanShine
         var x = slidePositions.LastOrDefault() - Vector3.zero;
         var y = endPos - Vector3.zero;
         var angle = Mathf.Acos(Vector3.Dot(x, y) / (x.magnitude * y.magnitude)) * Mathf.Rad2Deg;
+        if (float.IsNaN(angle)) angle = 0;
         var offset = slideRotations.TakeLast(1).First().eulerAngles - slideRotations.TakeLast(2).First().eulerAngles;
         if (offset.z < 0)
             angle = -angle;
 
         var q = slideRotations.LastOrDefault() * Quaternion.Euler(0, 0, angle);
-        slidePositions.Add(endPos);
+        //slidePositions.Add(endPos);
         slideRotations.Add(q);
 
         //bars skin
@@ -788,6 +808,43 @@ public class SlideDrop : NoteLongBase, ICanShine
             isSoundPlayed = true;
             audioManager.PlaySlideSound(isBreak);
         }
+    }
+
+    private Vector3 GetAreaPos(int index, char area)
+    {
+        /// <summary>
+        /// AreaDistance: 
+        /// C:   0
+        /// E:   3.1
+        /// B:   2.21
+        /// A,D: 4.8
+        /// </summary>
+        if (area == 'C') return Vector3.zero;
+        if (area == 'B')
+        {
+            var angle = -index * (Mathf.PI / 4) + Mathf.PI * 5 / 8;
+            return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 2.3f;
+        }
+
+        if (area == 'A')
+        {
+            var angle = -index * (Mathf.PI / 4) + Mathf.PI * 5 / 8;
+            return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 4.1f;
+        }
+
+        if (area == 'E')
+        {
+            var angle = -index * (Mathf.PI / 4) + Mathf.PI * 6 / 8;
+            return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 3.0f;
+        }
+
+        if (area == 'D')
+        {
+            var angle = -index * (Mathf.PI / 4) + Mathf.PI * 6 / 8;
+            return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * 4.1f;
+        }
+
+        return Vector3.zero;
     }
 
     public bool CanShine() => canShine;

@@ -33,6 +33,15 @@ public class SkinManager : MonoBehaviour
     public Sprite Star_Ex;
     public Sprite Star_Ex_Double;
 
+    public Sprite TouchStar;
+    public Sprite TouchStar_Double;
+    public Sprite TouchStar_Each;
+    public Sprite TouchStar_Each_Double;
+    public Sprite TouchStar_Break;
+    public Sprite TouchStar_Break_Double;
+    public Sprite TouchStar_Mine;
+    public Sprite TouchStar_Mine_Double;
+
     public Sprite Hold;
     public Sprite Hold_On;
     public Sprite Hold_Off;
@@ -40,11 +49,14 @@ public class SkinManager : MonoBehaviour
     public Sprite Hold_Each_On;
     public Sprite Hold_Break;
     public Sprite Hold_Break_On;
+    public Sprite Hold_Star;
+    public Sprite Hold_Star_On;
     public Sprite Hold_Mine;
     //public Sprite Hold_Mine_On; //no need
     public Sprite Hold_Ex;
 
     public Sprite[] Just = new Sprite[36];
+    public Sprite[] JustPivot = new Sprite[36];
     public Sprite[] JudgeText = new Sprite[5];
     public Sprite JudgeText_Break;
     public Sprite FastText;
@@ -145,12 +157,23 @@ public class SkinManager : MonoBehaviour
         Star_Mine = SpriteLoader.Load(path + "/star_mine.png");
         Star_Mine_Double = SpriteLoader.Load(path + "/star_mine_double.png");
 
+        TouchStar = SpriteLoader.Load(path + "/touch_star.png");
+        TouchStar_Double = SpriteLoader.Load(path + "/touch_star_double.png");
+        TouchStar_Each = SpriteLoader.Load(path + "/touch_star_each.png");
+        TouchStar_Each_Double = SpriteLoader.Load(path + "/touch_star_each_double.png");
+        TouchStar_Break = SpriteLoader.Load(path + "/touch_star_break.png");
+        TouchStar_Break_Double = SpriteLoader.Load(path + "/touch_star_break_double.png");
+        TouchStar_Mine = SpriteLoader.Load(path + "/touch_star_mine.png");
+        TouchStar_Mine_Double = SpriteLoader.Load(path + "/touch_star_mine_double.png");
+
         var border = new Vector4(0, 58, 0, 58);
         Hold = SpriteLoader.Load(path + "/hold.png", border);        
         Hold_Each = SpriteLoader.Load(path + "/hold_each.png", border);
         Hold_Each_On = SpriteLoader.Load(path + "/hold_each_on.png", border);
         Hold_Break = SpriteLoader.Load(path + "/hold_break.png", border);
         Hold_Break_On = SpriteLoader.Load(path + "/hold_break_on.png", border);
+        Hold_Star = SpriteLoader.Load(path + "/hold_star.png", border);
+        Hold_Star_On = SpriteLoader.Load(path + "/hold_star_on.png", border);
         Hold_Mine = SpriteLoader.Load(path + "/hold_mine.png", border);
         Hold_Ex = SpriteLoader.Load(path + "/hold_ex.png", border);
 
@@ -211,6 +234,50 @@ public class SkinManager : MonoBehaviour
         Just[34] = SpriteLoader.Load(path + "/miss_str_l.png");
         Just[35] = SpriteLoader.Load(path + "/miss_wifi_d.png");
 
+        #region JustPivot
+        JustPivot[0] = SpriteLoader.Load(path + "/just_curv_r.png");
+        JustPivot[1] = PivotStraightRight(path + "/just_str_r.png");
+        JustPivot[2] = SpriteLoader.Load(path + "/just_wifi_u.png");
+        JustPivot[3] = SpriteLoader.Load(path + "/just_curv_l.png");
+        JustPivot[4] = PivotStraightLeft(path + "/just_str_l.png");
+        JustPivot[5] = SpriteLoader.Load(path + "/just_wifi_d.png");
+
+        JustPivot[6] = SpriteLoader.Load(path + "/just_curv_r_fast_gr.png");
+        JustPivot[7] = PivotStraightRight(path + "/just_str_r_fast_gr.png");
+        JustPivot[8] = SpriteLoader.Load(path + "/just_wifi_u_fast_gr.png");
+        JustPivot[9] = SpriteLoader.Load(path + "/just_curv_l_fast_gr.png");
+        JustPivot[10] = PivotStraightLeft(path + "/just_str_l_fast_gr.png");
+        JustPivot[11] = SpriteLoader.Load(path + "/just_wifi_d_fast_gr.png");
+
+        JustPivot[12] = SpriteLoader.Load(path + "/just_curv_r_fast_gd.png");
+        JustPivot[13] = PivotStraightRight(path + "/just_str_r_fast_gd.png");
+        JustPivot[14] = SpriteLoader.Load(path + "/just_wifi_u_fast_gd.png");
+        JustPivot[15] = SpriteLoader.Load(path + "/just_curv_l_fast_gd.png");
+        JustPivot[16] = PivotStraightLeft(path + "/just_str_l_fast_gd.png");
+        JustPivot[17] = SpriteLoader.Load(path + "/just_wifi_d_fast_gd.png");
+
+        JustPivot[18] = SpriteLoader.Load(path + "/just_curv_r_late_gr.png");
+        JustPivot[19] = PivotStraightRight(path + "/just_str_r_late_gr.png");
+        JustPivot[20] = SpriteLoader.Load(path + "/just_wifi_u_late_gr.png");
+        JustPivot[21] = SpriteLoader.Load(path + "/just_curv_l_late_gr.png");
+        JustPivot[22] = PivotStraightLeft(path + "/just_str_l_late_gr.png");
+        JustPivot[23] = SpriteLoader.Load(path + "/just_wifi_d_late_gr.png");
+
+        JustPivot[24] = SpriteLoader.Load(path + "/just_curv_r_late_gd.png");
+        JustPivot[25] = PivotStraightRight(path + "/just_str_r_late_gd.png");
+        JustPivot[26] = SpriteLoader.Load(path + "/just_wifi_u_late_gd.png");
+        JustPivot[27] = SpriteLoader.Load(path + "/just_curv_l_late_gd.png");
+        JustPivot[28] = PivotStraightLeft(path + "/just_str_l_late_gd.png");
+        JustPivot[29] = SpriteLoader.Load(path + "/just_wifi_d_late_gd.png");
+
+        JustPivot[30] = SpriteLoader.Load(path + "/miss_curv_r.png");
+        JustPivot[31] = PivotStraightRight(path + "/miss_str_r.png");
+        JustPivot[32] = SpriteLoader.Load(path + "/miss_wifi_u.png");
+        JustPivot[33] = SpriteLoader.Load(path + "/miss_curv_l.png");
+        JustPivot[34] = PivotStraightLeft(path + "/miss_str_l.png");
+        JustPivot[35] = SpriteLoader.Load(path + "/miss_wifi_d.png");
+        #endregion
+
         JudgeText[0] = SpriteLoader.Load(path + "/judge_text_miss.png");
         JudgeText[1] = SpriteLoader.Load(path + "/judge_text_good.png");
         JudgeText[2] = SpriteLoader.Load(path + "/judge_text_great.png");
@@ -256,5 +323,20 @@ public class SkinManager : MonoBehaviour
         Ex_Star = new Color32(172, 251, 255, 255);
         Ex_Each = new Color32(255, 254, 119, 255);
         Ex_Break = Ex_Each;
+    }
+
+    private Sprite PivotStraightLeft(string path)
+    {
+        var original = SpriteLoader.Load(path);
+        var rect = original.rect;
+        Vector2 customPivot = new Vector2(0.125f, 0.38f);
+        return Sprite.Create(original.texture, rect, customPivot);
+    }
+    private Sprite PivotStraightRight(string path)
+    {
+        var original = SpriteLoader.Load(path);
+        var rect = original.rect;
+        Vector2 customPivot = new Vector2(0.875f, 0.62f);
+        return Sprite.Create(original.texture, rect, customPivot);
     }
 }
