@@ -5,7 +5,6 @@ using MajSimai;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.DeviceSimulation;
 using UnityEngine;
 using UnityEngine.UI;
 
