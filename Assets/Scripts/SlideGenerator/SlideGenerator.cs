@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using TMPro;
 using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -52,10 +53,62 @@ public class SlideGenerator : MonoBehaviour
         CreateAllSSlide(528);
     }
 
+    private string GetSensors(string slideName, List<Vector3> slideBars)
+    {
+        GameObject lastSensor = null;
+        List<(GameObject sensor, int start)> list = new();
+        for (var i = 0; i < slideBars.Count; i++)
+        {
+            var pos = slideBars[i];
+
+            foreach (var sensor in _sensors)
+            {
+                var s = sensor.GetComponent<RectTransform>();
+
+                var rCenter = s.position;
+                var rWidth = s.rect.width * s.lossyScale.x;
+                var rHeight = s.rect.height * s.lossyScale.y;
+
+                var radius = Math.Max(rWidth, rHeight) / 2;
+
+                if ((pos - rCenter).sqrMagnitude <= radius * radius)
+                {
+                    if (lastSensor is null || sensor != lastSensor)
+                    {
+                        lastSensor = sensor;
+                        list.Add((sensor, i));
+                        break;
+                    }
+                }
+            }
+        }
+        var sb = new StringBuilder();
+        sb.Append($@"
+        new SlideTable()
+        {{
+            Name = ""{slideName}"",
+            JudgeQueue = new SlideArea[]
+            {{");
+        int last = 0;
+        for (int i = 1; i < list.Count - 1; i++)
+        {
+            sb.Append(@$"
+                BuildSlideArea(SensorType.{list[i].sensor.GetComponent<Sensor>().Type.ToString()}, {last}, {list[i].start - 1}),");
+            last = list[i].start;
+        }
+        sb.Append($@"
+                BuildSlideArea(SensorType.{list.Last().sensor.GetComponent<Sensor>().Type.ToString()}, {last}, {slideBars.Count - 1}, true, true)
+            }},
+            Const = 0.1f
+        }},");
+        return sb.ToString();
+    }
+
     private void CreateAllPQSlide(int startCounter)
     {
         var sb = new StringBuilder();
         var sb2 = new StringBuilder();
+        var sb3 = new StringBuilder();
         string[] endSensors = _touchSensorString.Where(x => x[0] == 'D').ToArray(); // Only need 1pDx, 1px already exist
 
         foreach (var end in endSensors)
@@ -98,19 +151,21 @@ public class SlideGenerator : MonoBehaviour
             PrefabUtility.SaveAsPrefabAsset(parentObject, $"Assets/GeneratedPrefab/{assetName}.prefab");
             sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
             sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+            sb3.AppendLine(GetSensors(assetName, posList));
 
             // Destroy gameObject
             Destroy(parentObject);
         }
 
         // Write slide section to the file
-        File.WriteAllText("Assets/GeneratedPrefab/PSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+        File.WriteAllText("Assets/GeneratedPrefab/PSlideSection.txt", sb.ToString() + '\n' + sb2.ToString() + '\n' + sb3.ToString());
     }
 
     private void CreateAllPPQQSlide(int startCounter)
     {
         var sb = new StringBuilder();
         var sb2 = new StringBuilder();
+        var sb3 = new StringBuilder();
         string[] endSensors = _touchSensorString.Where(x => x[0] == 'D').ToArray(); // Only need 1ppDx, 1ppx already exist
 
         foreach (var end in endSensors)
@@ -152,19 +207,21 @@ public class SlideGenerator : MonoBehaviour
             PrefabUtility.SaveAsPrefabAsset(parentObject, $"Assets/GeneratedPrefab/{assetName}.prefab");
             sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
             sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+            sb3.AppendLine(GetSensors(assetName, posList));
 
             // Destroy gameObject
             Destroy(parentObject);
         }
 
         // Write slide section to the file
-        File.WriteAllText("Assets/GeneratedPrefab/PPSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+        File.WriteAllText("Assets/GeneratedPrefab/PPSlideSection.txt", sb.ToString() + '\n' + sb2.ToString() + '\n' + sb3.ToString());
     }
 
     private void CreateAllSSlide(int startCounter)
     {
         var sb = new StringBuilder();
         var sb2 = new StringBuilder();
+        var sb3 = new StringBuilder();
         string[] endSensors = _touchSensorString.Where(x => x[0] == 'D' || (x[0] >= '1' && x[0] <= '8')).ToArray();
 
         foreach (var end in endSensors)
@@ -207,19 +264,21 @@ public class SlideGenerator : MonoBehaviour
             PrefabUtility.SaveAsPrefabAsset(parentObject, $"Assets/GeneratedPrefab/{assetName}.prefab");
             sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
             sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+            sb3.AppendLine(GetSensors(assetName, posList));
 
             // Destroy gameObject
             Destroy(parentObject);
         }
 
         // Write slide section to the file
-        File.WriteAllText("Assets/GeneratedPrefab/SSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+        File.WriteAllText("Assets/GeneratedPrefab/SSlideSection.txt", sb.ToString() + '\n' + sb2.ToString() + '\n' + sb3.ToString());
     }
 
     private void CreateAllStraightSlide(int startCounter)
     {
         var sb = new StringBuilder();
         var sb2 = new StringBuilder();
+        var sb3 = new StringBuilder();
         string[] startSensors = new string[] { "1", "A1", "B1", "C", "D1", "E1" };
         string[] endSensors = _touchSensorString.ToArray();
 
@@ -262,11 +321,11 @@ public class SlideGenerator : MonoBehaviour
                     assetName = $"{toDictName(start[0])}{toDictName(end[0])}_Line";
                 }
                 else
-                // If either start or end is non C touch
-                if (isTouch(start[0]) || isTouch(end[0]))
-                {
-                    assetName = $"{toDictName(start[0])}{toDictName(end[0])}_Line_{parseSlideAnchor(end)}";
-                }
+                    // If either start or end is non C touch
+                    if (isTouch(start[0]) || isTouch(end[0]))
+                    {
+                        assetName = $"{toDictName(start[0])}{toDictName(end[0])}_Line_{parseSlideAnchor(end)}";
+                    }
                 // We do not generate existing normal slide here, so this is sufficient
 
                 // Generate prefab
@@ -274,6 +333,7 @@ public class SlideGenerator : MonoBehaviour
                 PrefabUtility.SaveAsPrefabAsset(parentObject, $"Assets/GeneratedPrefab/{assetName}.prefab");
                 sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
                 sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+                sb3.AppendLine(GetSensors(assetName, posList));
 
                 // Destroy gameObject
                 Destroy(parentObject);
@@ -281,13 +341,14 @@ public class SlideGenerator : MonoBehaviour
         }
 
         // Write slide section to the file
-        File.WriteAllText("Assets/GeneratedPrefab/StraightSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+        File.WriteAllText("Assets/GeneratedPrefab/StraightSlideSection.txt", sb.ToString() + '\n' + sb2.ToString() + '\n' + sb3.ToString());
     }
 
     private void CreateAllCWCenterSlide(int startCounter)
     {
         var sb = new StringBuilder();
         var sb2 = new StringBuilder();
+        var sb3 = new StringBuilder();
         string[] startSensors = _touchSensorString.ToArray();
         string[] endSensors = _touchSensorString.ToArray();
 
@@ -297,10 +358,11 @@ public class SlideGenerator : MonoBehaviour
             if (start == "C") continue;
 
             var assetName = CWSlideNameConvention(start, "C");
-            var sections = CreateCWSlide(start, "C", assetName);
+            var (sections, posList) = CreateCWSlide(start, "C", assetName);
 
             sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
             sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+            sb3.AppendLine(GetSensors(assetName, posList));
         }
 
         foreach (var end in endSensors)
@@ -309,20 +371,22 @@ public class SlideGenerator : MonoBehaviour
             if (end == "C") continue;
 
             var assetName = CWSlideNameConvention("C", end);
-            var sections = CreateCWSlide("C", end, assetName);
+            var (sections, posList) = CreateCWSlide("C", end, assetName);
 
             sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
             sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+            sb3.AppendLine(GetSensors(assetName, posList));
         }
 
         // Write slide section to the file
-        File.WriteAllText("Assets/GeneratedPrefab/CenterCWSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+        File.WriteAllText("Assets/GeneratedPrefab/CenterCWSlideSection.txt", sb.ToString() + '\n' + sb2.ToString() + '\n' + sb3.ToString());
     }
 
     private void CreateAllCWNonCenterSlide(int startCounter)
     {
         var sb = new StringBuilder();
         var sb2 = new StringBuilder();
+        var sb3 = new StringBuilder();
         string[] startSensors = new string[] { "1", "A1", "B1", "D1", "E1" };
         string[] endSensors = _touchSensorString.Where(x => x != "C").ToArray();
 
@@ -334,14 +398,15 @@ public class SlideGenerator : MonoBehaviour
                 if (start == "1" && end[0] >= '1' && end[0] <= '8') continue;
 
                 var assetName = CWSlideNameConvention(start, end);
-                var sections = CreateCWSlide(start, end, assetName);
+                var (sections, posList) = CreateCWSlide(start, end, assetName);
 
                 sb.AppendLine(@$"{{""{assetName}"",new List<int>() {{{string.Join(", ", sections)}}}}},");
                 sb2.AppendLine(@$"{{""{assetName}"", {startCounter++}}},");
+                sb3.AppendLine(GetSensors(assetName, posList));
             }
         }
         // Write slide section to the file
-        File.WriteAllText("Assets/GeneratedPrefab/NonCenterCWSlideSection.txt", sb.ToString() + '\n' + sb2.ToString());
+        File.WriteAllText("Assets/GeneratedPrefab/NonCenterCWSlideSection.txt", sb.ToString() + '\n' + sb2.ToString() + '\n' + sb3.ToString());
     }
 
     private string CWSlideNameConvention(string start, string end)
@@ -377,7 +442,7 @@ public class SlideGenerator : MonoBehaviour
         return "-circle" + endPos; //Mirror
     }
 
-    private List<int> CreateCWSlide(string start, string end, string assetName)
+    private (List<int>, List<Vector3>) CreateCWSlide(string start, string end, string assetName)
     {
         // Draw slide on screen
         var posList = ShapeFunctions.CalculatePositionFixedStepLength(
@@ -405,7 +470,7 @@ public class SlideGenerator : MonoBehaviour
         // Destroy gameObject
         Destroy(parentObject);
 
-        return sections;
+        return (sections, posList);
     }
 
     private int parseSlideAnchor(string anchor)
