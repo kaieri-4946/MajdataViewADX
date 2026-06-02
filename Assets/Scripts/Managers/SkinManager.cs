@@ -105,6 +105,8 @@ public class SkinManager : MonoBehaviour
     [SerializeField]
     public Sprite HoldEnd_Each;
     [SerializeField]
+    public Sprite HoldEnd_Star;
+    [SerializeField]
     public Sprite HoldEnd_Break;
     
     [SerializeField]

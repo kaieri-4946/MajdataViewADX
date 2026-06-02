@@ -2,8 +2,9 @@
 
 #region
 
-using System;
 using MajSimai;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,6 +26,7 @@ public class HoldDrop : NoteLongBase
     private bool isTouched = false; //for mine judge
     private bool isPlayedSFX = false; //for Enable / Random mode
 
+    public bool isStar;
 
     private void Start()
     {
@@ -74,6 +76,13 @@ public class HoldDrop : NoteLongBase
         if (isEx)
         {
             exSpriteRender.color = skinManager.Ex;
+        }
+        if (isStar)
+        {
+            spriteRenderer.sprite = skinManager.Hold_Star;
+            lineSpriteRender.sprite = skinManager.Line_Star;
+            holdEndRender.sprite = skinManager.HoldEnd_Star;
+            if (isEx) exSpriteRender.color = skinManager.Ex;
         }
         if (isEach)
         {
@@ -461,6 +470,11 @@ public class HoldDrop : NoteLongBase
             else if (isEach)
             {
                 spriteRenderer.sprite = skinManager.Hold_Each_On;
+                animator.runtimeAnimatorController = skinManager.Shine;
+            }
+            else if (isStar)
+            {
+                spriteRenderer.sprite = skinManager.Hold_Star_On;
                 animator.runtimeAnimatorController = skinManager.Shine;
             }
             else

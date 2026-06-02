@@ -15,6 +15,7 @@ public class DataLoader : MonoBehaviour
 {
     private SkinManager skinManager;
     private ObjectCounter objectCounter;
+    private static readonly char[] ALL_SLIDE_TYPE = new char[] { '-', 'v', 'V', 'z', 's', 'p', 'q', 'w', '<', '>', '^' };
     NoteManager noteManager;
 
     public float noteSpeed = 7f;
@@ -1378,6 +1379,7 @@ public class DataLoader : MonoBehaviour
                 NDCompo.isMine = note.IsMine;
                 NDCompo.usingSV = note.UsingSV;
                 NDCompo.tapLine = tapLine;
+                NDCompo.isStar = note.IsForceStar;
 
                 noteManager.AddNote(NDCompo, noteIndex[note.StartPosition]++);
             }
@@ -1618,8 +1620,106 @@ public class DataLoader : MonoBehaviour
         }
     }
 
+    private void InstantiateHoldSlideHead(SimaiTimingPoint timing, SimaiNote note)
+    {
+        var GOnote = Instantiate(holdPrefab, notes.transform);
+        var NDCompo = GOnote.GetComponent<HoldDrop>();
+
+        // note的图层顺序
+        NDCompo.noteSortOrder = noteSortOrder;
+        noteSortOrder -= NOTE_LAYER_COUNT[note.Type];
+
+        if (timing.Notes.Length > 1)
+        {
+            var notes = timing.Notes.ToList();
+            NDCompo.isEach = true;
+
+            var count = notes.FindAll(
+                o => o.Type == SimaiNoteType.Slide &&
+                     o.StartPosition == note.StartPosition).Count;
+            if (count > 1)
+            {
+                if (count == notes.Count)
+                    NDCompo.isEach = false;
+                else
+                    NDCompo.isEach = true;
+            }
+        }
+        NDCompo.time = (float)timing.Timing;
+        NDCompo.LastFor = (float)note.HoldTime;
+        NDCompo.startPosition = note.StartPosition;
+        NDCompo.speed = noteSpeed * timing.HSpeed;
+        NDCompo.isEx = note.IsEx;
+        NDCompo.isBreak = note.IsBreak;
+        NDCompo.isMine = note.IsMine;
+        NDCompo.usingSV = note.UsingSV;
+        NDCompo.tapLine = tapLine;
+        NDCompo.isStar = true;
+
+        noteManager.AddNote(NDCompo, noteIndex[note.StartPosition]++);
+    }
+
+    private void InstantiateHoldTouchSlideHead(SimaiTimingPoint timing, SimaiNote note)
+    {
+        var GOnote = Instantiate(touchHoldPrefab, notes.transform);
+        var NDCompo = GOnote.GetComponent<TouchHoldDrop>();
+
+        // note的图层顺序
+        NDCompo.noteSortOrder = noteSortOrder;
+        noteSortOrder -= NOTE_LAYER_COUNT[note.Type];
+
+        if (timing.Notes.Length > 1) NDCompo.isEach = true;
+        NDCompo.time = (float)timing.Timing;
+        NDCompo.LastFor = (float)note.HoldTime;
+        NDCompo.speed = touchSpeed * timing.HSpeed;
+        NDCompo.isFirework = note.IsHanabi;
+        NDCompo.isBreak = note.IsBreak;
+        NDCompo.isMine = note.IsMine;
+        NDCompo.usingSV = note.UsingSV;
+        NDCompo.areaPosition = note.TouchArea;
+        NDCompo.startPosition = note.StartPosition;
+
+        noteManager.AddTouch(NDCompo, touchIndex[NDCompo.GetSensor()]++);
+    }
+
+    private void SeparateHoldSlide(SimaiTimingPoint timing, SimaiNote note)
+    {
+        if (note.TouchArea == ' ')
+        {
+            InstantiateHoldSlideHead(timing, note);
+        }
+        else
+        {
+            InstantiateHoldTouchSlideHead(timing, note);
+        }
+
+        // Modify slide to remove hold as treat it as a no head slide
+        note.IsSlideNoHead = true;
+        note.RawContent = ConstructSlidePart(note);
+    }
+
+    private string ConstructSlidePart(SimaiNote note)
+    {
+        var index = note.RawContent.IndexOfAny(ALL_SLIDE_TYPE);
+        if (index == -1) throw new Exception($"Unable to parse hold slide {note.RawContent}");
+        if (note.TouchArea == ' ')
+        {
+            return $"{note.StartPosition}{note.RawContent[index..]}";
+        }
+        if (note.TouchArea == 'C')
+        {
+            return $"C{note.RawContent[index..]}";
+        }
+        return $"{note.TouchArea}{note.StartPosition}{note.RawContent[index..]}";
+    }
+
     private void InstantiateStarGroup(SimaiTimingPoint timing, SimaiNote note)
     {
+        if (note.HoldTime > 0)
+        {
+            SeparateHoldSlide(timing, note);
+        }
+
         string readSlideAnchor(string noteContent, ref int ptr)
         {
             if (isNonCTouchArea(noteContent[ptr]))
