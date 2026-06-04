@@ -1952,10 +1952,16 @@ public class DataLoader : MonoBehaviour
         }
 
         var slideShape = detectShapeFromText(note.RawContent);
+        var isCircleMirrorDSlide = false;
         var isRimDSlide = false;
         var isMirror = false;
         var isUDMirror = false;
         var isNoStartPositionRotation = false;
+        if(slideShape.StartsWith("<<"))
+        {
+            isCircleMirrorDSlide = true;
+            slideShape = slideShape.Substring(2);
+        }
         if (slideShape.StartsWith("<"))
         {
             isRimDSlide = true;
@@ -2014,6 +2020,7 @@ public class DataLoader : MonoBehaviour
         SliCompo.isMine = note.IsMineSlide;
         SliCompo.usingSV = note.UsingSV;
 
+        SliCompo.isCircleMirrorDSlide = isCircleMirrorDSlide;
         SliCompo.isRimDSlide = isRimDSlide;
         SliCompo.isMirror = isMirror;
         SliCompo.isUDMirror = isUDMirror;
@@ -2071,10 +2078,16 @@ public class DataLoader : MonoBehaviour
         }
 
         string slideShape = detectShapeFromText(note.RawContent);
+        var isCircleMirrorDSlide = false;
         var isRimDSlide = false;
         var isMirror = false;
         var isUDMirror = false;
         var isNoStartPositionRotation = false;
+        if (slideShape.StartsWith("<<"))
+        {
+            isCircleMirrorDSlide = true;
+            slideShape = slideShape.Substring(2);
+        }
         if (slideShape.StartsWith("<"))
         {
             isRimDSlide = true;
@@ -2134,6 +2147,7 @@ public class DataLoader : MonoBehaviour
         SliCompo.isMine = note.IsMineSlide;
         SliCompo.usingSV = note.UsingSV;
 
+        SliCompo.isCircleMirrorDSlide = isCircleMirrorDSlide;
         SliCompo.isRimDSlide = isRimDSlide;
         SliCompo.isMirror = isMirror;
         SliCompo.isUDMirror = isUDMirror;
@@ -2399,7 +2413,7 @@ public class DataLoader : MonoBehaviour
             {
                 if (isUpperHalf(startPos))
                     return $"*{toDictName(digits[0][0])}{toDictName(digits[1][0])}_Circle_{startPos}";
-                startPos = MirrorUDKeys(startPos);
+                startPos = MirrorUDKeysForDE(startPos);
                 return $"*^{toDictName(digits[0][0])}{toDictName(digits[1][0])}_Circle_{startPos}";
             }
 
@@ -2414,13 +2428,20 @@ public class DataLoader : MonoBehaviour
             }
 
             endPos = MirrorKeys(endPos);
+            var isOffsetMirror = false;
 
             // Because slide was generated for > and then mirrored for <, if slide ending in D or E, due to their offset from the line 1-5, they are off by one
             if (digits[1][0] is 'D' or 'E')
                 endPos = endPos % 8 + 1;
+            // If slide start is in D or E, then it's off by one again but in the other direction
+            if (digits[0][0] is 'D' or 'E')
+            {
+                endPos = (endPos + 6) % 8 + 1;
+                isOffsetMirror = true;
+            }
             if (isTouch(digits[0][0]) || isTouch(digits[1][0]))
             {
-                return $"-{toDictName(digits[0][0])}{toDictName(digits[1][0])}_Circle_{endPos}";
+                return $"{(isOffsetMirror ? "<<" : string.Empty)}-{toDictName(digits[0][0])}{toDictName(digits[1][0])}_Circle_{endPos}";
             }
 
             return "-circle" + endPos; //Mirror
@@ -2445,7 +2466,7 @@ public class DataLoader : MonoBehaviour
             {
                 if (!isUpperHalf(startPos))
                     return $"*{toDictName(digits[0][0])}{toDictName(digits[1][0])}_Circle_{startPos}";
-                startPos = MirrorUDKeys(startPos);
+                startPos = MirrorUDKeysForDE(startPos);
                 return $"*^{toDictName(digits[0][0])}{toDictName(digits[1][0])}_Circle_{startPos}";
             }
 
@@ -2460,12 +2481,18 @@ public class DataLoader : MonoBehaviour
             }
 
             endPos = MirrorKeys(endPos);
+            var isOffsetMirror = false;
             // Because slide was generated for > and then mirrored for <, if slide ending in D or E, due to their offset from the line 1-5, they are off by one
             if (digits[1][0] is 'D' or 'E')
                 endPos = endPos % 8 + 1;
+            if (digits[0][0] is 'D' or 'E')
+            {
+                endPos = (endPos + 6) % 8 + 1;
+                isOffsetMirror = true;
+            }
             if (isTouch(digits[0][0]) || isTouch(digits[1][0]))
             {
-                return $"-{toDictName(digits[0][0])}{toDictName(digits[1][0])}_Circle_{endPos}";
+                return $"{(isOffsetMirror ? "<<" : string.Empty)}-{toDictName(digits[0][0])}{toDictName(digits[1][0])}_Circle_{endPos}";
             }
             return "-circle" + endPos; //Mirror
         }
@@ -2777,6 +2804,20 @@ public class DataLoader : MonoBehaviour
         if (key == 6) return 7;
         if (key == 7) return 6;
         if (key == 8) return 5;
+        throw new Exception("Keys out of range: " + key);
+    }
+
+    private int MirrorUDKeysForDE(int key)
+    {
+        if (key == 1) return 5;
+        if (key == 2) return 4;
+        if (key == 3) return 3;
+        if (key == 4) return 2;
+
+        if (key == 5) return 1;
+        if (key == 6) return 8;
+        if (key == 7) return 7;
+        if (key == 8) return 6;
         throw new Exception("Keys out of range: " + key);
     }
 

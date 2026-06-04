@@ -554,7 +554,7 @@ public class SlideGenerator : MonoBehaviour
         var run = end.x - start.x;
         var gradient = rise / run;
         var angle = Mathf.Atan(gradient);
-        return run > 0 ? angle - Mathf.PI : angle;
+        return run >= 0 ? angle - Mathf.PI : angle;
     }
 
     private Vector3 GetAreaPos(int index, char area)

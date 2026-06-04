@@ -35,7 +35,7 @@ public class PSlideGenerator
         _angleStart = ShapeFunctions.GetAngle(_intersectA - _center);
         var arcLength = 2 * _radius * Mathf.Asin((_intersectB - _intersectA).magnitude / 2 / _radius);
         if (_spanAngle > Mathf.PI) arcLength = 2 * Mathf.PI * _radius - arcLength;
-        if (_spanAngle < Mathf.PI / 8)
+        if (_spanAngle < Mathf.PI / 16)
         {
             _spanAngle += Mathf.PI * 2;
             arcLength += 2 * Mathf.PI * _radius;

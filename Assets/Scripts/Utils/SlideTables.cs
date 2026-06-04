@@ -732,7 +732,146 @@ public static class SlideTables
             },
             Const = 0.0895f
         },
+new SlideTable()
+        {
+            Name = "1D_PQ_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 4),
+                BuildSlideArea(SensorType.B8, 5, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.B6, 11, 13),
+                BuildSlideArea(SensorType.B5, 14, 16),
+                BuildSlideArea(SensorType.B4, 17, 20),
+                BuildSlideArea(SensorType.B3, 21, 23),
+                BuildSlideArea(SensorType.B2, 24, 26),
+                BuildSlideArea(SensorType.B1, 27, 29),
+                BuildSlideArea(SensorType.D1, 30, 37, true, true)
+            },
+            Const = 0.1f
+        },
+
         new SlideTable()
+        {
+            Name = "1D_PQ_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 4),
+                BuildSlideArea(SensorType.B8, 5, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.B6, 11, 13),
+                BuildSlideArea(SensorType.B5, 14, 16),
+                BuildSlideArea(SensorType.B4, 17, 19),
+                BuildSlideArea(SensorType.B3, 20, 22),
+                BuildSlideArea(SensorType.B2, 23, 26),
+                BuildSlideArea(SensorType.D2, 27, 33, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_PQ_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 4),
+                BuildSlideArea(SensorType.B8, 5, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.B6, 11, 13),
+                BuildSlideArea(SensorType.B5, 14, 16),
+                BuildSlideArea(SensorType.B4, 17, 19),
+                BuildSlideArea(SensorType.B3, 20, 23),
+                BuildSlideArea(SensorType.D3, 24, 30, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_PQ_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 4),
+                BuildSlideArea(SensorType.B8, 5, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.B6, 11, 13),
+                BuildSlideArea(SensorType.B5, 14, 16),
+                BuildSlideArea(SensorType.B4, 17, 20),
+                BuildSlideArea(SensorType.D4, 21, 27, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_PQ_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 4),
+                BuildSlideArea(SensorType.B8, 5, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.B6, 11, 13),
+                BuildSlideArea(SensorType.B5, 14, 16),
+                BuildSlideArea(SensorType.D5, 17, 23, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_PQ_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 4),
+                BuildSlideArea(SensorType.B8, 5, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.B6, 11, 13),
+                BuildSlideArea(SensorType.D6, 14, 20, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_PQ_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 4),
+                BuildSlideArea(SensorType.B8, 5, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.B6, 11, 13),
+                BuildSlideArea(SensorType.B5, 14, 16),
+                BuildSlideArea(SensorType.B4, 17, 19),
+                BuildSlideArea(SensorType.B3, 20, 23),
+                BuildSlideArea(SensorType.B2, 24, 26),
+                BuildSlideArea(SensorType.B1, 27, 29),
+                BuildSlideArea(SensorType.B8, 30, 32),
+                BuildSlideArea(SensorType.B7, 33, 36),
+                BuildSlideArea(SensorType.D7, 37, 43, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_PQ_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 4),
+                BuildSlideArea(SensorType.B8, 5, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.B6, 11, 13),
+                BuildSlideArea(SensorType.B5, 14, 16),
+                BuildSlideArea(SensorType.B4, 17, 20),
+                BuildSlideArea(SensorType.B3, 21, 23),
+                BuildSlideArea(SensorType.B2, 24, 26),
+                BuildSlideArea(SensorType.B1, 27, 29),
+                BuildSlideArea(SensorType.B8, 30, 32),
+                BuildSlideArea(SensorType.D8, 33, 40, true, true)
+            },
+            Const = 0.1f
+        },
+new SlideTable()
         {
             Name = "1D_PPQQ_1",
             JudgeQueue = new SlideArea[]
@@ -746,7 +885,7 @@ public static class SlideTables
                 BuildSlideArea(SensorType.A2, 25, 28),
                 BuildSlideArea(SensorType.D2, 29, 32),
                 BuildSlideArea(SensorType.A1, 33, 35),
-                BuildSlideArea(SensorType.D1, 36, 42, true, true)
+                BuildSlideArea(SensorType.D1, 36, 41, true, true)
             },
             Const = 0.1f
         },
@@ -763,7 +902,7 @@ public static class SlideTables
                 BuildSlideArea(SensorType.A3, 18, 20),
                 BuildSlideArea(SensorType.D3, 21, 23),
                 BuildSlideArea(SensorType.A2, 24, 27),
-                BuildSlideArea(SensorType.D2, 28, 34, true, true)
+                BuildSlideArea(SensorType.D2, 28, 33, true, true)
             },
             Const = 0.1f
         },
@@ -778,7 +917,7 @@ public static class SlideTables
                 BuildSlideArea(SensorType.B4, 8, 13),
                 BuildSlideArea(SensorType.E4, 14, 16),
                 BuildSlideArea(SensorType.A3, 17, 20),
-                BuildSlideArea(SensorType.D3, 21, 26, true, true)
+                BuildSlideArea(SensorType.D3, 21, 25, true, true)
             },
             Const = 0.1f
         },
@@ -800,7 +939,7 @@ public static class SlideTables
                 BuildSlideArea(SensorType.C, 37, 39),
                 BuildSlideArea(SensorType.B4, 40, 45),
                 BuildSlideArea(SensorType.E4, 46, 49),
-                BuildSlideArea(SensorType.D4, 50, 54, true, true)
+                BuildSlideArea(SensorType.D4, 50, 53, true, true)
             },
             Const = 0.1f
         },
@@ -821,7 +960,7 @@ public static class SlideTables
                 BuildSlideArea(SensorType.B1, 34, 36),
                 BuildSlideArea(SensorType.C, 37, 40),
                 BuildSlideArea(SensorType.E5, 41, 48),
-                BuildSlideArea(SensorType.D5, 49, 54, true, true)
+                BuildSlideArea(SensorType.D5, 49, 53, true, true)
             },
             Const = 0.1f
         },
@@ -843,7 +982,7 @@ public static class SlideTables
                 BuildSlideArea(SensorType.C, 37, 39),
                 BuildSlideArea(SensorType.B6, 40, 45),
                 BuildSlideArea(SensorType.E6, 46, 47),
-                BuildSlideArea(SensorType.D6, 48, 53, true, true)
+                BuildSlideArea(SensorType.D6, 48, 52, true, true)
             },
             Const = 0.1f
         },
@@ -864,7 +1003,7 @@ public static class SlideTables
                 BuildSlideArea(SensorType.B1, 34, 36),
                 BuildSlideArea(SensorType.B8, 37, 41),
                 BuildSlideArea(SensorType.B7, 42, 43),
-                BuildSlideArea(SensorType.D7, 44, 52, true, true)
+                BuildSlideArea(SensorType.D7, 44, 51, true, true)
             },
             Const = 0.1f
         },
@@ -885,154 +1024,7 @@ public static class SlideTables
                 BuildSlideArea(SensorType.B1, 34, 37),
                 BuildSlideArea(SensorType.E1, 38, 39),
                 BuildSlideArea(SensorType.A8, 40, 43),
-                BuildSlideArea(SensorType.D8, 44, 48, true, true)
-            },
-            Const = 0.1f
-        },
-new SlideTable()
-        {
-            Name = "1D_PQ_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4),
-                BuildSlideArea(SensorType.B8, 5, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.B6, 11, 13),
-                BuildSlideArea(SensorType.B5, 14, 16),
-                BuildSlideArea(SensorType.B4, 17, 20),
-                BuildSlideArea(SensorType.B3, 21, 23),
-                BuildSlideArea(SensorType.B2, 24, 26),
-                BuildSlideArea(SensorType.B1, 27, 29),
-                BuildSlideArea(SensorType.D1, 30, 38, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_PQ_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4),
-                BuildSlideArea(SensorType.B8, 5, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.B6, 11, 13),
-                BuildSlideArea(SensorType.B5, 14, 16),
-                BuildSlideArea(SensorType.B4, 17, 19),
-                BuildSlideArea(SensorType.B3, 20, 22),
-                BuildSlideArea(SensorType.B2, 23, 26),
-                BuildSlideArea(SensorType.D2, 27, 34, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_PQ_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4),
-                BuildSlideArea(SensorType.B8, 5, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.B6, 11, 13),
-                BuildSlideArea(SensorType.B5, 14, 16),
-                BuildSlideArea(SensorType.B4, 17, 19),
-                BuildSlideArea(SensorType.B3, 20, 23),
-                BuildSlideArea(SensorType.D3, 24, 31, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_PQ_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4),
-                BuildSlideArea(SensorType.B8, 5, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.B6, 11, 13),
-                BuildSlideArea(SensorType.B5, 14, 16),
-                BuildSlideArea(SensorType.B4, 17, 20),
-                BuildSlideArea(SensorType.D4, 21, 28, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_PQ_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4),
-                BuildSlideArea(SensorType.B8, 5, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.B6, 11, 13),
-                BuildSlideArea(SensorType.B5, 14, 16),
-                BuildSlideArea(SensorType.D5, 17, 24, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_PQ_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4),
-                BuildSlideArea(SensorType.B8, 5, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.B6, 11, 13),
-                BuildSlideArea(SensorType.B5, 14, 17),
-                BuildSlideArea(SensorType.B4, 18, 20),
-                BuildSlideArea(SensorType.B3, 21, 23),
-                BuildSlideArea(SensorType.B2, 24, 26),
-                BuildSlideArea(SensorType.B1, 27, 30),
-                BuildSlideArea(SensorType.B8, 31, 33),
-                BuildSlideArea(SensorType.B7, 34, 36),
-                BuildSlideArea(SensorType.B6, 37, 39),
-                BuildSlideArea(SensorType.D6, 40, 48, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_PQ_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4),
-                BuildSlideArea(SensorType.B8, 5, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.B6, 11, 13),
-                BuildSlideArea(SensorType.B5, 14, 16),
-                BuildSlideArea(SensorType.B4, 17, 19),
-                BuildSlideArea(SensorType.B3, 20, 23),
-                BuildSlideArea(SensorType.B2, 24, 26),
-                BuildSlideArea(SensorType.B1, 27, 29),
-                BuildSlideArea(SensorType.B8, 30, 32),
-                BuildSlideArea(SensorType.B7, 33, 36),
-                BuildSlideArea(SensorType.D7, 37, 44, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_PQ_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4),
-                BuildSlideArea(SensorType.B8, 5, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.B6, 11, 13),
-                BuildSlideArea(SensorType.B5, 14, 16),
-                BuildSlideArea(SensorType.B4, 17, 20),
-                BuildSlideArea(SensorType.B3, 21, 23),
-                BuildSlideArea(SensorType.B2, 24, 26),
-                BuildSlideArea(SensorType.B1, 27, 29),
-                BuildSlideArea(SensorType.B8, 30, 32),
-                BuildSlideArea(SensorType.D8, 33, 41, true, true)
+                BuildSlideArea(SensorType.D8, 44, 47, true, true)
             },
             Const = 0.1f
         },
@@ -1046,7 +1038,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B7, 7, 10),
                 BuildSlideArea(SensorType.B8, 11, 13),
                 BuildSlideArea(SensorType.E1, 14, 17),
-                BuildSlideArea(SensorType.A1, 18, 23, true, true)
+                BuildSlideArea(SensorType.A1, 18, 22, true, true)
             },
             Const = 0.1f
         },
@@ -1062,7 +1054,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B8, 11, 13),
                 BuildSlideArea(SensorType.B1, 14, 17),
                 BuildSlideArea(SensorType.E2, 18, 20),
-                BuildSlideArea(SensorType.A2, 21, 27, true, true)
+                BuildSlideArea(SensorType.A2, 21, 26, true, true)
             },
             Const = 0.1f
         },
@@ -1078,7 +1070,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B1, 11, 16),
                 BuildSlideArea(SensorType.B2, 17, 20),
                 BuildSlideArea(SensorType.E3, 21, 23),
-                BuildSlideArea(SensorType.A3, 24, 30, true, true)
+                BuildSlideArea(SensorType.A3, 24, 29, true, true)
             },
             Const = 0.1f
         },
@@ -1095,7 +1087,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B2, 14, 18),
                 BuildSlideArea(SensorType.B3, 19, 22),
                 BuildSlideArea(SensorType.E4, 23, 25),
-                BuildSlideArea(SensorType.A4, 26, 32, true, true)
+                BuildSlideArea(SensorType.A4, 26, 31, true, true)
             },
             Const = 0.1f
         },
@@ -1112,7 +1104,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B3, 14, 19),
                 BuildSlideArea(SensorType.B4, 20, 22),
                 BuildSlideArea(SensorType.E5, 23, 26),
-                BuildSlideArea(SensorType.A5, 27, 32, true, true)
+                BuildSlideArea(SensorType.A5, 27, 31, true, true)
             },
             Const = 0.1f
         },
@@ -1129,7 +1121,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B4, 14, 18),
                 BuildSlideArea(SensorType.B5, 19, 22),
                 BuildSlideArea(SensorType.E6, 23, 25),
-                BuildSlideArea(SensorType.A6, 26, 32, true, true)
+                BuildSlideArea(SensorType.A6, 26, 31, true, true)
             },
             Const = 0.1f
         },
@@ -1145,7 +1137,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B5, 11, 16),
                 BuildSlideArea(SensorType.B6, 17, 20),
                 BuildSlideArea(SensorType.E7, 21, 23),
-                BuildSlideArea(SensorType.A7, 24, 30, true, true)
+                BuildSlideArea(SensorType.A7, 24, 29, true, true)
             },
             Const = 0.1f
         },
@@ -1161,7 +1153,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B6, 11, 13),
                 BuildSlideArea(SensorType.B7, 14, 17),
                 BuildSlideArea(SensorType.E8, 18, 20),
-                BuildSlideArea(SensorType.A8, 21, 27, true, true)
+                BuildSlideArea(SensorType.A8, 21, 26, true, true)
             },
             Const = 0.1f
         },
@@ -1175,7 +1167,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B8, 5, 6),
                 BuildSlideArea(SensorType.B7, 7, 10),
                 BuildSlideArea(SensorType.B8, 11, 17),
-                BuildSlideArea(SensorType.D1, 18, 25, true, true)
+                BuildSlideArea(SensorType.D1, 18, 24, true, true)
             },
             Const = 0.1f
         },
@@ -1190,7 +1182,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B7, 7, 10),
                 BuildSlideArea(SensorType.B8, 11, 13),
                 BuildSlideArea(SensorType.B1, 14, 17),
-                BuildSlideArea(SensorType.D2, 18, 25, true, true)
+                BuildSlideArea(SensorType.D2, 18, 24, true, true)
             },
             Const = 0.1f
         },
@@ -1206,7 +1198,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B8, 11, 13),
                 BuildSlideArea(SensorType.B1, 14, 16),
                 BuildSlideArea(SensorType.B2, 17, 20),
-                BuildSlideArea(SensorType.D3, 21, 28, true, true)
+                BuildSlideArea(SensorType.D3, 21, 27, true, true)
             },
             Const = 0.1f
         },
@@ -1223,7 +1215,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B1, 15, 17),
                 BuildSlideArea(SensorType.B2, 18, 19),
                 BuildSlideArea(SensorType.B3, 20, 23),
-                BuildSlideArea(SensorType.D4, 24, 31, true, true)
+                BuildSlideArea(SensorType.D4, 24, 30, true, true)
             },
             Const = 0.1f
         },
@@ -1239,7 +1231,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.C, 11, 13),
                 BuildSlideArea(SensorType.B3, 14, 20),
                 BuildSlideArea(SensorType.B4, 21, 24),
-                BuildSlideArea(SensorType.D5, 25, 32, true, true)
+                BuildSlideArea(SensorType.D5, 25, 31, true, true)
             },
             Const = 0.1f
         },
@@ -1255,7 +1247,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.C, 11, 13),
                 BuildSlideArea(SensorType.B4, 14, 20),
                 BuildSlideArea(SensorType.B5, 21, 24),
-                BuildSlideArea(SensorType.D6, 25, 32, true, true)
+                BuildSlideArea(SensorType.D6, 25, 31, true, true)
             },
             Const = 0.1f
         },
@@ -1271,7 +1263,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.C, 11, 14),
                 BuildSlideArea(SensorType.B5, 15, 17),
                 BuildSlideArea(SensorType.B6, 18, 23),
-                BuildSlideArea(SensorType.D7, 24, 31, true, true)
+                BuildSlideArea(SensorType.D7, 24, 30, true, true)
             },
             Const = 0.1f
         },
@@ -1286,3350 +1278,7 @@ new SlideTable()
                 BuildSlideArea(SensorType.B7, 7, 10),
                 BuildSlideArea(SensorType.B6, 11, 13),
                 BuildSlideArea(SensorType.B7, 14, 20),
-                BuildSlideArea(SensorType.D8, 21, 28, true, true)
-            },
-            Const = 0.1f
-        },
-new SlideTable()
-        {
-            Name = "1A_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1A_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 1),
-                BuildSlideArea(SensorType.A2, 2, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1A_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 2),
-                BuildSlideArea(SensorType.E2, 3, 3),
-                BuildSlideArea(SensorType.E3, 4, 8),
-                BuildSlideArea(SensorType.A3, 9, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1A_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 4),
-                BuildSlideArea(SensorType.B2, 5, 6),
-                BuildSlideArea(SensorType.B3, 7, 10),
-                BuildSlideArea(SensorType.A4, 11, 18, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1A_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4),
-                BuildSlideArea(SensorType.C, 5, 7),
-                BuildSlideArea(SensorType.B5, 8, 13),
-                BuildSlideArea(SensorType.A5, 14, 19, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1A_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4),
-                BuildSlideArea(SensorType.B8, 5, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.A6, 11, 18, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1A_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 2),
-                BuildSlideArea(SensorType.E1, 3, 3),
-                BuildSlideArea(SensorType.E8, 4, 8),
-                BuildSlideArea(SensorType.A7, 9, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1A_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 1),
-                BuildSlideArea(SensorType.A8, 2, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1B_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1B_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 3),
-                BuildSlideArea(SensorType.B2, 4, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1B_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 3),
-                BuildSlideArea(SensorType.B2, 4, 6),
-                BuildSlideArea(SensorType.B3, 7, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1B_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 9),
-                BuildSlideArea(SensorType.B4, 10, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1B_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4),
-                BuildSlideArea(SensorType.C, 5, 7),
-                BuildSlideArea(SensorType.B5, 8, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1B_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 9),
-                BuildSlideArea(SensorType.B6, 10, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1B_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 3),
-                BuildSlideArea(SensorType.B8, 4, 6),
-                BuildSlideArea(SensorType.B7, 7, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1B_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 3),
-                BuildSlideArea(SensorType.B8, 4, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1C_Line",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4),
-                BuildSlideArea(SensorType.C, 5, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 1),
-                BuildSlideArea(SensorType.A2, 2, 5),
-                BuildSlideArea(SensorType.D3, 6, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 3),
-                BuildSlideArea(SensorType.B2, 4, 6),
-                BuildSlideArea(SensorType.B3, 7, 10),
-                BuildSlideArea(SensorType.D4, 11, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4),
-                BuildSlideArea(SensorType.C, 5, 8),
-                BuildSlideArea(SensorType.B4, 9, 12),
-                BuildSlideArea(SensorType.E5, 13, 15),
-                BuildSlideArea(SensorType.D5, 16, 19, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4),
-                BuildSlideArea(SensorType.C, 5, 8),
-                BuildSlideArea(SensorType.B6, 9, 12),
-                BuildSlideArea(SensorType.E6, 13, 15),
-                BuildSlideArea(SensorType.D6, 16, 19, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 3),
-                BuildSlideArea(SensorType.B8, 4, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.D7, 11, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1D_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 1),
-                BuildSlideArea(SensorType.A8, 2, 5),
-                BuildSlideArea(SensorType.D8, 6, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1E_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1E_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1E_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 2),
-                BuildSlideArea(SensorType.E2, 3, 3),
-                BuildSlideArea(SensorType.E3, 4, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1E_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 3),
-                BuildSlideArea(SensorType.B2, 4, 6),
-                BuildSlideArea(SensorType.B3, 7, 9),
-                BuildSlideArea(SensorType.E4, 10, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1E_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4),
-                BuildSlideArea(SensorType.C, 5, 8),
-                BuildSlideArea(SensorType.B4, 9, 13),
-                BuildSlideArea(SensorType.E5, 14, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1E_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4),
-                BuildSlideArea(SensorType.C, 5, 8),
-                BuildSlideArea(SensorType.B6, 9, 13),
-                BuildSlideArea(SensorType.E6, 14, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1E_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 3),
-                BuildSlideArea(SensorType.B8, 4, 6),
-                BuildSlideArea(SensorType.B7, 7, 9),
-                BuildSlideArea(SensorType.E7, 10, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1E_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 2),
-                BuildSlideArea(SensorType.E1, 3, 3),
-                BuildSlideArea(SensorType.E8, 4, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "A1_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "A1_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 1),
-                BuildSlideArea(SensorType.A2, 2, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "A1_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 2),
-                BuildSlideArea(SensorType.E3, 3, 7),
-                BuildSlideArea(SensorType.D3, 8, 8),
-                BuildSlideArea(SensorType.A3, 9, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "A1_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 5),
-                BuildSlideArea(SensorType.B3, 6, 8),
-                BuildSlideArea(SensorType.E4, 9, 12),
-                BuildSlideArea(SensorType.A4, 13, 18, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "A1_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 2),
-                BuildSlideArea(SensorType.C, 3, 6),
-                BuildSlideArea(SensorType.B5, 7, 11),
-                BuildSlideArea(SensorType.A5, 12, 19, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "A1_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 5),
-                BuildSlideArea(SensorType.B7, 6, 8),
-                BuildSlideArea(SensorType.E7, 9, 12),
-                BuildSlideArea(SensorType.A6, 13, 18, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "A1_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 2),
-                BuildSlideArea(SensorType.E8, 3, 7),
-                BuildSlideArea(SensorType.D8, 8, 8),
-                BuildSlideArea(SensorType.A7, 9, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "A1_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 1),
-                BuildSlideArea(SensorType.A8, 2, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AA_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 1),
-                BuildSlideArea(SensorType.A2, 2, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AA_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 2),
-                BuildSlideArea(SensorType.E3, 3, 7),
-                BuildSlideArea(SensorType.A3, 8, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AA_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 5),
-                BuildSlideArea(SensorType.B3, 6, 8),
-                BuildSlideArea(SensorType.A4, 9, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AA_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 2),
-                BuildSlideArea(SensorType.C, 3, 6),
-                BuildSlideArea(SensorType.B5, 7, 12),
-                BuildSlideArea(SensorType.A5, 13, 18, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AA_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 5),
-                BuildSlideArea(SensorType.B7, 6, 8),
-                BuildSlideArea(SensorType.A6, 9, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AA_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 2),
-                BuildSlideArea(SensorType.E8, 3, 7),
-                BuildSlideArea(SensorType.A7, 8, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AA_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 1),
-                BuildSlideArea(SensorType.A8, 2, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AB_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AB_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 2),
-                BuildSlideArea(SensorType.B2, 3, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AB_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 2),
-                BuildSlideArea(SensorType.B2, 3, 4),
-                BuildSlideArea(SensorType.B3, 5, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AB_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 3),
-                BuildSlideArea(SensorType.C, 4, 7),
-                BuildSlideArea(SensorType.B4, 8, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AB_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 2),
-                BuildSlideArea(SensorType.C, 3, 6),
-                BuildSlideArea(SensorType.B5, 7, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AB_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 3),
-                BuildSlideArea(SensorType.C, 4, 7),
-                BuildSlideArea(SensorType.B6, 8, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AB_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 2),
-                BuildSlideArea(SensorType.B8, 3, 4),
-                BuildSlideArea(SensorType.B7, 5, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AB_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 2),
-                BuildSlideArea(SensorType.B8, 3, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AC_Line",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 2),
-                BuildSlideArea(SensorType.C, 3, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AD_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AD_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AD_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 2),
-                BuildSlideArea(SensorType.A2, 3, 4),
-                BuildSlideArea(SensorType.D3, 5, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AD_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 2),
-                BuildSlideArea(SensorType.B2, 3, 5),
-                BuildSlideArea(SensorType.B3, 6, 9),
-                BuildSlideArea(SensorType.D4, 10, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AD_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 2),
-                BuildSlideArea(SensorType.C, 3, 6),
-                BuildSlideArea(SensorType.B4, 7, 11),
-                BuildSlideArea(SensorType.E5, 12, 13),
-                BuildSlideArea(SensorType.D5, 14, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AD_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 2),
-                BuildSlideArea(SensorType.C, 3, 6),
-                BuildSlideArea(SensorType.B6, 7, 11),
-                BuildSlideArea(SensorType.E6, 12, 13),
-                BuildSlideArea(SensorType.D6, 14, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AD_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 2),
-                BuildSlideArea(SensorType.B8, 3, 5),
-                BuildSlideArea(SensorType.B7, 6, 9),
-                BuildSlideArea(SensorType.D7, 10, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AD_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 2),
-                BuildSlideArea(SensorType.A8, 3, 4),
-                BuildSlideArea(SensorType.D8, 5, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AE_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AE_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AE_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 2),
-                BuildSlideArea(SensorType.E3, 3, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AE_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 2),
-                BuildSlideArea(SensorType.B2, 3, 4),
-                BuildSlideArea(SensorType.B3, 5, 7),
-                BuildSlideArea(SensorType.E4, 8, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AE_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 2),
-                BuildSlideArea(SensorType.C, 3, 6),
-                BuildSlideArea(SensorType.B4, 7, 11),
-                BuildSlideArea(SensorType.E5, 12, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AE_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 2),
-                BuildSlideArea(SensorType.C, 3, 6),
-                BuildSlideArea(SensorType.B6, 7, 11),
-                BuildSlideArea(SensorType.E6, 12, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AE_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 2),
-                BuildSlideArea(SensorType.B8, 3, 4),
-                BuildSlideArea(SensorType.B7, 5, 7),
-                BuildSlideArea(SensorType.E7, 8, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AE_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 2),
-                BuildSlideArea(SensorType.E8, 3, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "B1_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "B1_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 1),
-                BuildSlideArea(SensorType.A2, 2, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "B1_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 2),
-                BuildSlideArea(SensorType.E3, 3, 5),
-                BuildSlideArea(SensorType.A3, 6, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "B1_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 3),
-                BuildSlideArea(SensorType.A4, 4, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "B1_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 2),
-                BuildSlideArea(SensorType.B5, 3, 7),
-                BuildSlideArea(SensorType.A5, 8, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "B1_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 3),
-                BuildSlideArea(SensorType.A6, 4, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "B1_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 2),
-                BuildSlideArea(SensorType.E8, 3, 5),
-                BuildSlideArea(SensorType.A7, 6, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "B1_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.A8, 2, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BA_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BA_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 1),
-                BuildSlideArea(SensorType.A2, 2, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BA_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 2),
-                BuildSlideArea(SensorType.E3, 3, 5),
-                BuildSlideArea(SensorType.A3, 6, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BA_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 3),
-                BuildSlideArea(SensorType.B4, 4, 7),
-                BuildSlideArea(SensorType.A4, 8, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BA_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 2),
-                BuildSlideArea(SensorType.B5, 3, 8),
-                BuildSlideArea(SensorType.A5, 9, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BA_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 3),
-                BuildSlideArea(SensorType.B6, 4, 7),
-                BuildSlideArea(SensorType.A6, 8, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BA_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 2),
-                BuildSlideArea(SensorType.E8, 3, 5),
-                BuildSlideArea(SensorType.A7, 6, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BA_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.A8, 2, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BB_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BB_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 2),
-                BuildSlideArea(SensorType.B3, 3, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BB_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 2),
-                BuildSlideArea(SensorType.B4, 3, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BB_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 2),
-                BuildSlideArea(SensorType.B5, 3, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BB_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 2),
-                BuildSlideArea(SensorType.B6, 3, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BB_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 2),
-                BuildSlideArea(SensorType.B7, 3, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BB_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BC_Line",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BD_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.D1, 2, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BD_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 1),
-                BuildSlideArea(SensorType.D2, 2, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BD_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 2),
-                BuildSlideArea(SensorType.D3, 3, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BD_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 2),
-                BuildSlideArea(SensorType.B3, 3, 4),
-                BuildSlideArea(SensorType.E4, 5, 8),
-                BuildSlideArea(SensorType.D4, 9, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BD_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 2),
-                BuildSlideArea(SensorType.B4, 3, 7),
-                BuildSlideArea(SensorType.E5, 8, 9),
-                BuildSlideArea(SensorType.D5, 10, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BD_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 2),
-                BuildSlideArea(SensorType.B6, 3, 7),
-                BuildSlideArea(SensorType.E6, 8, 9),
-                BuildSlideArea(SensorType.D6, 10, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BD_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 2),
-                BuildSlideArea(SensorType.B7, 3, 4),
-                BuildSlideArea(SensorType.E7, 5, 8),
-                BuildSlideArea(SensorType.D7, 9, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BD_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 2),
-                BuildSlideArea(SensorType.D8, 3, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BE_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BE_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BE_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 2),
-                BuildSlideArea(SensorType.E3, 3, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BE_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B3, 0, 5),
-                BuildSlideArea(SensorType.E4, 6, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BE_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 2),
-                BuildSlideArea(SensorType.B4, 3, 8),
-                BuildSlideArea(SensorType.E5, 9, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BE_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 2),
-                BuildSlideArea(SensorType.B6, 3, 8),
-                BuildSlideArea(SensorType.E6, 9, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BE_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B7, 0, 5),
-                BuildSlideArea(SensorType.E7, 6, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BE_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 2),
-                BuildSlideArea(SensorType.E8, 3, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "C1_Line",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 3),
-                BuildSlideArea(SensorType.A1, 4, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CA_Line",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 2),
-                BuildSlideArea(SensorType.A1, 3, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CB_Line",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CD_Line",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4),
-                BuildSlideArea(SensorType.D1, 5, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CE_Line",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "D1_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "D1_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 1),
-                BuildSlideArea(SensorType.D2, 2, 4),
-                BuildSlideArea(SensorType.A2, 5, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "D1_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4),
-                BuildSlideArea(SensorType.B2, 5, 7),
-                BuildSlideArea(SensorType.E3, 8, 9),
-                BuildSlideArea(SensorType.A3, 10, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "D1_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B1, 2, 3),
-                BuildSlideArea(SensorType.C, 4, 6),
-                BuildSlideArea(SensorType.B4, 7, 12),
-                BuildSlideArea(SensorType.A4, 13, 19, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "D1_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B8, 2, 3),
-                BuildSlideArea(SensorType.C, 4, 6),
-                BuildSlideArea(SensorType.B5, 7, 12),
-                BuildSlideArea(SensorType.A5, 13, 19, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "D1_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 4),
-                BuildSlideArea(SensorType.B7, 5, 7),
-                BuildSlideArea(SensorType.E7, 8, 9),
-                BuildSlideArea(SensorType.A6, 10, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "D1_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A8, 0, 1),
-                BuildSlideArea(SensorType.D8, 2, 4),
-                BuildSlideArea(SensorType.A7, 5, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "D1_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A8, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DA_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DA_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 1),
-                BuildSlideArea(SensorType.D2, 2, 5),
-                BuildSlideArea(SensorType.A2, 6, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DA_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 3),
-                BuildSlideArea(SensorType.B2, 4, 6),
-                BuildSlideArea(SensorType.E3, 7, 10),
-                BuildSlideArea(SensorType.A3, 11, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DA_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B1, 2, 3),
-                BuildSlideArea(SensorType.C, 4, 6),
-                BuildSlideArea(SensorType.B4, 7, 11),
-                BuildSlideArea(SensorType.A4, 12, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DA_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B8, 2, 3),
-                BuildSlideArea(SensorType.C, 4, 6),
-                BuildSlideArea(SensorType.B5, 7, 11),
-                BuildSlideArea(SensorType.A5, 12, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DA_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 3),
-                BuildSlideArea(SensorType.B7, 4, 6),
-                BuildSlideArea(SensorType.E7, 7, 10),
-                BuildSlideArea(SensorType.A6, 11, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DA_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A8, 0, 1),
-                BuildSlideArea(SensorType.D8, 2, 5),
-                BuildSlideArea(SensorType.A7, 6, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DA_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A8, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DB_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B1, 2, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DB_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 3),
-                BuildSlideArea(SensorType.B2, 4, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DB_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B1, 2, 3),
-                BuildSlideArea(SensorType.B2, 4, 6),
-                BuildSlideArea(SensorType.B3, 7, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DB_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B1, 2, 3),
-                BuildSlideArea(SensorType.C, 4, 6),
-                BuildSlideArea(SensorType.B4, 7, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DB_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B8, 2, 3),
-                BuildSlideArea(SensorType.C, 4, 6),
-                BuildSlideArea(SensorType.B5, 7, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DB_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B8, 2, 3),
-                BuildSlideArea(SensorType.B7, 4, 6),
-                BuildSlideArea(SensorType.B6, 7, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DB_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 3),
-                BuildSlideArea(SensorType.B7, 4, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DB_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B8, 2, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DC_Line",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DD_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 1),
-                BuildSlideArea(SensorType.D2, 2, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DD_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 4),
-                BuildSlideArea(SensorType.D3, 5, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DD_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B1, 2, 3),
-                BuildSlideArea(SensorType.B2, 4, 7),
-                BuildSlideArea(SensorType.B3, 8, 9),
-                BuildSlideArea(SensorType.E4, 10, 13),
-                BuildSlideArea(SensorType.D4, 14, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DD_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 6),
-                BuildSlideArea(SensorType.E5, 7, 14),
-                BuildSlideArea(SensorType.D5, 15, 18, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DD_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B8, 2, 3),
-                BuildSlideArea(SensorType.B7, 4, 7),
-                BuildSlideArea(SensorType.B6, 8, 9),
-                BuildSlideArea(SensorType.E6, 10, 13),
-                BuildSlideArea(SensorType.D6, 14, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DD_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E8, 0, 4),
-                BuildSlideArea(SensorType.D7, 5, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DD_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A8, 0, 1),
-                BuildSlideArea(SensorType.D8, 2, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DE_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DE_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DE_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 3),
-                BuildSlideArea(SensorType.B2, 4, 6),
-                BuildSlideArea(SensorType.E3, 7, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DE_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B1, 2, 3),
-                BuildSlideArea(SensorType.B3, 4, 9),
-                BuildSlideArea(SensorType.E4, 10, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DE_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 6),
-                BuildSlideArea(SensorType.E5, 7, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DE_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 1),
-                BuildSlideArea(SensorType.B8, 2, 3),
-                BuildSlideArea(SensorType.B6, 4, 9),
-                BuildSlideArea(SensorType.E6, 10, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DE_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 3),
-                BuildSlideArea(SensorType.B7, 4, 6),
-                BuildSlideArea(SensorType.E7, 7, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DE_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E8, 0, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "E1_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "E1_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 3),
-                BuildSlideArea(SensorType.D2, 4, 5),
-                BuildSlideArea(SensorType.A2, 6, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "E1_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.B2, 2, 4),
-                BuildSlideArea(SensorType.E3, 5, 8),
-                BuildSlideArea(SensorType.A3, 9, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "E1_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 4),
-                BuildSlideArea(SensorType.B4, 5, 9),
-                BuildSlideArea(SensorType.A4, 10, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "E1_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 4),
-                BuildSlideArea(SensorType.B5, 5, 9),
-                BuildSlideArea(SensorType.A5, 10, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "E1_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.B7, 2, 4),
-                BuildSlideArea(SensorType.E7, 5, 8),
-                BuildSlideArea(SensorType.A6, 9, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "E1_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E8, 0, 3),
-                BuildSlideArea(SensorType.D8, 4, 5),
-                BuildSlideArea(SensorType.A7, 6, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "E1_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A8, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EA_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EA_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E2, 0, 3),
-                BuildSlideArea(SensorType.A2, 4, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EA_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.B2, 2, 4),
-                BuildSlideArea(SensorType.E3, 5, 8),
-                BuildSlideArea(SensorType.A3, 9, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EA_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 4),
-                BuildSlideArea(SensorType.B4, 5, 9),
-                BuildSlideArea(SensorType.A4, 10, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EA_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 4),
-                BuildSlideArea(SensorType.B5, 5, 9),
-                BuildSlideArea(SensorType.A5, 10, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EA_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.B7, 2, 4),
-                BuildSlideArea(SensorType.E7, 5, 8),
-                BuildSlideArea(SensorType.A6, 9, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EA_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E8, 0, 3),
-                BuildSlideArea(SensorType.A7, 4, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EA_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A8, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EB_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EB_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.B2, 2, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EB_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.B3, 2, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EB_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 3),
-                BuildSlideArea(SensorType.B4, 4, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EB_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 3),
-                BuildSlideArea(SensorType.B5, 4, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EB_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.B6, 2, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EB_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.B7, 2, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EB_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EC_Line",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "ED_Line_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "ED_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "ED_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.B2, 2, 5),
-                BuildSlideArea(SensorType.D3, 6, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "ED_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.B3, 2, 7),
-                BuildSlideArea(SensorType.E4, 8, 11),
-                BuildSlideArea(SensorType.D4, 12, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "ED_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 3),
-                BuildSlideArea(SensorType.E5, 4, 11),
-                BuildSlideArea(SensorType.D5, 12, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "ED_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.B6, 2, 7),
-                BuildSlideArea(SensorType.E6, 8, 11),
-                BuildSlideArea(SensorType.D6, 12, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "ED_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.B7, 2, 5),
-                BuildSlideArea(SensorType.D7, 6, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "ED_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D8, 0, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EE_Line_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.E2, 2, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EE_Line_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.B2, 2, 4),
-                BuildSlideArea(SensorType.E3, 5, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EE_Line_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 5),
-                BuildSlideArea(SensorType.B3, 6, 8),
-                BuildSlideArea(SensorType.E4, 9, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EE_Line_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 3),
-                BuildSlideArea(SensorType.E5, 4, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EE_Line_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 5),
-                BuildSlideArea(SensorType.B6, 6, 8),
-                BuildSlideArea(SensorType.E6, 9, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EE_Line_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.B7, 2, 4),
-                BuildSlideArea(SensorType.E7, 5, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EE_Line_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.E8, 2, 4, true, true)
-            },
-            Const = 0.1f
-        },
-new SlideTable()
-        {
-            Name = "1C_Circle_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D2, 0, 0),
-                BuildSlideArea(SensorType.E2, 1, 1),
-                BuildSlideArea(SensorType.B2, 2, 2),
-                BuildSlideArea(SensorType.C, 3, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1C_Circle_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 0),
-                BuildSlideArea(SensorType.C, 1, 2, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1C_Circle_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D4, 0, 1),
-                BuildSlideArea(SensorType.A4, 2, 5),
-                BuildSlideArea(SensorType.D5, 6, 8),
-                BuildSlideArea(SensorType.A5, 9, 11),
-                BuildSlideArea(SensorType.E6, 12, 14),
-                BuildSlideArea(SensorType.E7, 15, 19),
-                BuildSlideArea(SensorType.B7, 20, 21),
-                BuildSlideArea(SensorType.B8, 22, 24),
-                BuildSlideArea(SensorType.C, 25, 30, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1C_Circle_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D5, 0, 1),
-                BuildSlideArea(SensorType.A5, 2, 5),
-                BuildSlideArea(SensorType.D6, 6, 9),
-                BuildSlideArea(SensorType.A6, 10, 11),
-                BuildSlideArea(SensorType.E7, 12, 14),
-                BuildSlideArea(SensorType.B7, 15, 16),
-                BuildSlideArea(SensorType.B8, 17, 20),
-                BuildSlideArea(SensorType.C, 21, 27, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1C_Circle_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D6, 0, 1),
-                BuildSlideArea(SensorType.A6, 2, 4),
-                BuildSlideArea(SensorType.D7, 5, 8),
-                BuildSlideArea(SensorType.E7, 9, 9),
-                BuildSlideArea(SensorType.E8, 10, 13),
-                BuildSlideArea(SensorType.B8, 14, 14),
-                BuildSlideArea(SensorType.C, 15, 22, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1C_Circle_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D7, 0, 1),
-                BuildSlideArea(SensorType.A7, 2, 3),
-                BuildSlideArea(SensorType.E8, 4, 6),
-                BuildSlideArea(SensorType.B8, 7, 9),
-                BuildSlideArea(SensorType.B1, 10, 12),
-                BuildSlideArea(SensorType.C, 13, 18, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1C_Circle_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D8, 0, 1),
-                BuildSlideArea(SensorType.A8, 2, 5),
-                BuildSlideArea(SensorType.E1, 6, 7),
-                BuildSlideArea(SensorType.B1, 8, 9),
-                BuildSlideArea(SensorType.C, 10, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "1C_Circle_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D1, 0, 1),
-                BuildSlideArea(SensorType.B1, 2, 5),
-                BuildSlideArea(SensorType.C, 6, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AC_Circle_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 2),
-                BuildSlideArea(SensorType.C, 3, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AC_Circle_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 0),
-                BuildSlideArea(SensorType.C, 1, 2, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AC_Circle_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D4, 0, 1),
-                BuildSlideArea(SensorType.A4, 2, 4),
-                BuildSlideArea(SensorType.E5, 5, 7),
-                BuildSlideArea(SensorType.E6, 8, 12),
-                BuildSlideArea(SensorType.B6, 13, 14),
-                BuildSlideArea(SensorType.B7, 15, 17),
-                BuildSlideArea(SensorType.C, 18, 26, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AC_Circle_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D5, 0, 1),
-                BuildSlideArea(SensorType.A5, 2, 4),
-                BuildSlideArea(SensorType.E6, 5, 7),
-                BuildSlideArea(SensorType.B7, 8, 13),
-                BuildSlideArea(SensorType.B8, 14, 17),
-                BuildSlideArea(SensorType.C, 18, 23, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AC_Circle_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D6, 0, 1),
-                BuildSlideArea(SensorType.A6, 2, 4),
-                BuildSlideArea(SensorType.E7, 5, 7),
-                BuildSlideArea(SensorType.B7, 8, 10),
-                BuildSlideArea(SensorType.B8, 11, 13),
-                BuildSlideArea(SensorType.C, 14, 20, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AC_Circle_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D7, 0, 1),
-                BuildSlideArea(SensorType.E8, 2, 6),
-                BuildSlideArea(SensorType.B8, 7, 8),
-                BuildSlideArea(SensorType.B1, 9, 11),
-                BuildSlideArea(SensorType.C, 12, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AC_Circle_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D8, 0, 1),
-                BuildSlideArea(SensorType.E8, 2, 2),
-                BuildSlideArea(SensorType.B1, 3, 6),
-                BuildSlideArea(SensorType.C, 7, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "AC_Circle_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E1, 0, 2),
-                BuildSlideArea(SensorType.B1, 3, 4),
-                BuildSlideArea(SensorType.C, 5, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BC_Circle_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BC_Circle_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.C, 0, 2, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BC_Circle_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 2),
-                BuildSlideArea(SensorType.B5, 3, 5),
-                BuildSlideArea(SensorType.C, 6, 15, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BC_Circle_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 2),
-                BuildSlideArea(SensorType.B6, 3, 5),
-                BuildSlideArea(SensorType.C, 6, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BC_Circle_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B6, 0, 2),
-                BuildSlideArea(SensorType.B7, 3, 5),
-                BuildSlideArea(SensorType.C, 6, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BC_Circle_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B7, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BC_Circle_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 2),
-                BuildSlideArea(SensorType.C, 3, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "BC_Circle_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DC_Circle_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 4),
-                BuildSlideArea(SensorType.C, 5, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DC_Circle_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 0),
-                BuildSlideArea(SensorType.C, 1, 2, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DC_Circle_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A3, 0, 1),
-                BuildSlideArea(SensorType.D4, 2, 4),
-                BuildSlideArea(SensorType.E4, 5, 5),
-                BuildSlideArea(SensorType.A4, 6, 8),
-                BuildSlideArea(SensorType.E5, 9, 10),
-                BuildSlideArea(SensorType.E6, 11, 15),
-                BuildSlideArea(SensorType.B6, 16, 16),
-                BuildSlideArea(SensorType.B7, 17, 20),
-                BuildSlideArea(SensorType.C, 21, 28, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DC_Circle_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A4, 0, 1),
-                BuildSlideArea(SensorType.D5, 2, 4),
-                BuildSlideArea(SensorType.E6, 5, 9),
-                BuildSlideArea(SensorType.B6, 10, 12),
-                BuildSlideArea(SensorType.B7, 13, 15),
-                BuildSlideArea(SensorType.B8, 16, 18),
-                BuildSlideArea(SensorType.C, 19, 24, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DC_Circle_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A5, 0, 1),
-                BuildSlideArea(SensorType.E6, 2, 5),
-                BuildSlideArea(SensorType.E7, 6, 9),
-                BuildSlideArea(SensorType.B7, 10, 11),
-                BuildSlideArea(SensorType.B8, 12, 15),
-                BuildSlideArea(SensorType.C, 16, 22, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DC_Circle_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A6, 0, 1),
-                BuildSlideArea(SensorType.E7, 2, 4),
-                BuildSlideArea(SensorType.B8, 5, 10),
-                BuildSlideArea(SensorType.C, 11, 18, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DC_Circle_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A7, 0, 0),
-                BuildSlideArea(SensorType.E8, 1, 3),
-                BuildSlideArea(SensorType.B8, 4, 5),
-                BuildSlideArea(SensorType.B1, 6, 9),
-                BuildSlideArea(SensorType.C, 10, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "DC_Circle_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.A8, 0, 1),
-                BuildSlideArea(SensorType.E1, 2, 5),
-                BuildSlideArea(SensorType.B1, 6, 6),
-                BuildSlideArea(SensorType.C, 7, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EC_Circle_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B1, 0, 1),
-                BuildSlideArea(SensorType.C, 2, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EC_Circle_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B2, 0, 0),
-                BuildSlideArea(SensorType.C, 1, 2, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EC_Circle_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.E4, 0, 3),
-                BuildSlideArea(SensorType.B4, 4, 5),
-                BuildSlideArea(SensorType.B5, 6, 9),
-                BuildSlideArea(SensorType.B6, 10, 12),
-                BuildSlideArea(SensorType.C, 13, 21, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EC_Circle_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 2),
-                BuildSlideArea(SensorType.B5, 3, 5),
-                BuildSlideArea(SensorType.B6, 6, 8),
-                BuildSlideArea(SensorType.B7, 9, 12),
-                BuildSlideArea(SensorType.C, 13, 18, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EC_Circle_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 1),
-                BuildSlideArea(SensorType.B6, 2, 5),
-                BuildSlideArea(SensorType.B7, 6, 8),
-                BuildSlideArea(SensorType.C, 9, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EC_Circle_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B6, 0, 1),
-                BuildSlideArea(SensorType.B7, 2, 4),
-                BuildSlideArea(SensorType.B8, 5, 7),
-                BuildSlideArea(SensorType.C, 8, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EC_Circle_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B7, 0, 1),
-                BuildSlideArea(SensorType.B8, 2, 4),
-                BuildSlideArea(SensorType.C, 5, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "EC_Circle_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 1),
-                BuildSlideArea(SensorType.B1, 2, 3),
-                BuildSlideArea(SensorType.C, 4, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "C1_Circle_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 3),
-                BuildSlideArea(SensorType.B6, 4, 6),
-                BuildSlideArea(SensorType.E7, 7, 8),
-                BuildSlideArea(SensorType.A7, 9, 10),
-                BuildSlideArea(SensorType.D8, 11, 12),
-                BuildSlideArea(SensorType.A8, 13, 13),
-                BuildSlideArea(SensorType.D1, 14, 15),
-                BuildSlideArea(SensorType.A1, 16, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "C1_Circle_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 2),
-                BuildSlideArea(SensorType.B6, 3, 3),
-                BuildSlideArea(SensorType.A8, 4, 5),
-                BuildSlideArea(SensorType.A1, 6, 6),
-                BuildSlideArea(SensorType.D2, 7, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "C1_Circle_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B3, 0, 2),
-                BuildSlideArea(SensorType.A3, 3, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "C1_Circle_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B3, 0, 3),
-                BuildSlideArea(SensorType.E4, 4, 6),
-                BuildSlideArea(SensorType.D4, 7, 7),
-                BuildSlideArea(SensorType.A4, 8, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "C1_Circle_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 4),
-                BuildSlideArea(SensorType.D5, 5, 8),
-                BuildSlideArea(SensorType.A5, 9, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "C1_Circle_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 3),
-                BuildSlideArea(SensorType.E5, 4, 6),
-                BuildSlideArea(SensorType.A5, 7, 9),
-                BuildSlideArea(SensorType.D6, 10, 10),
-                BuildSlideArea(SensorType.A6, 11, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "C1_Circle_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 3),
-                BuildSlideArea(SensorType.B5, 4, 5),
-                BuildSlideArea(SensorType.E6, 6, 8),
-                BuildSlideArea(SensorType.A6, 9, 10),
-                BuildSlideArea(SensorType.D7, 11, 12),
-                BuildSlideArea(SensorType.A7, 13, 18, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "C1_Circle_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 4),
-                BuildSlideArea(SensorType.E7, 5, 11),
-                BuildSlideArea(SensorType.D7, 12, 12),
-                BuildSlideArea(SensorType.A7, 13, 13),
-                BuildSlideArea(SensorType.D8, 14, 16),
-                BuildSlideArea(SensorType.A8, 17, 20, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CA_Circle_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 3),
-                BuildSlideArea(SensorType.B6, 4, 5),
-                BuildSlideArea(SensorType.E8, 6, 10),
-                BuildSlideArea(SensorType.A8, 11, 12),
-                BuildSlideArea(SensorType.D1, 13, 14),
-                BuildSlideArea(SensorType.A1, 15, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CA_Circle_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B6, 0, 3),
-                BuildSlideArea(SensorType.B7, 4, 4),
-                BuildSlideArea(SensorType.D2, 5, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CA_Circle_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B3, 0, 3),
-                BuildSlideArea(SensorType.A3, 4, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CA_Circle_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B3, 0, 2),
-                BuildSlideArea(SensorType.E4, 3, 5),
-                BuildSlideArea(SensorType.A4, 6, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CA_Circle_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 4),
-                BuildSlideArea(SensorType.E5, 5, 7),
-                BuildSlideArea(SensorType.A5, 8, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CA_Circle_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 3),
-                BuildSlideArea(SensorType.D6, 4, 10),
-                BuildSlideArea(SensorType.A6, 11, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CA_Circle_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 3),
-                BuildSlideArea(SensorType.B5, 4, 4),
-                BuildSlideArea(SensorType.E6, 5, 7),
-                BuildSlideArea(SensorType.D7, 8, 11),
-                BuildSlideArea(SensorType.A7, 12, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CA_Circle_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 4),
-                BuildSlideArea(SensorType.B6, 5, 6),
-                BuildSlideArea(SensorType.E7, 7, 8),
-                BuildSlideArea(SensorType.A7, 9, 11),
-                BuildSlideArea(SensorType.D8, 12, 13),
-                BuildSlideArea(SensorType.A8, 14, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CB_Circle_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B7, 0, 5),
-                BuildSlideArea(SensorType.B8, 6, 7),
-                BuildSlideArea(SensorType.B1, 8, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CB_Circle_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B8, 0, 4),
-                BuildSlideArea(SensorType.B1, 5, 5),
-                BuildSlideArea(SensorType.B2, 6, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CB_Circle_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B3, 0, 4, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CB_Circle_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 5, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CB_Circle_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 3),
-                BuildSlideArea(SensorType.B5, 4, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CB_Circle_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 4),
-                BuildSlideArea(SensorType.B6, 5, 8, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CB_Circle_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B6, 0, 5),
-                BuildSlideArea(SensorType.B7, 6, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CB_Circle_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B7, 0, 6),
-                BuildSlideArea(SensorType.B8, 7, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CD_Circle_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 4),
-                BuildSlideArea(SensorType.B6, 5, 5),
-                BuildSlideArea(SensorType.E7, 6, 8),
-                BuildSlideArea(SensorType.E8, 9, 12),
-                BuildSlideArea(SensorType.A8, 13, 14),
-                BuildSlideArea(SensorType.D1, 15, 17, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CD_Circle_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 3),
-                BuildSlideArea(SensorType.B6, 4, 4),
-                BuildSlideArea(SensorType.B7, 5, 7),
-                BuildSlideArea(SensorType.E8, 8, 8),
-                BuildSlideArea(SensorType.A1, 9, 11),
-                BuildSlideArea(SensorType.D2, 12, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CD_Circle_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B6, 0, 5),
-                BuildSlideArea(SensorType.B7, 6, 8),
-                BuildSlideArea(SensorType.E1, 9, 15),
-                BuildSlideArea(SensorType.A1, 16, 19),
-                BuildSlideArea(SensorType.D2, 20, 21),
-                BuildSlideArea(SensorType.A2, 22, 23),
-                BuildSlideArea(SensorType.D3, 24, 28, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CD_Circle_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B3, 0, 2),
-                BuildSlideArea(SensorType.D4, 3, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CD_Circle_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.D5, 0, 10, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CD_Circle_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 3),
-                BuildSlideArea(SensorType.E5, 4, 6),
-                BuildSlideArea(SensorType.A5, 7, 9),
-                BuildSlideArea(SensorType.D6, 10, 12, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CD_Circle_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 3),
-                BuildSlideArea(SensorType.B5, 4, 5),
-                BuildSlideArea(SensorType.E6, 6, 8),
-                BuildSlideArea(SensorType.A6, 9, 11),
-                BuildSlideArea(SensorType.D7, 12, 14, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CD_Circle_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 4),
-                BuildSlideArea(SensorType.E7, 5, 10),
-                BuildSlideArea(SensorType.A7, 11, 11),
-                BuildSlideArea(SensorType.D8, 12, 16, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CE_Circle_1",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B6, 0, 5),
-                BuildSlideArea(SensorType.B7, 6, 7),
-                BuildSlideArea(SensorType.B8, 8, 10),
-                BuildSlideArea(SensorType.E1, 11, 13, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CE_Circle_2",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B6, 0, 3),
-                BuildSlideArea(SensorType.B7, 4, 5),
-                BuildSlideArea(SensorType.B8, 6, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CE_Circle_3",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B7, 0, 6),
-                BuildSlideArea(SensorType.B8, 7, 9),
-                BuildSlideArea(SensorType.B1, 10, 13),
-                BuildSlideArea(SensorType.E2, 14, 16),
-                BuildSlideArea(SensorType.E3, 17, 21, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CE_Circle_4",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B3, 0, 2),
-                BuildSlideArea(SensorType.E4, 3, 6, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CE_Circle_5",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 7, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CE_Circle_6",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B4, 0, 3),
-                BuildSlideArea(SensorType.B5, 4, 5),
-                BuildSlideArea(SensorType.E6, 6, 9, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CE_Circle_7",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 4),
-                BuildSlideArea(SensorType.B6, 5, 7),
-                BuildSlideArea(SensorType.E7, 8, 11, true, true)
-            },
-            Const = 0.1f
-        },
-
-        new SlideTable()
-        {
-            Name = "CE_Circle_8",
-            JudgeQueue = new SlideArea[]
-            {
-                BuildSlideArea(SensorType.B5, 0, 4),
-                BuildSlideArea(SensorType.B6, 5, 6),
-                BuildSlideArea(SensorType.B7, 7, 10),
-                BuildSlideArea(SensorType.E8, 11, 12, true, true)
+                BuildSlideArea(SensorType.D8, 21, 27, true, true)
             },
             Const = 0.1f
         },
@@ -7759,6 +4408,3317 @@ new SlideTable()
                 BuildSlideArea(SensorType.E5, 11, 14),
                 BuildSlideArea(SensorType.E6, 15, 17),
                 BuildSlideArea(SensorType.E7, 18, 25, true, true)
+            },
+            Const = 0.1f
+        },
+new SlideTable()
+        {
+            Name = "1C_Circle_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 0),
+                BuildSlideArea(SensorType.E2, 1, 1),
+                BuildSlideArea(SensorType.B2, 2, 2),
+                BuildSlideArea(SensorType.C, 3, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1C_Circle_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 0),
+                BuildSlideArea(SensorType.C, 1, 2, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1C_Circle_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D4, 0, 1),
+                BuildSlideArea(SensorType.A4, 2, 5),
+                BuildSlideArea(SensorType.D5, 6, 8),
+                BuildSlideArea(SensorType.A5, 9, 11),
+                BuildSlideArea(SensorType.E6, 12, 14),
+                BuildSlideArea(SensorType.E7, 15, 19),
+                BuildSlideArea(SensorType.B7, 20, 21),
+                BuildSlideArea(SensorType.B8, 22, 24),
+                BuildSlideArea(SensorType.C, 25, 30, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1C_Circle_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D5, 0, 1),
+                BuildSlideArea(SensorType.A5, 2, 5),
+                BuildSlideArea(SensorType.D6, 6, 9),
+                BuildSlideArea(SensorType.A6, 10, 11),
+                BuildSlideArea(SensorType.E7, 12, 14),
+                BuildSlideArea(SensorType.B7, 15, 16),
+                BuildSlideArea(SensorType.B8, 17, 20),
+                BuildSlideArea(SensorType.C, 21, 27, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1C_Circle_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D6, 0, 1),
+                BuildSlideArea(SensorType.A6, 2, 4),
+                BuildSlideArea(SensorType.D7, 5, 8),
+                BuildSlideArea(SensorType.E7, 9, 9),
+                BuildSlideArea(SensorType.E8, 10, 13),
+                BuildSlideArea(SensorType.B8, 14, 14),
+                BuildSlideArea(SensorType.C, 15, 22, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1C_Circle_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D7, 0, 1),
+                BuildSlideArea(SensorType.A7, 2, 3),
+                BuildSlideArea(SensorType.E8, 4, 6),
+                BuildSlideArea(SensorType.B8, 7, 9),
+                BuildSlideArea(SensorType.B1, 10, 12),
+                BuildSlideArea(SensorType.C, 13, 18, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1C_Circle_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D8, 0, 1),
+                BuildSlideArea(SensorType.A8, 2, 5),
+                BuildSlideArea(SensorType.E1, 6, 7),
+                BuildSlideArea(SensorType.B1, 8, 9),
+                BuildSlideArea(SensorType.C, 10, 15, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1C_Circle_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 1),
+                BuildSlideArea(SensorType.B1, 2, 5),
+                BuildSlideArea(SensorType.C, 6, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AC_Circle_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 2),
+                BuildSlideArea(SensorType.C, 3, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AC_Circle_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 0),
+                BuildSlideArea(SensorType.C, 1, 2, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AC_Circle_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D4, 0, 1),
+                BuildSlideArea(SensorType.A4, 2, 4),
+                BuildSlideArea(SensorType.E5, 5, 7),
+                BuildSlideArea(SensorType.E6, 8, 12),
+                BuildSlideArea(SensorType.B6, 13, 14),
+                BuildSlideArea(SensorType.B7, 15, 17),
+                BuildSlideArea(SensorType.C, 18, 26, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AC_Circle_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D5, 0, 1),
+                BuildSlideArea(SensorType.A5, 2, 4),
+                BuildSlideArea(SensorType.E6, 5, 7),
+                BuildSlideArea(SensorType.B7, 8, 13),
+                BuildSlideArea(SensorType.B8, 14, 17),
+                BuildSlideArea(SensorType.C, 18, 23, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AC_Circle_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D6, 0, 1),
+                BuildSlideArea(SensorType.A6, 2, 4),
+                BuildSlideArea(SensorType.E7, 5, 7),
+                BuildSlideArea(SensorType.B7, 8, 10),
+                BuildSlideArea(SensorType.B8, 11, 13),
+                BuildSlideArea(SensorType.C, 14, 20, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AC_Circle_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D7, 0, 1),
+                BuildSlideArea(SensorType.E8, 2, 6),
+                BuildSlideArea(SensorType.B8, 7, 8),
+                BuildSlideArea(SensorType.B1, 9, 11),
+                BuildSlideArea(SensorType.C, 12, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AC_Circle_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D8, 0, 1),
+                BuildSlideArea(SensorType.E8, 2, 2),
+                BuildSlideArea(SensorType.B1, 3, 6),
+                BuildSlideArea(SensorType.C, 7, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AC_Circle_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 2),
+                BuildSlideArea(SensorType.B1, 3, 4),
+                BuildSlideArea(SensorType.C, 5, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BC_Circle_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BC_Circle_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 2, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BC_Circle_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 2),
+                BuildSlideArea(SensorType.B5, 3, 5),
+                BuildSlideArea(SensorType.C, 6, 15, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BC_Circle_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 2),
+                BuildSlideArea(SensorType.B6, 3, 5),
+                BuildSlideArea(SensorType.C, 6, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BC_Circle_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B6, 0, 2),
+                BuildSlideArea(SensorType.B7, 3, 5),
+                BuildSlideArea(SensorType.C, 6, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BC_Circle_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B7, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BC_Circle_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 2),
+                BuildSlideArea(SensorType.C, 3, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BC_Circle_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DC_Circle_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 4),
+                BuildSlideArea(SensorType.C, 5, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DC_Circle_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 0),
+                BuildSlideArea(SensorType.C, 1, 2, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DC_Circle_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A3, 0, 1),
+                BuildSlideArea(SensorType.D4, 2, 4),
+                BuildSlideArea(SensorType.E4, 5, 5),
+                BuildSlideArea(SensorType.A4, 6, 8),
+                BuildSlideArea(SensorType.E5, 9, 10),
+                BuildSlideArea(SensorType.E6, 11, 15),
+                BuildSlideArea(SensorType.B6, 16, 16),
+                BuildSlideArea(SensorType.B7, 17, 20),
+                BuildSlideArea(SensorType.C, 21, 28, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DC_Circle_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A4, 0, 1),
+                BuildSlideArea(SensorType.D5, 2, 4),
+                BuildSlideArea(SensorType.E6, 5, 9),
+                BuildSlideArea(SensorType.B6, 10, 12),
+                BuildSlideArea(SensorType.B7, 13, 15),
+                BuildSlideArea(SensorType.B8, 16, 18),
+                BuildSlideArea(SensorType.C, 19, 24, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DC_Circle_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A5, 0, 1),
+                BuildSlideArea(SensorType.E6, 2, 5),
+                BuildSlideArea(SensorType.E7, 6, 9),
+                BuildSlideArea(SensorType.B7, 10, 11),
+                BuildSlideArea(SensorType.B8, 12, 15),
+                BuildSlideArea(SensorType.C, 16, 22, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DC_Circle_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A6, 0, 1),
+                BuildSlideArea(SensorType.E7, 2, 4),
+                BuildSlideArea(SensorType.B8, 5, 10),
+                BuildSlideArea(SensorType.C, 11, 18, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DC_Circle_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A7, 0, 0),
+                BuildSlideArea(SensorType.E8, 1, 3),
+                BuildSlideArea(SensorType.B8, 4, 5),
+                BuildSlideArea(SensorType.B1, 6, 9),
+                BuildSlideArea(SensorType.C, 10, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DC_Circle_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A8, 0, 1),
+                BuildSlideArea(SensorType.E1, 2, 5),
+                BuildSlideArea(SensorType.B1, 6, 6),
+                BuildSlideArea(SensorType.C, 7, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EC_Circle_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EC_Circle_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 0),
+                BuildSlideArea(SensorType.C, 1, 2, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EC_Circle_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E4, 0, 3),
+                BuildSlideArea(SensorType.B4, 4, 5),
+                BuildSlideArea(SensorType.B5, 6, 9),
+                BuildSlideArea(SensorType.B6, 10, 12),
+                BuildSlideArea(SensorType.C, 13, 21, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EC_Circle_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 2),
+                BuildSlideArea(SensorType.B5, 3, 5),
+                BuildSlideArea(SensorType.B6, 6, 8),
+                BuildSlideArea(SensorType.B7, 9, 12),
+                BuildSlideArea(SensorType.C, 13, 18, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EC_Circle_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 1),
+                BuildSlideArea(SensorType.B6, 2, 5),
+                BuildSlideArea(SensorType.B7, 6, 8),
+                BuildSlideArea(SensorType.C, 9, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EC_Circle_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B6, 0, 1),
+                BuildSlideArea(SensorType.B7, 2, 4),
+                BuildSlideArea(SensorType.B8, 5, 7),
+                BuildSlideArea(SensorType.C, 8, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EC_Circle_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B7, 0, 1),
+                BuildSlideArea(SensorType.B8, 2, 4),
+                BuildSlideArea(SensorType.C, 5, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EC_Circle_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.B1, 2, 3),
+                BuildSlideArea(SensorType.C, 4, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "C1_Circle_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 3),
+                BuildSlideArea(SensorType.B6, 4, 6),
+                BuildSlideArea(SensorType.E7, 7, 8),
+                BuildSlideArea(SensorType.A7, 9, 10),
+                BuildSlideArea(SensorType.D8, 11, 12),
+                BuildSlideArea(SensorType.A8, 13, 13),
+                BuildSlideArea(SensorType.D1, 14, 15),
+                BuildSlideArea(SensorType.A1, 16, 17, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "C1_Circle_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 2),
+                BuildSlideArea(SensorType.B6, 3, 3),
+                BuildSlideArea(SensorType.A8, 4, 5),
+                BuildSlideArea(SensorType.A1, 6, 6),
+                BuildSlideArea(SensorType.D2, 7, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "C1_Circle_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B3, 0, 2),
+                BuildSlideArea(SensorType.A3, 3, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "C1_Circle_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B3, 0, 3),
+                BuildSlideArea(SensorType.E4, 4, 6),
+                BuildSlideArea(SensorType.D4, 7, 7),
+                BuildSlideArea(SensorType.A4, 8, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "C1_Circle_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 4),
+                BuildSlideArea(SensorType.D5, 5, 8),
+                BuildSlideArea(SensorType.A5, 9, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "C1_Circle_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 3),
+                BuildSlideArea(SensorType.E5, 4, 6),
+                BuildSlideArea(SensorType.A5, 7, 9),
+                BuildSlideArea(SensorType.D6, 10, 10),
+                BuildSlideArea(SensorType.A6, 11, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "C1_Circle_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 3),
+                BuildSlideArea(SensorType.B5, 4, 5),
+                BuildSlideArea(SensorType.E6, 6, 8),
+                BuildSlideArea(SensorType.A6, 9, 10),
+                BuildSlideArea(SensorType.D7, 11, 12),
+                BuildSlideArea(SensorType.A7, 13, 18, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "C1_Circle_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 4),
+                BuildSlideArea(SensorType.E7, 5, 11),
+                BuildSlideArea(SensorType.D7, 12, 12),
+                BuildSlideArea(SensorType.A7, 13, 13),
+                BuildSlideArea(SensorType.D8, 14, 16),
+                BuildSlideArea(SensorType.A8, 17, 20, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CA_Circle_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 3),
+                BuildSlideArea(SensorType.B6, 4, 5),
+                BuildSlideArea(SensorType.E8, 6, 10),
+                BuildSlideArea(SensorType.A8, 11, 12),
+                BuildSlideArea(SensorType.D1, 13, 14),
+                BuildSlideArea(SensorType.A1, 15, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CA_Circle_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B6, 0, 3),
+                BuildSlideArea(SensorType.B7, 4, 4),
+                BuildSlideArea(SensorType.D2, 5, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CA_Circle_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B3, 0, 3),
+                BuildSlideArea(SensorType.A3, 4, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CA_Circle_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B3, 0, 2),
+                BuildSlideArea(SensorType.E4, 3, 5),
+                BuildSlideArea(SensorType.A4, 6, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CA_Circle_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 4),
+                BuildSlideArea(SensorType.E5, 5, 7),
+                BuildSlideArea(SensorType.A5, 8, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CA_Circle_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 3),
+                BuildSlideArea(SensorType.D6, 4, 10),
+                BuildSlideArea(SensorType.A6, 11, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CA_Circle_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 3),
+                BuildSlideArea(SensorType.B5, 4, 4),
+                BuildSlideArea(SensorType.E6, 5, 7),
+                BuildSlideArea(SensorType.D7, 8, 11),
+                BuildSlideArea(SensorType.A7, 12, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CA_Circle_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 4),
+                BuildSlideArea(SensorType.B6, 5, 6),
+                BuildSlideArea(SensorType.E7, 7, 8),
+                BuildSlideArea(SensorType.A7, 9, 11),
+                BuildSlideArea(SensorType.D8, 12, 13),
+                BuildSlideArea(SensorType.A8, 14, 17, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CB_Circle_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B7, 0, 5),
+                BuildSlideArea(SensorType.B8, 6, 7),
+                BuildSlideArea(SensorType.B1, 8, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CB_Circle_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 4),
+                BuildSlideArea(SensorType.B1, 5, 5),
+                BuildSlideArea(SensorType.B2, 6, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CB_Circle_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B3, 0, 4, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CB_Circle_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CB_Circle_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 3),
+                BuildSlideArea(SensorType.B5, 4, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CB_Circle_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 4),
+                BuildSlideArea(SensorType.B6, 5, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CB_Circle_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B6, 0, 5),
+                BuildSlideArea(SensorType.B7, 6, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CB_Circle_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B7, 0, 6),
+                BuildSlideArea(SensorType.B8, 7, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CD_Circle_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 4),
+                BuildSlideArea(SensorType.B6, 5, 5),
+                BuildSlideArea(SensorType.E7, 6, 8),
+                BuildSlideArea(SensorType.E8, 9, 12),
+                BuildSlideArea(SensorType.A8, 13, 14),
+                BuildSlideArea(SensorType.D1, 15, 17, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CD_Circle_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 3),
+                BuildSlideArea(SensorType.B6, 4, 4),
+                BuildSlideArea(SensorType.B7, 5, 7),
+                BuildSlideArea(SensorType.E8, 8, 8),
+                BuildSlideArea(SensorType.A1, 9, 11),
+                BuildSlideArea(SensorType.D2, 12, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CD_Circle_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B6, 0, 5),
+                BuildSlideArea(SensorType.B7, 6, 8),
+                BuildSlideArea(SensorType.E1, 9, 15),
+                BuildSlideArea(SensorType.A1, 16, 19),
+                BuildSlideArea(SensorType.D2, 20, 21),
+                BuildSlideArea(SensorType.A2, 22, 23),
+                BuildSlideArea(SensorType.D3, 24, 28, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CD_Circle_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B3, 0, 2),
+                BuildSlideArea(SensorType.D4, 3, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CD_Circle_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D5, 0, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CD_Circle_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 3),
+                BuildSlideArea(SensorType.E5, 4, 6),
+                BuildSlideArea(SensorType.A5, 7, 9),
+                BuildSlideArea(SensorType.D6, 10, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CD_Circle_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 3),
+                BuildSlideArea(SensorType.B5, 4, 5),
+                BuildSlideArea(SensorType.E6, 6, 8),
+                BuildSlideArea(SensorType.A6, 9, 11),
+                BuildSlideArea(SensorType.D7, 12, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CD_Circle_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 4),
+                BuildSlideArea(SensorType.E7, 5, 10),
+                BuildSlideArea(SensorType.A7, 11, 11),
+                BuildSlideArea(SensorType.D8, 12, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CE_Circle_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B6, 0, 5),
+                BuildSlideArea(SensorType.B7, 6, 7),
+                BuildSlideArea(SensorType.B8, 8, 10),
+                BuildSlideArea(SensorType.E1, 11, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CE_Circle_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B6, 0, 3),
+                BuildSlideArea(SensorType.B7, 4, 5),
+                BuildSlideArea(SensorType.B8, 6, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CE_Circle_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B7, 0, 6),
+                BuildSlideArea(SensorType.B8, 7, 9),
+                BuildSlideArea(SensorType.B1, 10, 13),
+                BuildSlideArea(SensorType.E2, 14, 16),
+                BuildSlideArea(SensorType.E3, 17, 21, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CE_Circle_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B3, 0, 2),
+                BuildSlideArea(SensorType.E4, 3, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CE_Circle_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CE_Circle_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B4, 0, 3),
+                BuildSlideArea(SensorType.B5, 4, 5),
+                BuildSlideArea(SensorType.E6, 6, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CE_Circle_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 4),
+                BuildSlideArea(SensorType.B6, 5, 7),
+                BuildSlideArea(SensorType.E7, 8, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CE_Circle_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B5, 0, 4),
+                BuildSlideArea(SensorType.B6, 5, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.E8, 11, 12, true, true)
+            },
+            Const = 0.1f
+        },
+new SlideTable()
+        {
+            Name = "1A_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1A_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 1),
+                BuildSlideArea(SensorType.A2, 2, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1A_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 2),
+                BuildSlideArea(SensorType.E2, 3, 3),
+                BuildSlideArea(SensorType.E3, 4, 8),
+                BuildSlideArea(SensorType.A3, 9, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1A_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 4),
+                BuildSlideArea(SensorType.B2, 5, 6),
+                BuildSlideArea(SensorType.B3, 7, 10),
+                BuildSlideArea(SensorType.A4, 11, 17, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1A_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 4),
+                BuildSlideArea(SensorType.C, 5, 7),
+                BuildSlideArea(SensorType.B5, 8, 13),
+                BuildSlideArea(SensorType.A5, 14, 18, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1A_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 4),
+                BuildSlideArea(SensorType.B8, 5, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.A6, 11, 17, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1A_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 2),
+                BuildSlideArea(SensorType.E1, 3, 3),
+                BuildSlideArea(SensorType.E8, 4, 8),
+                BuildSlideArea(SensorType.A7, 9, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1A_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 1),
+                BuildSlideArea(SensorType.A8, 2, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1B_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1B_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 3),
+                BuildSlideArea(SensorType.B2, 4, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1B_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 3),
+                BuildSlideArea(SensorType.B2, 4, 6),
+                BuildSlideArea(SensorType.B3, 7, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1B_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 9),
+                BuildSlideArea(SensorType.B4, 10, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1B_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 4),
+                BuildSlideArea(SensorType.C, 5, 7),
+                BuildSlideArea(SensorType.B5, 8, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1B_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 9),
+                BuildSlideArea(SensorType.B6, 10, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1B_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 3),
+                BuildSlideArea(SensorType.B8, 4, 6),
+                BuildSlideArea(SensorType.B7, 7, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1B_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 3),
+                BuildSlideArea(SensorType.B8, 4, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1C_Line",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 4),
+                BuildSlideArea(SensorType.C, 5, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 1),
+                BuildSlideArea(SensorType.A2, 2, 5),
+                BuildSlideArea(SensorType.D3, 6, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 3),
+                BuildSlideArea(SensorType.B2, 4, 6),
+                BuildSlideArea(SensorType.B3, 7, 10),
+                BuildSlideArea(SensorType.D4, 11, 15, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 4),
+                BuildSlideArea(SensorType.C, 5, 8),
+                BuildSlideArea(SensorType.B4, 9, 12),
+                BuildSlideArea(SensorType.E5, 13, 15),
+                BuildSlideArea(SensorType.D5, 16, 18, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 4),
+                BuildSlideArea(SensorType.C, 5, 8),
+                BuildSlideArea(SensorType.B6, 9, 12),
+                BuildSlideArea(SensorType.E6, 13, 15),
+                BuildSlideArea(SensorType.D6, 16, 18, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 3),
+                BuildSlideArea(SensorType.B8, 4, 6),
+                BuildSlideArea(SensorType.B7, 7, 10),
+                BuildSlideArea(SensorType.D7, 11, 15, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1D_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 1),
+                BuildSlideArea(SensorType.A8, 2, 5),
+                BuildSlideArea(SensorType.D8, 6, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1E_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1E_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1E_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 2),
+                BuildSlideArea(SensorType.E2, 3, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1E_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 3),
+                BuildSlideArea(SensorType.B2, 4, 6),
+                BuildSlideArea(SensorType.B3, 7, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1E_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 4),
+                BuildSlideArea(SensorType.C, 5, 8),
+                BuildSlideArea(SensorType.B4, 9, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1E_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 4),
+                BuildSlideArea(SensorType.C, 5, 8),
+                BuildSlideArea(SensorType.B6, 9, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1E_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 3),
+                BuildSlideArea(SensorType.B8, 4, 6),
+                BuildSlideArea(SensorType.B7, 7, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "1E_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 2),
+                BuildSlideArea(SensorType.E1, 3, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "A1_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "A1_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 1),
+                BuildSlideArea(SensorType.A2, 2, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "A1_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 2),
+                BuildSlideArea(SensorType.E3, 3, 7),
+                BuildSlideArea(SensorType.D3, 8, 8),
+                BuildSlideArea(SensorType.A3, 9, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "A1_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 5),
+                BuildSlideArea(SensorType.B3, 6, 8),
+                BuildSlideArea(SensorType.E4, 9, 12),
+                BuildSlideArea(SensorType.A4, 13, 17, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "A1_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 2),
+                BuildSlideArea(SensorType.C, 3, 6),
+                BuildSlideArea(SensorType.B5, 7, 11),
+                BuildSlideArea(SensorType.A5, 12, 18, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "A1_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 5),
+                BuildSlideArea(SensorType.B7, 6, 8),
+                BuildSlideArea(SensorType.E7, 9, 12),
+                BuildSlideArea(SensorType.A6, 13, 17, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "A1_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 2),
+                BuildSlideArea(SensorType.E8, 3, 7),
+                BuildSlideArea(SensorType.D8, 8, 8),
+                BuildSlideArea(SensorType.A7, 9, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "A1_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 1),
+                BuildSlideArea(SensorType.A8, 2, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AA_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 1),
+                BuildSlideArea(SensorType.A2, 2, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AA_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 2),
+                BuildSlideArea(SensorType.E3, 3, 7),
+                BuildSlideArea(SensorType.A3, 8, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AA_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 5),
+                BuildSlideArea(SensorType.B3, 6, 8),
+                BuildSlideArea(SensorType.A4, 9, 15, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AA_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 2),
+                BuildSlideArea(SensorType.C, 3, 6),
+                BuildSlideArea(SensorType.B5, 7, 12),
+                BuildSlideArea(SensorType.A5, 13, 17, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AA_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 5),
+                BuildSlideArea(SensorType.B7, 6, 8),
+                BuildSlideArea(SensorType.A6, 9, 15, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AA_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 2),
+                BuildSlideArea(SensorType.E8, 3, 7),
+                BuildSlideArea(SensorType.A7, 8, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AA_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 1),
+                BuildSlideArea(SensorType.A8, 2, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AB_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AB_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 2),
+                BuildSlideArea(SensorType.B2, 3, 4, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AB_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 2),
+                BuildSlideArea(SensorType.B2, 3, 4),
+                BuildSlideArea(SensorType.B3, 5, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AB_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 3),
+                BuildSlideArea(SensorType.C, 4, 7),
+                BuildSlideArea(SensorType.B4, 8, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AB_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 2),
+                BuildSlideArea(SensorType.C, 3, 6),
+                BuildSlideArea(SensorType.B5, 7, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AB_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 3),
+                BuildSlideArea(SensorType.C, 4, 7),
+                BuildSlideArea(SensorType.B6, 8, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AB_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 2),
+                BuildSlideArea(SensorType.B8, 3, 4),
+                BuildSlideArea(SensorType.B7, 5, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AB_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 2),
+                BuildSlideArea(SensorType.B8, 3, 4, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AC_Line",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 2),
+                BuildSlideArea(SensorType.C, 3, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AD_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AD_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AD_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 2),
+                BuildSlideArea(SensorType.A2, 3, 4),
+                BuildSlideArea(SensorType.D3, 5, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AD_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 2),
+                BuildSlideArea(SensorType.B2, 3, 5),
+                BuildSlideArea(SensorType.B3, 6, 9),
+                BuildSlideArea(SensorType.D4, 10, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AD_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 2),
+                BuildSlideArea(SensorType.C, 3, 6),
+                BuildSlideArea(SensorType.B4, 7, 11),
+                BuildSlideArea(SensorType.E5, 12, 13),
+                BuildSlideArea(SensorType.D5, 14, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AD_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 2),
+                BuildSlideArea(SensorType.C, 3, 6),
+                BuildSlideArea(SensorType.B6, 7, 11),
+                BuildSlideArea(SensorType.E6, 12, 13),
+                BuildSlideArea(SensorType.D6, 14, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AD_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 2),
+                BuildSlideArea(SensorType.B8, 3, 5),
+                BuildSlideArea(SensorType.B7, 6, 9),
+                BuildSlideArea(SensorType.D7, 10, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AD_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 2),
+                BuildSlideArea(SensorType.A8, 3, 4),
+                BuildSlideArea(SensorType.D8, 5, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AE_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AE_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AE_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AE_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 2),
+                BuildSlideArea(SensorType.B2, 3, 4),
+                BuildSlideArea(SensorType.B3, 5, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AE_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 2),
+                BuildSlideArea(SensorType.C, 3, 6),
+                BuildSlideArea(SensorType.B4, 7, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AE_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 2),
+                BuildSlideArea(SensorType.C, 3, 6),
+                BuildSlideArea(SensorType.B6, 7, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AE_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 2),
+                BuildSlideArea(SensorType.B8, 3, 4),
+                BuildSlideArea(SensorType.B7, 5, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "AE_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "B1_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "B1_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 1),
+                BuildSlideArea(SensorType.A2, 2, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "B1_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 2),
+                BuildSlideArea(SensorType.E3, 3, 5),
+                BuildSlideArea(SensorType.A3, 6, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "B1_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 3),
+                BuildSlideArea(SensorType.A4, 4, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "B1_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 2),
+                BuildSlideArea(SensorType.B5, 3, 7),
+                BuildSlideArea(SensorType.A5, 8, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "B1_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 3),
+                BuildSlideArea(SensorType.A6, 4, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "B1_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 2),
+                BuildSlideArea(SensorType.E8, 3, 5),
+                BuildSlideArea(SensorType.A7, 6, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "B1_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.A8, 2, 6, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BA_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BA_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 1),
+                BuildSlideArea(SensorType.A2, 2, 4, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BA_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 2),
+                BuildSlideArea(SensorType.E3, 3, 5),
+                BuildSlideArea(SensorType.A3, 6, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BA_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 3),
+                BuildSlideArea(SensorType.B4, 4, 7),
+                BuildSlideArea(SensorType.A4, 8, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BA_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 2),
+                BuildSlideArea(SensorType.B5, 3, 8),
+                BuildSlideArea(SensorType.A5, 9, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BA_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 3),
+                BuildSlideArea(SensorType.B6, 4, 7),
+                BuildSlideArea(SensorType.A6, 8, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BA_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 2),
+                BuildSlideArea(SensorType.E8, 3, 5),
+                BuildSlideArea(SensorType.A7, 6, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BA_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.A8, 2, 4, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BB_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BB_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 2),
+                BuildSlideArea(SensorType.B3, 3, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BB_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 2),
+                BuildSlideArea(SensorType.B4, 3, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BB_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 2),
+                BuildSlideArea(SensorType.B5, 3, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BB_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 2),
+                BuildSlideArea(SensorType.B6, 3, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BB_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 2),
+                BuildSlideArea(SensorType.B7, 3, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BB_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BC_Line",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BD_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.D1, 2, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BD_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 1),
+                BuildSlideArea(SensorType.D2, 2, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BD_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 2),
+                BuildSlideArea(SensorType.D3, 3, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BD_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 2),
+                BuildSlideArea(SensorType.B3, 3, 4),
+                BuildSlideArea(SensorType.E4, 5, 8),
+                BuildSlideArea(SensorType.D4, 9, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BD_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 2),
+                BuildSlideArea(SensorType.B4, 3, 7),
+                BuildSlideArea(SensorType.E5, 8, 9),
+                BuildSlideArea(SensorType.D5, 10, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BD_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 2),
+                BuildSlideArea(SensorType.B6, 3, 7),
+                BuildSlideArea(SensorType.E6, 8, 9),
+                BuildSlideArea(SensorType.D6, 10, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BD_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 2),
+                BuildSlideArea(SensorType.B7, 3, 4),
+                BuildSlideArea(SensorType.E7, 5, 8),
+                BuildSlideArea(SensorType.D7, 9, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BD_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 2),
+                BuildSlideArea(SensorType.D8, 3, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BE_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BE_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BE_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B2, 0, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BE_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B3, 0, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BE_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 2),
+                BuildSlideArea(SensorType.B4, 3, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BE_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 2),
+                BuildSlideArea(SensorType.B6, 3, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BE_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B7, 0, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "BE_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "C1_Line",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 3),
+                BuildSlideArea(SensorType.A1, 4, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CA_Line",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 2),
+                BuildSlideArea(SensorType.A1, 3, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CB_Line",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CD_Line",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 4),
+                BuildSlideArea(SensorType.D1, 5, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "CE_Line",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "D1_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "D1_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 1),
+                BuildSlideArea(SensorType.D2, 2, 4),
+                BuildSlideArea(SensorType.A2, 5, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "D1_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 4),
+                BuildSlideArea(SensorType.B2, 5, 7),
+                BuildSlideArea(SensorType.E3, 8, 9),
+                BuildSlideArea(SensorType.A3, 10, 15, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "D1_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B1, 2, 3),
+                BuildSlideArea(SensorType.C, 4, 6),
+                BuildSlideArea(SensorType.B4, 7, 12),
+                BuildSlideArea(SensorType.A4, 13, 18, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "D1_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B8, 2, 3),
+                BuildSlideArea(SensorType.C, 4, 6),
+                BuildSlideArea(SensorType.B5, 7, 12),
+                BuildSlideArea(SensorType.A5, 13, 18, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "D1_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 4),
+                BuildSlideArea(SensorType.B7, 5, 7),
+                BuildSlideArea(SensorType.E7, 8, 9),
+                BuildSlideArea(SensorType.A6, 10, 15, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "D1_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A8, 0, 1),
+                BuildSlideArea(SensorType.D8, 2, 4),
+                BuildSlideArea(SensorType.A7, 5, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "D1_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A8, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DA_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DA_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 1),
+                BuildSlideArea(SensorType.D2, 2, 5),
+                BuildSlideArea(SensorType.A2, 6, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DA_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 3),
+                BuildSlideArea(SensorType.B2, 4, 6),
+                BuildSlideArea(SensorType.E3, 7, 10),
+                BuildSlideArea(SensorType.A3, 11, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DA_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B1, 2, 3),
+                BuildSlideArea(SensorType.C, 4, 6),
+                BuildSlideArea(SensorType.B4, 7, 11),
+                BuildSlideArea(SensorType.A4, 12, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DA_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B8, 2, 3),
+                BuildSlideArea(SensorType.C, 4, 6),
+                BuildSlideArea(SensorType.B5, 7, 11),
+                BuildSlideArea(SensorType.A5, 12, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DA_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 3),
+                BuildSlideArea(SensorType.B7, 4, 6),
+                BuildSlideArea(SensorType.E7, 7, 10),
+                BuildSlideArea(SensorType.A6, 11, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DA_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A8, 0, 1),
+                BuildSlideArea(SensorType.D8, 2, 5),
+                BuildSlideArea(SensorType.A7, 6, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DA_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A8, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DB_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DB_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 3),
+                BuildSlideArea(SensorType.B2, 4, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DB_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B1, 2, 3),
+                BuildSlideArea(SensorType.B2, 4, 6),
+                BuildSlideArea(SensorType.B3, 7, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DB_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B1, 2, 3),
+                BuildSlideArea(SensorType.C, 4, 6),
+                BuildSlideArea(SensorType.B4, 7, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DB_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B8, 2, 3),
+                BuildSlideArea(SensorType.C, 4, 6),
+                BuildSlideArea(SensorType.B5, 7, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DB_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B8, 2, 3),
+                BuildSlideArea(SensorType.B7, 4, 6),
+                BuildSlideArea(SensorType.B6, 7, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DB_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 3),
+                BuildSlideArea(SensorType.B7, 4, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DB_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DC_Line",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DD_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 1),
+                BuildSlideArea(SensorType.D2, 2, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DD_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 4),
+                BuildSlideArea(SensorType.D3, 5, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DD_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B1, 2, 3),
+                BuildSlideArea(SensorType.B2, 4, 7),
+                BuildSlideArea(SensorType.B3, 8, 9),
+                BuildSlideArea(SensorType.E4, 10, 13),
+                BuildSlideArea(SensorType.D4, 14, 15, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DD_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 6),
+                BuildSlideArea(SensorType.E5, 7, 14),
+                BuildSlideArea(SensorType.D5, 15, 17, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DD_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B8, 2, 3),
+                BuildSlideArea(SensorType.B7, 4, 7),
+                BuildSlideArea(SensorType.B6, 8, 9),
+                BuildSlideArea(SensorType.E6, 10, 13),
+                BuildSlideArea(SensorType.D6, 14, 15, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DD_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E8, 0, 4),
+                BuildSlideArea(SensorType.D7, 5, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DD_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A8, 0, 1),
+                BuildSlideArea(SensorType.D8, 2, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DE_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DE_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 4, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DE_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 3),
+                BuildSlideArea(SensorType.B2, 4, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DE_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B1, 2, 3),
+                BuildSlideArea(SensorType.B3, 4, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DE_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DE_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E1, 0, 1),
+                BuildSlideArea(SensorType.B8, 2, 3),
+                BuildSlideArea(SensorType.B6, 4, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DE_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 3),
+                BuildSlideArea(SensorType.B7, 4, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "DE_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 4, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "E1_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "E1_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 3),
+                BuildSlideArea(SensorType.D2, 4, 5),
+                BuildSlideArea(SensorType.A2, 6, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "E1_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.B2, 2, 4),
+                BuildSlideArea(SensorType.E3, 5, 8),
+                BuildSlideArea(SensorType.A3, 9, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "E1_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 4),
+                BuildSlideArea(SensorType.B4, 5, 9),
+                BuildSlideArea(SensorType.A4, 10, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "E1_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 4),
+                BuildSlideArea(SensorType.B5, 5, 9),
+                BuildSlideArea(SensorType.A5, 10, 16, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "E1_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.B7, 2, 4),
+                BuildSlideArea(SensorType.E7, 5, 8),
+                BuildSlideArea(SensorType.A6, 9, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "E1_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E8, 0, 3),
+                BuildSlideArea(SensorType.D8, 4, 5),
+                BuildSlideArea(SensorType.A7, 6, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "E1_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A8, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EA_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EA_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E2, 0, 3),
+                BuildSlideArea(SensorType.A2, 4, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EA_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.B2, 2, 4),
+                BuildSlideArea(SensorType.E3, 5, 8),
+                BuildSlideArea(SensorType.A3, 9, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EA_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 4),
+                BuildSlideArea(SensorType.B4, 5, 9),
+                BuildSlideArea(SensorType.A4, 10, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EA_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 4),
+                BuildSlideArea(SensorType.B5, 5, 9),
+                BuildSlideArea(SensorType.A5, 10, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EA_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.B7, 2, 4),
+                BuildSlideArea(SensorType.E7, 5, 8),
+                BuildSlideArea(SensorType.A6, 9, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EA_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.E8, 0, 3),
+                BuildSlideArea(SensorType.A7, 4, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EA_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.A8, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EB_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EB_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.B2, 2, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EB_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.B3, 2, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EB_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 3),
+                BuildSlideArea(SensorType.B4, 4, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EB_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 3),
+                BuildSlideArea(SensorType.B5, 4, 10, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EB_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.B6, 2, 8, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EB_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.B7, 2, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EB_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EC_Line",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 5, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "ED_Line_1",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "ED_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D2, 0, 4, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "ED_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.B2, 2, 5),
+                BuildSlideArea(SensorType.D3, 6, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "ED_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.B3, 2, 7),
+                BuildSlideArea(SensorType.E4, 8, 11),
+                BuildSlideArea(SensorType.D4, 12, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "ED_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 3),
+                BuildSlideArea(SensorType.E5, 4, 11),
+                BuildSlideArea(SensorType.D5, 12, 14, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "ED_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.B6, 2, 7),
+                BuildSlideArea(SensorType.E6, 8, 11),
+                BuildSlideArea(SensorType.D6, 12, 13, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "ED_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.B7, 2, 5),
+                BuildSlideArea(SensorType.D7, 6, 9, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "ED_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.D8, 0, 4, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EE_Line_2",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 3, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EE_Line_3",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.B2, 2, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EE_Line_4",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B1, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 5),
+                BuildSlideArea(SensorType.B3, 6, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EE_Line_5",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.C, 0, 12, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EE_Line_6",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.C, 2, 5),
+                BuildSlideArea(SensorType.B6, 6, 11, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EE_Line_7",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 1),
+                BuildSlideArea(SensorType.B7, 2, 7, true, true)
+            },
+            Const = 0.1f
+        },
+
+        new SlideTable()
+        {
+            Name = "EE_Line_8",
+            JudgeQueue = new SlideArea[]
+            {
+                BuildSlideArea(SensorType.B8, 0, 3, true, true)
             },
             Const = 0.1f
         },

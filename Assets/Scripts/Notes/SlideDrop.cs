@@ -16,6 +16,7 @@ public class SlideDrop : NoteLongBase, ICanShine
     public char areaPosition;
     public int endPosition;
 
+    public bool isCircleMirrorDSlide;
     public bool isRimDSlide;
     public bool isMirror;
     public bool isUDMirror;
@@ -102,7 +103,11 @@ public class SlideDrop : NoteLongBase, ICanShine
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
             if (!isNoStartPositionRotation)
-                transform.rotation = Quaternion.Euler(0f, 0f, -45f * startPosition - (isRimDSlide ? -22.5f : 0f));
+            {
+                if (isCircleMirrorDSlide)
+                    transform.rotation = Quaternion.Euler(0f, 0f, -45f * (startPosition - 1));
+                else transform.rotation = Quaternion.Euler(0f, 0f, -45f * startPosition - (isRimDSlide ? -22.5f : 0f));
+            }
             if (isUDMirror)
                 transform.localScale = new Vector3(-1f, -1f, 1f);
             slideOK.transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -231,7 +236,18 @@ public class SlideDrop : NoteLongBase, ICanShine
                 judgeQueue.LastOrDefault()!.SetNonLast();
             }
 
-            if (ConnectInfo.TotalJudgeQueueLen < 4)
+            if (judgeQueue.Count < 2)
+            {
+                if (ConnectInfo.IsGroupPartHead)
+                {
+                    judgeQueue[0].IsSkippable = false;
+                }
+                else if (ConnectInfo.IsGroupPartEnd)
+                {
+                    judgeQueue[0].IsSkippable = false;
+                }
+            }
+            else if (ConnectInfo.TotalJudgeQueueLen < 4)
             {
                 if (ConnectInfo.IsGroupPartHead)
                 {

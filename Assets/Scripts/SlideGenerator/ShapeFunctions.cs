@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Networking.UnityWebRequest;
 using static UnityEngine.ParticleSystem;
 
 public static class ShapeFunctions
@@ -46,6 +47,9 @@ public static class ShapeFunctions
 
         for (int i = 0; i <= section; i++)
         {
+            // No longer render the bar slide right on top of the end sensor
+            if (section > 2 && i == section) yield break;
+
             yield return interpolateFunction(start, end, (float)i / section);
         }
     }
@@ -82,7 +86,6 @@ public static class ShapeFunctions
                 i--;
             }
         }
-
         return result;
     }
 
