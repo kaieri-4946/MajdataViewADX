@@ -7753,22 +7753,7 @@ new SlideTable()
 
     public static SlideTable? FindTableByName(string prefabName)
     {
-        //Temp
         var a = Array.Find(SLIDE_TABLES, x => x.Name == prefabName)?.Clone();
-        if (a is null)
-        {
-            return new SlideTable()
-            {
-                Name = prefabName,
-                JudgeQueue = new SlideArea[]
-                {
-                BuildSlideArea(SensorType.A1, 0, 4),
-                BuildSlideArea(SensorType.B8, 5, 8),
-                BuildSlideArea(SensorType.B7, 9, 11, true, true),
-                },
-                Const = 0.0895f
-            };
-        }
         return a;
     }
 

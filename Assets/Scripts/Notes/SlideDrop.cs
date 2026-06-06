@@ -213,15 +213,23 @@ public class SlideDrop : NoteLongBase, ICanShine
         fadeInAnimator.SetTrigger("slide");
 
         //judgeQueue
-        var table = SlideTables.FindTableByName(slideType);
-        if (isMirror)
+        SlideTable? table = null;
+        if (areaPosition == ' ')
         {
-            table!.Mirror(SensorType.A1);
+            SlideTables.FindTableByName(slideType);
+            if (isMirror)
+            {
+                table!.Mirror(SensorType.A1);
+            }
+            var diff = Math.Abs(1 - startPosition);
+            if (diff != 0)
+            {
+                table!.Diff(diff);
+            }
         }
-        var diff = Math.Abs(1 - startPosition);
-        if (diff != 0)
+        else
         {
-            table!.Diff(diff);
+            table = SlideTableProvider.GetSlideTable(slideType, slideBars);
         }
         judgeQueue = table!.JudgeQueue.ToList();
 
